@@ -1,8 +1,6 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
-
-// import schema from Book.js
-const bookSchema = require('./Book');
+const { Schema, model } = require("mongoose");
+const Order = require("./Order");
+const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
   {
@@ -10,19 +8,50 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/.+@.+\..+/, 'Must use a valid email address'],
+      lowercase: true,
+      match: [/.+@.+\..+/, "Must use a valid email address"],
     },
     password: {
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    savedBooks: [bookSchema],
+    // allow user to register as provider for access to additional properties
+    isProvider: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    // define service - list of services user as a provider can offer
+    services: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Service",
+      },
+    ],
+    placedOrders: [Order.Schema],
+    completedOrders: [Order.Schema],
+    // userRating
+    // provideRating
+    // reviewsReceived
+    // reviewsProvided
   },
   // set this to use virtual below
   {
@@ -33,12 +62,11 @@ const userSchema = new Schema(
 );
 
 // hash user password
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 
@@ -47,11 +75,18 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+// when we query a user, we'll also get another field called `orderCount` with the number of service requested or completed we have
+userSchema.virtual("placedOrdersCount").get(function () {
+  return this.placedOrders.length;
 });
 
-const User = model('User', userSchema);
+userSchema.virtual("completedOrdersCount").get(function () {
+  return this.completedOrders.length;
+});
+
+const User = model("User", userSchema);
 
 module.exports = User;
+userSchema.virtual("placedOrdersCount").get(function () {
+  return this.orders.length;
+});
