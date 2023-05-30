@@ -1,6 +1,6 @@
-const { Schema, model } = require("mongoose");
-const Order = require("./Order");
-const bcrypt = require("bcrypt");
+const { Schema, model } = require('mongoose');
+const Order = require('./Order');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
@@ -13,13 +13,13 @@ const userSchema = new Schema(
     firstName: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       trim: true,
     },
     lastName: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       trim: true,
     },
     email: {
@@ -27,7 +27,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       lowercase: true,
-      match: [/.+@.+\..+/, "Must use a valid email address"],
+      match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     password: {
       type: String,
@@ -43,7 +43,7 @@ const userSchema = new Schema(
     services: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Service",
+        ref: 'Service',
       },
     ],
     placedOrders: [Order.Schema],
@@ -62,8 +62,8 @@ const userSchema = new Schema(
 );
 
 // hash user password
-userSchema.pre("save", async function (next) {
-  if (this.isNew || this.isModified("password")) {
+userSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
@@ -76,17 +76,17 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `orderCount` with the number of service requested or completed we have
-userSchema.virtual("placedOrdersCount").get(function () {
+userSchema.virtual('placedOrdersCount').get(function () {
   return this.placedOrders.length;
 });
 
-userSchema.virtual("completedOrdersCount").get(function () {
+userSchema.virtual('completedOrdersCount').get(function () {
   return this.completedOrders.length;
 });
 
-const User = model("User", userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
-userSchema.virtual("placedOrdersCount").get(function () {
+userSchema.virtual('placedOrdersCount').get(function () {
   return this.orders.length;
 });
