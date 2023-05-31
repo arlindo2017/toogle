@@ -1,0 +1,66 @@
+[
+  {
+    "serviceName": "Build Shelving",
+    "serviceDesc": "Shelving needs to be assembled in bedroom closet",
+    "serviceCategory": "6476b5e65fe60941483497eb",
+    "servicePrice": 45.67,
+    "serviceQty": 2,
+    "serviceProviders": "6476b5e65fe60941483497f6"
+  },
+  {
+    "serviceName": "Install Lighting Fixture",
+    "serviceDesc": "Install a new lighting fixture in the living room",
+    "serviceCategory": "6476b5e65fe60941483497ec",
+    "servicePrice": 60.99,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497f7"
+  },
+  {
+    "serviceName": "Paint Room",
+    "serviceDesc": "Paint the walls of the dining room",
+    "serviceCategory": "6476b5e65fe60941483497ed",
+    "servicePrice": 80.50,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497f8"
+  },
+  {
+    "serviceName": "Furniture Assembly",
+    "serviceDesc": "Assemble new furniture for the living room",
+    "serviceCategory": "6476b5e65fe60941483497ee",
+    "servicePrice": 50.00,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497f9"
+  },
+  {
+    "serviceName": "Plumbing Services",
+    "serviceDesc": "Fix a leaking faucet in the kitchen",
+    "serviceCategory": "6476b5e65fe60941483497ef",
+    "servicePrice": 70.25,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497fa"
+  },
+  {
+    "serviceName": "Flooring Installation",
+    "serviceDesc": "Install new hardwood flooring in the living room",
+    "serviceCategory": "6476b5e65fe60941483497f0",
+    "servicePrice": 120.99,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497fb"
+  },
+  {
+    "serviceName": "Carpentry and Woodworking",
+    "serviceDesc": "Build a custom bookshelf for the study room",
+    "serviceCategory": "6476b5e65fe60941483497f1",
+    "servicePrice": 150.00,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497fc"
+  },
+  {
+    "serviceName": "Appliance Installation and Repair",
+    "serviceDesc": "Install and repair kitchen appliances",
+    "serviceCategory": "6476b5e65fe60941483497f2",
+    "servicePrice": 90.50,
+    "serviceQty": 1,
+    "serviceProviders": "6476b5e65fe60941483497fd"
+  }
+]
