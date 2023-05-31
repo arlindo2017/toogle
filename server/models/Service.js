@@ -17,7 +17,7 @@ const serviceSchema = new Schema({
     required: true,
   },
   servicePrice: {
-    type: Decimal128, // Decimal?
+    type: Float, // Decimal?
     required: true,
     default: 0,
   },

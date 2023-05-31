@@ -3,19 +3,29 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String
-    email: String
-    bookCount: Int
-    savedBooks: [Book]!
+    username: String!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+    isProvider: Boolean!
+    # Should users have services or should they be Providers vs Users?
+    services: [Service]
   }
 
-  type Book {
-    bookId: String
-    title: String
-    link: String
-    description: String
-    authors: [String]
-    image: String
+  type Category {
+    _id: ID
+    categoryName: String!
+  }
+
+  type Service {
+    _id: ID
+    serviceName: String!
+    serviceDesc: String!
+    servicePrice: Float!
+    serviceQty: Int!
+    serviceCategory: [Category]
+    serviceProviders: [User]
   }
 
   type Auth {
@@ -25,14 +35,20 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
+    service(serviceId: ID!): Service
+    category(categoryId: ID!): [Service]
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
+    addUser(
+      username: String!
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+      isProvider: Boolean!
+    ): Auth
     login(email: String!, password: String!): Auth
-    saveBook(userId: ID!, title: String!, description: String!, authors: [String]!, bookId: String!, image: String!, link: String!): User
-    removeBook(bookId: String!): User
   }
 `;
 
