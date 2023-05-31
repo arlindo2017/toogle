@@ -1,0 +1,57 @@
+[
+  {
+    "username": "BobSmith10",
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "email": "BobSmith10@none.com",
+    "password": "Password123!",
+    "isProvider": false,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "username": "AliceJohnson",
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "email": "AliceJohnson@example.com",
+    "password": "SecurePassword1!",
+    "isProvider": true,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "username": "JohnDoe",
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "JohnDoe@example.com",
+    "password": "P@ssw0rd",
+    "isProvider": false,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "username": "EmilyBrown",
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "email": "EmilyBrown@example.com",
+    "password": "Brownie123!",
+    "isProvider": false,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "username": "SamWilson",
+    "firstName": "Sam",
+    "lastName": "Wilson",
+    "email": "SamWilson@example.com",
+    "password": "Falcon123!",
+    "isProvider": true,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  }
+]
