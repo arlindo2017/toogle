@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -9,7 +9,6 @@ const typeDefs = gql`
     email: String!
     password: String!
     isProvider: Boolean!
-    # Should users have services or should they be Providers vs Users?
     services: [Service]
   }
 
@@ -33,10 +32,22 @@ const typeDefs = gql`
     user: User
   }
 
+  input CategoryInput {
+    categoryName: String!
+  }
+
   type Query {
-    me: User
+    categories: [Category]
+    services(category: ID, name: String): [Service]
     service(serviceId: ID!): Service
-    category(categoryId: ID!): [Service]
+    order(_id: ID!): Order
+    me: User
+  }
+
+  type Order {
+    _id: ID
+    orderDate: String
+    services: [Service]
   }
 
   type Mutation {
@@ -46,9 +57,20 @@ const typeDefs = gql`
       lastName: String!
       email: String!
       password: String!
-      isProvider: Boolean!
+      isProvider: Boolean
     ): Auth
+    addOrder(services: [ID]!): Service
+    addService(
+      serviceName: String!
+      serviceDesc: String!
+      servicePrice: Float!
+      serviceQty: Int!
+      serviceCategory: String
+      serviceProviders: [String]
+    ): Service
     login(email: String!, password: String!): Auth
+    updateService(_id: ID!, quantity: Int!): Service
+    addCategory(categoryName: String!): Category
   }
 `;
 
