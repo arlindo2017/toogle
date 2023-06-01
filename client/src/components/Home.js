@@ -2,7 +2,20 @@ import React from "react";
 
 const Home = () => {
     return (
-        <h1>This is the home page.</h1>
+        <div>
+            {/* banner */}
+            <div class="hero min-h-screen">
+                <img src={require("../images/mainbanner.jpeg")} alt="man installing lightbulb" class="hero min-h-screen object-cover"></img>
+                <div class="hero-overlay bg-opacity-60"></div>
+                <div class="hero-content text-center text-neutral-content pr-[45vw]">
+                    <div class="max-w-md">
+                    <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+                    <p class="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 };
 
