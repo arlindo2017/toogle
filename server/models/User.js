@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
+
 const Order = require("./Order");
 const bcrypt = require("bcrypt");
-
 const userSchema = new Schema(
   {
     username: {
@@ -84,9 +84,11 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.completedOrders.length;
 // });
 
+
 const User = model("User", userSchema);
 
 module.exports = User;
 // userSchema.virtual("placedOrdersCount").get(function () {
 //   return this.orders.length;
 // });
+
