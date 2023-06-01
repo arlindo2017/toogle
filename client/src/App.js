@@ -9,6 +9,7 @@ import Category from './components/Category';
 import Order from './components/Order';
 import Service from './components/Service';
 import User from './components/User';
+import Footer from './components/Footer';
 
 import logo from './logo.svg';
 import './App.css';
@@ -42,16 +43,25 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/category' element={<Category />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/order' element={<Order />} />
-            <Route path='/service' element={<Service />} />
-            <Route path='/user' element={<User />} />
-            <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
-          </Routes>
+        <div className='page-container'>
+          <div className='header-container'>
+            <Navbar />
+          </div>
+
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/category' element={<Category />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/order' element={<Order />} />
+              <Route path='/service' element={<Service />} />
+              <Route path='/user' element={<User />} />
+              <Route path='*' element={<h1 className='display-2'>Wrong page!</h1>} />
+            </Routes>
+
+            <div className='footer-container'>
+              <Footer />
+            </div>
+        </div>
         </>
       </Router>
     </ApolloProvider>
