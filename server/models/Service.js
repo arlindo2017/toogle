@@ -14,10 +14,9 @@ const serviceSchema = new Schema({
   serviceCategory: {
     type: Schema.Types.ObjectId,
     ref: "Category",
-    required: true,
+    // required: true,
   },
   servicePrice: {
-    // type: Float, // Decimal?
     type: Number,
     required: true,
     default: 0,
