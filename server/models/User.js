@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
-// const Order = require("./Order");
-const bcrypt = require("bcrypt");
 
+const Order = require("./Order");
+const bcrypt = require("bcrypt");
 const userSchema = new Schema(
   {
     username: {
@@ -40,24 +40,14 @@ const userSchema = new Schema(
       default: false,
     },
     // define service - list of services user as a provider can offer
-    services: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Service",
-      },
-    ],
-    placedOrders: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Order",
-      },
-    ],
-    completedOrders: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Order",
-      },
-    ],
+    // services: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Service",
+    //   },
+    // ],
+    orders: [Order.schema],
+    //completedOrders: [Order.Schema],
     // userRating
     // provideRating
     // reviewsReceived
@@ -86,17 +76,19 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 // when we query a user, we'll also get another field called `orderCount` with the number of service requested or completed we have
-userSchema.virtual("placedOrdersCount").get(function () {
-  return this.placedOrders.length;
-});
+// userSchema.virtual('placedOrdersCount').get(function () {
+//   return this.placedOrders.length;
+// });
 
-userSchema.virtual("completedOrdersCount").get(function () {
-  return this.completedOrders.length;
-});
+// userSchema.virtual('completedOrdersCount').get(function () {
+//   return this.completedOrders.length;
+// });
+
 
 const User = model("User", userSchema);
 
 module.exports = User;
-userSchema.virtual("placedOrdersCount").get(function () {
-  return this.orders.length;
-});
+// userSchema.virtual("placedOrdersCount").get(function () {
+//   return this.orders.length;
+// });
+
