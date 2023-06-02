@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { LOGIN_USER } from "../utils/mutations";
+import { LOGIN } from "../utils/mutations";
 import validateEmail from "../utils/helpers";
 
 export default function Login() {
@@ -13,7 +13,7 @@ export default function Login() {
   const [passwordError, setPasswordError] = useState("");
 
   // setting queries
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN);
 
   // On blur fields validation
   const handleBlur = (e) => {
