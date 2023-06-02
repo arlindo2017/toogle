@@ -12,7 +12,7 @@ const Home = () => {
                     <h1 className="mb-5 text-5xl font-bold">Welcome to toogle.</h1>
                     <p>We help you get things done.</p>
                     <p className="mb-5">By letting you let someone else do it.</p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <button className="btn btn-accent">Get Started</button>
                     </div>
                 </div>
             </div>

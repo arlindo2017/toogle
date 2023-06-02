@@ -11,12 +11,12 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Category from "./components/Category";
-import Order from "./components/Order";
+// import Order from "./components/Order";
 import Service from "./pages/Service";
 import User from "./pages/User";
 import Footer from "./components/Footer";
 
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 // Construct our main GraphQL API endpoint
@@ -57,7 +57,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/category" element={<Category />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/order" element={<Order />} />
+              {/* <Route path="/order" element={<Order />} /> */}
               <Route path="/service" element={<Service />} />
               <Route path="/user" element={<User />} />
               <Route
