@@ -26,7 +26,7 @@ const Navbar = () => {
                         {/* <li><a>Item 3</a></li> */}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">toogle</Link>
+                <Link to="/"><img className="h-14" src={require('../images/logo.png')} alt="toogle logo"></img></Link>
             </div>
             
             {/* nave bar for full page desktop */}
@@ -61,7 +61,7 @@ const Navbar = () => {
                             Profile
                         </Link>
                         </li>
-                        <li><Link to="/order">Previous Orders</Link></li>
+                        {/* <li><Link to="/order">Previous Orders</Link></li> */}
                         <li><Link to="/">Logout</Link></li>
                     </ul>
                 </div>
