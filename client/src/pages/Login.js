@@ -1,6 +1,8 @@
 import { useState } from "react";
-import validateEmail from "../utils/helpers";
+import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
+import { LOGIN_USER } from "../utils/mutations";
+import validateEmail from "../utils/helpers";
 
 export default function Login() {
   // setting variables for form fields and errors, setting initial values to an empty string
@@ -9,6 +11,9 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  // setting queries
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // On blur fields validation
   const handleBlur = (e) => {
@@ -49,7 +54,7 @@ export default function Login() {
   };
 
   // Form submit
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
 
     // Check to see if user entered valid e-mail address
