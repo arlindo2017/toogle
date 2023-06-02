@@ -1,8 +1,18 @@
 import React from "react";
+import Orders from "../components/Orders";
 
 const User = () => {
     return (
-        <h1>This is the user page.</h1>
+        <div>
+            <h1>This is the user page.</h1>
+
+            <div className="flex flex-col w-full border-opacity-50 mt-20 mb-5">
+                <div className="divider text-2xl font-bold">PREVIOUS ORDERS</div>
+            </div>
+
+            <Orders />
+
+        </div>
     )
 };
 

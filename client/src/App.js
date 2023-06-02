@@ -12,12 +12,12 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Category from "./components/Category";
-import Order from "./components/Order";
+// import Order from "./components/Order";
 import Service from "./pages/Service";
 import User from "./pages/User";
 import Footer from "./components/Footer";
 
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 // Construct our main GraphQL API endpoint

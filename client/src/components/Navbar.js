@@ -57,7 +57,7 @@ const Navbar = () => {
                         {/* <li><a>Item 3</a></li> */}
                     </ul>
                 </div>
-                <Link to="/" className="btn btn-ghost normal-case text-xl">toogle</Link>
+                <Link to="/"><img className="h-14" src={require('../images/logo.png')} alt="toogle logo"></img></Link>
             </div>
             
             {/* nave bar for full page desktop */}

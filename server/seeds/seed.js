@@ -10,12 +10,13 @@ const seedDatabase = async () => {
       Category.deleteMany(),
       User.deleteMany(),
       Service.deleteMany(),
+      Order.deleteMany(),
     ]);
 
     // Seed the database with the category data
     const [catData, userData] = await Promise.all([
       Category.insertMany(categorySeeds),
-      User.insertMany(userSeeds),
+      User.create(userSeeds),
     ]);
     // console.log(catData, userData);
 
@@ -48,7 +49,7 @@ const seedDatabase = async () => {
       {
         serviceName: "Furniture Assembly",
         serviceDesc: "Assemble new furniture for the living room",
-        serviceCategory: catData[3]._id,
+        serviceCategory: catData[0]._id,
         servicePrice: 50.0,
         serviceQty: 1,
         serviceProviders: userData[3]._id,
@@ -56,13 +57,13 @@ const seedDatabase = async () => {
       {
         serviceName: "Plumbing Services",
         serviceDesc: "Fix a leaking faucet in the kitchen",
-        serviceCategory: catData[4]._id,
+        serviceCategory: catData[3]._id,
         servicePrice: 70.25,
         serviceQty: 1,
         serviceProviders: userData[4]._id,
       },
       {
-        serviceName: "Flooring Installation",
+        serviceName: "Hardwood and Laminate Plank Flooring Installation",
         serviceDesc: "Install new hardwood flooring in the living room",
         serviceCategory: catData[5]._id,
         servicePrice: 120.99,
@@ -70,7 +71,7 @@ const seedDatabase = async () => {
         serviceProviders: userData[3]._id,
       },
       {
-        serviceName: "Carpentry and Woodworking",
+        serviceName: "Custom Furniture Building",
         serviceDesc: "Build a custom bookshelf for the study room",
         serviceCategory: catData[6]._id,
         servicePrice: 150.0,
@@ -78,16 +79,32 @@ const seedDatabase = async () => {
         serviceProviders: userData[2]._id,
       },
       {
-        serviceName: "Appliance Installation and Repair",
-        serviceDesc: "Install and repair kitchen appliances",
+        serviceName: "New Appliance Installation",
+        serviceDesc: "Install new kitchen appliances",
         serviceCategory: catData[7]._id,
+        servicePrice: 90.5,
+        serviceQty: 1,
+        serviceProviders: userData[4]._id,
+      },
+      {
+        serviceName: "Shower Tiling",
+        serviceDesc: "Grout and tile bathroom shower",
+        serviceCategory: catData[8]._id,
+        servicePrice: 90.5,
+        serviceQty: 1,
+        serviceProviders: userData[4]._id,
+      },
+      {
+        serviceName: "Stone Countertop Installation",
+        serviceDesc: "Install new stone countertops",
+        serviceCategory: catData[9]._id,
         servicePrice: 90.5,
         serviceQty: 1,
         serviceProviders: userData[4]._id,
       },
     ]);
 
-    const orders = await Order.insertMany([
+    const orders = await Order.create([
       {
         services: products[0]._id,
         user: userData[0]._id,
