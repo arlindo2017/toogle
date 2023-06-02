@@ -7,7 +7,6 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    password: String!
     isProvider: Boolean!
     #services: [Service]
   }
@@ -15,7 +14,7 @@ const typeDefs = gql`
   type Category {
     _id: ID
     categoryName: String!
-    #services: [Service]
+    services: [Service]
   }
 
   type Service {
@@ -24,7 +23,7 @@ const typeDefs = gql`
     serviceDesc: String!
     servicePrice: Float!
     serviceQty: Int!
-    serviceCategory: [Category]
+    serviceCategory: Category
     serviceProviders: [User]
   }
 
@@ -38,8 +37,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    services(category: ID, name: String): [Service]
+    getAllCategoriesWithServices: [Category]
+    services: [Service]
     service(serviceId: ID!): Service
     order(_id: ID!): Order
     orders: [Order]

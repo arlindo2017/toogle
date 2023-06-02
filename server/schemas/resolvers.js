@@ -11,23 +11,47 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // Query Categories - Works tested 5.31.23
-    categories: async () => Category.find().populate("services"),
+    // Query Categories - Works tested 6/2
+    // categories: async () => {
+    //   const categories = await Category.find();
+    //   return categories;
+    // },
 
     // Query Services
-    services: async (parent, { category, name }) => {
-      const params = {};
+    services: async () => {
+      const services = await Service.find().populate("serviceCategory").populate("serviceProviders");
+      return services;
+      // const params = {};
 
-      if (category) {
-        params.category = category;
-      }
+      // if (category) {
+      //   params.category = category;
+      // }
 
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
+      // if (name) {
+      //   params.name = {
+      //     $regex: name,
+      //   };
+      // }
+      // return Service.find(params).populate("category");
+    },
+    getAllCategoriesWithServices: async () => {
+      try {
+        // Retrieve all categories
+        const categories = await Category.find();
+        // Fetch services for each category
+        const categoriesWithServices = await Promise.all(
+          categories.map(async (category) => {
+            const services = await Service.find({
+              serviceCategory: category._id,
+            });
+            return { ...category.toObject(), services };
+          })
+        );
+        return categoriesWithServices;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to fetch categories with services");
       }
-      return Service.find(params).populate("category");
     },
     service: async (parent, { serviceId }) => {
       return Service.findOne({ _id: serviceId });

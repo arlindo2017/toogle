@@ -7,9 +7,9 @@ const Order = (props) => {
             <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">
-                {/* <div className="mask mask-squircle w-12 h-12">
-                    <img src={require(`${props.src}`)} alt="Avatar Tailwind CSS Component" />
-                </div> */}
+                <div className="mask mask-squircle w-12 h-12">
+                    <img src={props.src} alt="Avatar Tailwind CSS Component" />
+                </div>
                 </div>
                 <div>
                 <div className="font-bold">{props.name}</div>

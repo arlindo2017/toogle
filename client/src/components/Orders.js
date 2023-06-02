@@ -3,7 +3,7 @@ import Order from "./Order";
 
 const Orders = () => {
     const order = {
-        // src: "../images/profileplaceholder.png",
+        src: require("../images/profileplaceholder.png"),
         name: "Hart Hagerty",
         company: "Lights On Electrical",
         service: "Wiring Installation",
@@ -11,7 +11,7 @@ const Orders = () => {
         date: "05/23/2023"
     }
     return (
-    <div>
+    <div className="mb-20">
         {/* table start */}
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -28,7 +28,7 @@ const Orders = () => {
                 <tbody>
                 {/* row 1 */}
                 <Order 
-                // src={order.src}
+                src={order.src}
                 name={order.name}
                 company={order.company}
                 service={order.service}
