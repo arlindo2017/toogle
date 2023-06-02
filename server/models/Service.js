@@ -27,7 +27,7 @@ const serviceSchema = new Schema({
     type: Number,
     min: 0,
     default: 1,
-    required: true,
+    // required: true,
   },
   serviceProviders: [
     {
