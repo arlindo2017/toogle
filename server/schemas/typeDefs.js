@@ -9,12 +9,13 @@ const typeDefs = gql`
     email: String!
     password: String!
     isProvider: Boolean!
-    services: [Service]
+    #services: [Service]
   }
 
   type Category {
     _id: ID
     categoryName: String!
+    #services: [Service]
   }
 
   type Service {
@@ -41,6 +42,7 @@ const typeDefs = gql`
     services(category: ID, name: String): [Service]
     service(serviceId: ID!): Service
     order(_id: ID!): Order
+    orders: [Order]
     me: User
   }
 
@@ -48,6 +50,9 @@ const typeDefs = gql`
     _id: ID
     orderDate: String
     services: [Service]
+    user: User
+    provider: User
+    orderPrice: Float!
   }
 
   type Mutation {
