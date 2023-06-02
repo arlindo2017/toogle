@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Category from "./components/Category";
 // import Order from "./components/Order";
 import Service from "./pages/Service";
@@ -57,6 +58,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/category" element={<Category />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
               {/* <Route path="/order" element={<Order />} /> */}
               <Route path="/service" element={<Service />} />
               <Route path="/user" element={<User />} />

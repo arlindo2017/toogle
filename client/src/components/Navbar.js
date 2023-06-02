@@ -1,9 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 // https://daisyui.com/components/navbar/
 
 const Navbar = () => {
+
+    // Verify whether or not user is signed in and display appropriate nav items
+    function userNavigation() {
+      if (Auth.loggedIn()) {
+        return (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                  <img src={require("../images/profileplaceholder.png")} alt="profile placeholer"/>
+                  </div>
+              </label>
+              <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <Link to="/user" className="justify-between">
+                      Profile
+                  </Link>
+                </li>
+                <li><Link to="/order">Previous Orders</Link></li>
+                <li><Link to="/">Logout</Link></li>
+              </ul>
+            </div>
+          ) 
+        } else {
+          return (
+            <Link to="/login" className="btn">Login/Signup</Link>
+        )
+      }
+    }
+
+
     return (
         <div className="navbar bg-base-100">
             {/* nav bar for the collapsed hamburger menu */}
@@ -48,48 +79,10 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                        <img src={require("../images/profileplaceholder.png")} alt="profile placeholer"/>
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                        <Link to="/user" className="justify-between">
-                            Profile
-                        </Link>
-                        </li>
-                        {/* <li><Link to="/order">Previous Orders</Link></li> */}
-                        <li><Link to="/">Logout</Link></li>
-                    </ul>
-                </div>
-
-                <Link to="/login" className="btn">Login/Signup</Link>
+            <div className="navbar-end">              
+                {userNavigation()}
             </div>
-        </div>
-        // <div>
-        //     <h1>These are the navigation links.</h1>
-        //     <ul>
-        //         <li>
-        //             <Link to="/">Home</Link>
-        //         </li>
-        //         <li>
-        //             <Link to="/category">Category</Link>
-        //         </li>
-        //         <li>
-        //             <Link to="/order">Order</Link>
-        //         </li>
-        //         <li>
-        //             <Link to="/service">Service</Link>
-        //         </li>
-        //         <li>
-        //             <Link to="/user">User</Link>
-        //         </li>
-        //     </ul>
-
-        // </div>
+        </div>        
     )
 };
 
