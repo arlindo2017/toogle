@@ -4,8 +4,15 @@ const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
+    // Query user thats logged in using context.username
+    me: async (parent, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("services");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
     // Query Categories - Works tested 5.31.23
-    categories: async () => Category.find(),
+    categories: async () => Category.find().populate("services"),
 
     // Query Services
     services: async (parent, { category, name }) => {
@@ -22,17 +29,11 @@ const resolvers = {
       }
       return Service.find(params).populate("category");
     },
-    // Query user thats logged in using context.username
-    me: async (parent, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("services");
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-
     service: async (parent, { serviceId }) => {
       return Service.findOne({ _id: serviceId });
     },
+    orders: async () =>
+      Order.find().populate("services").populate("provider").populate("user"),
   },
 
   Mutation: {
@@ -59,7 +60,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // Working with IDs
+    // Working when added with IDs
     addService: async (parent, args) => {
       const newService = await Service.create(args);
       return newService;
@@ -72,10 +73,20 @@ const resolvers = {
       return newCategory;
     },
 
-    addOrder: async (parent, { services }, context) => {
-      console.log(context);
+    addOrder: async (
+      parent,
+      { user, services, provider, serviceQty, orderPrice },
+      context
+    ) => {
+      // console.log(context);
       if (context.user) {
-        const order = new Order({ services });
+        const order = new Order({
+          user,
+          services,
+          provider,
+          serviceQty,
+          orderPrice,
+        });
 
         await User.findByIdAndUpdate(context.user.id, {
           $push: { orders: order },
