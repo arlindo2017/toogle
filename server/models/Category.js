@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const { Service } = require("../models");
 
 const categorySchema = new Schema({
   categoryName: {
@@ -7,6 +8,7 @@ const categorySchema = new Schema({
     unique: true,
     trim: true,
   },
+  //services: [Service],
 });
 
 const Category = model("Category", categorySchema);

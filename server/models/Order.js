@@ -12,6 +12,25 @@ const orderSchema = new Schema({
       ref: "Service",
     },
   ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  provider: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  serviceQty: {
+    type: Number,
+    min: 0,
+    default: 1,
+    // required: true,
+  },
+  orderPrice: {
+    type: Number,
+    required: true,
+    default: 0,
+  },
 });
 
 const Order = model("Order", orderSchema);
