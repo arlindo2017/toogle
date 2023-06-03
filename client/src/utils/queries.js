@@ -53,7 +53,7 @@ export const QUERY_CATEGORIES = gql`
 
 // Added additional information to link and render on page
 export const QUERY_CATEGORIES_WITH_SERVICES = gql`
-  query GetAllCategoriesWithServices {
+  query getAllCategoriesWithServices {
     getAllCategoriesWithServices {
       _id
       categoryName
