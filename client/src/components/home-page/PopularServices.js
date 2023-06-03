@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_SERVICES } from "../../utils/queries";
 
@@ -6,7 +6,6 @@ function PopularServices() {
   const { loading, data } = useQuery(QUERY_SERVICES, {
     variables: { limit: 4 },
   });
-  useEffect(() => {}, [data]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -15,25 +14,28 @@ function PopularServices() {
   return (
     <span>
       {/* category grid */}
-      <div className="flex flex-col w-full border-opacity-50 mt-20">
-        <div className="divider text-2xl font-bold">POPULAR SERVICES</div>
-      </div>
-      <div className="grid-container px-40 py-10">
-        <div className="grid grid-cols-4 gap-4">
+      <div className="justify-center">
+        <div className=" w-full border-opacity-50  m-10">
+          <div className="divider text-2xl font-bold">POPULAR SERVICES</div>
+        </div>
+        <div className="flex flex-wrap justify-center">
           {/* Map through services and create cards */}
           {data?.services.map((service) => (
-            <div key={service._id} className="card bg-base-100 shadow-xl">
+            <div
+              key={service._id}
+              className=" card shadow-xl m-2 m:w-xs  xl:max-w-xs"
+            >
               <figure>
                 <img
-                  src={require(`../../images/category-placeholder.jpeg`)}
-                  alt="furniture assembly"
+                  src={require(`../../images/${service?.serviceCategory.categoryImage}`)}
+                  alt={`${service?.serviceName}`}
                 />
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{service?.serviceName}</h2>
-                <p>Avg Price: $57-128</p>
+                <p>{`Service Price: $ ${service?.servicePrice}`}</p>
                 <div className="card-actions justify-end">
-                  <div className="badge badge-outline">
+                  <div className="badge badge-outline px-4 py-3">
                     {service?.serviceCategory.categoryName}
                   </div>
                 </div>

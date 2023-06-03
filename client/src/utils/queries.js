@@ -7,6 +7,7 @@ export const QUERY_SERVICES = gql`
     services(limit: $limit) {
       _id
       serviceName
+      servicePrice
       serviceCategory {
         categoryName
         categoryImage
