@@ -14,6 +14,8 @@ const typeDefs = gql`
   type Category {
     _id: ID
     categoryName: String!
+    categoryDesc: String!
+    categoryImage: String!
     services: [Service]
   }
 
