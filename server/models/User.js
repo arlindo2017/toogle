@@ -33,6 +33,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    profileImage: {
+      type: String,
+      // required: true,
+      trim: true,
+      defaultValue: "../images/profile-placeholder.png",
+    },
     // allow user to register as provider for access to additional properties
     isProvider: {
       type: Boolean,
@@ -63,7 +69,7 @@ const userSchema = new Schema(
 
 // hash user password
 userSchema.pre("save", async function (next) {
-  console.log("TACOS")
+  console.log("TACOS");
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -85,11 +91,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
 //   return this.completedOrders.length;
 // });
 
-
 const User = model("User", userSchema);
 
 module.exports = User;
 // userSchema.virtual("placedOrdersCount").get(function () {
 //   return this.orders.length;
 // });
-
