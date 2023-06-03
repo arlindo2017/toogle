@@ -69,7 +69,7 @@ export default function Login() {
       const { data } = await login({
         variables: { ...formState },
       });
-
+      
       Auth.login(data.login.token);
     } catch (error) {
       console.error(error);
@@ -118,7 +118,7 @@ export default function Login() {
               onChange={handleInputChange}
               onBlur={handleBlur}
               value={formState.password}
-              type="text"
+              type="password"
               placeholder="Password"
             />
           </div>
