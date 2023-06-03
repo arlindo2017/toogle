@@ -18,21 +18,14 @@ const resolvers = {
     // },
 
     // Query Services
-    services: async () => {
-      const services = await Service.find().populate("serviceCategory").populate("serviceProviders");
+    // Added a way to limit results
+    services: async (_, { limit }) => {
+      const services = await Service.find()
+        .populate("serviceCategory")
+        .populate("serviceProviders")
+        .limit(limit);
+
       return services;
-      // const params = {};
-
-      // if (category) {
-      //   params.category = category;
-      // }
-
-      // if (name) {
-      //   params.name = {
-      //     $regex: name,
-      //   };
-      // }
-      // return Service.find(params).populate("category");
     },
     getAllCategoriesWithServices: async () => {
       try {

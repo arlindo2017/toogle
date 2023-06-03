@@ -40,7 +40,7 @@ const typeDefs = gql`
 
   type Query {
     getAllCategoriesWithServices: [Category]
-    services: [Service]
+    services(limit: Int): [Service]
     service(serviceId: ID!): Service
     order(_id: ID!): Order
     orders: [Order]
