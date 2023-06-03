@@ -6,6 +6,12 @@ import Auth from "../utils/auth";
 
 const Navbar = () => {
 
+    const userLogout = (event) => {
+      event.preventDefault();
+      Auth.logout();
+    };
+
+
     // Verify whether or not user is signed in and display appropriate nav items
     function userNavigation() {
       if (Auth.loggedIn()) {
@@ -23,7 +29,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li><Link to="/order">Previous Orders</Link></li>
-                <li><Link to="/">Logout</Link></li>
+                <li><Link onClick={userLogout}>Logout</Link></li>
               </ul>
             </div>
           ) 
