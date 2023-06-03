@@ -17,12 +17,19 @@ const resolvers = {
     //   return categories;
     // },
 
+    service: async (parent, { serviceId }) => {
+      return Service.findOne({ _id: serviceId })
+        .populate("serviceCategory")
+        .populate("serviceProviders");
+    },
+
     // Query Services
     // Added a way to limit results
     services: async (_, { limit }) => {
       const services = await Service.find()
         .populate("serviceCategory")
         .populate("serviceProviders")
+        // allows services query to be queried in the front-end with a limit qty
         .limit(limit);
 
       return services;
@@ -46,9 +53,7 @@ const resolvers = {
         throw new Error("Failed to fetch categories with services");
       }
     },
-    service: async (parent, { serviceId }) => {
-      return Service.findOne({ _id: serviceId });
-    },
+
     orders: async () =>
       Order.find().populate("services").populate("provider").populate("user"),
   },
