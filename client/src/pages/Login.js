@@ -3,11 +3,11 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import validateEmail from "../utils/helpers";
+import Auth from '../utils/auth'
 
 export default function Login() {
   // setting variables for form fields and errors, setting initial values to an empty string
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formState, setFormState] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -24,7 +24,7 @@ export default function Login() {
     if (inputType === "email") {
       if (!inputValue) {
         setEmailError("* Required field");
-      } else if (!validateEmail(email)) {
+      } else if (!validateEmail(formState.email)) {
         setEmailError("* Invalid e-mail address");
       } else {
         setEmailError("");
@@ -42,15 +42,8 @@ export default function Login() {
 
   // On change form handling
   const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
-
-    if (inputType === "email") {
-      setEmail(inputValue);
-    } else {
-      setPassword(inputValue);
-    }
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
   };
 
   // Form submit
@@ -58,22 +51,32 @@ export default function Login() {
     e.preventDefault();
 
     // Check to see if user entered valid e-mail address
-    if (!validateEmail(email)) {
+    if (!validateEmail(formState.email)) {
       setErrorMessage("Please enter valid e-mail address");
       document.getElementById("email").focus();
       return;
     }
 
     // Check to see if user entered password
-    if (!password) {
+    if (!formState.password) {
       setErrorMessage("Password field cannot be empty");
       document.getElementById("password").focus();
       return;
     }
 
+    // try to log the user in
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (error) {
+      console.error(error);
+    }
+
     // Reset input fields
-    setEmail("");
-    setPassword("");
+    setFormState({ email: "", password: "" });
   };
 
   return (
@@ -92,7 +95,7 @@ export default function Login() {
               id="email"
               onChange={handleInputChange}
               onBlur={handleBlur}
-              value={email}
+              value={formState.email}
               type="text"
               placeholder="Email Address"
             />
@@ -114,7 +117,7 @@ export default function Login() {
               id="password"
               onChange={handleInputChange}
               onBlur={handleBlur}
-              value={password}
+              value={formState.password}
               type="text"
               placeholder="Password"
             />
