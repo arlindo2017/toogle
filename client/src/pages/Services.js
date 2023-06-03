@@ -7,13 +7,11 @@ const Services = ({ services }) => {
             catServices.push(element.serviceName);
         }
     const catServicesMapped = catServices.map((service) =>
-    <li key={service}>{service}</li>);
+    <p key={service}>{service}</p>);
 
     return (
-        <div>
-            <ul>
-                {catServicesMapped}
-            </ul>
+        <div className="card-body pt-0 items-center text-center">
+            {catServicesMapped}
         </div>
     )
 };
