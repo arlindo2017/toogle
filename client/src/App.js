@@ -61,7 +61,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               {/* <Route path="/order" element={<Order />} /> */}
               <Route path="/services" element={<Services />} />
-              <Route path="/service" element={<Service />} />
+              <Route path="/service/:serviceId" element={<Service />} />
               <Route
                 path="*"
                 element={<h1 className="display-2">Wrong page!</h1>}
