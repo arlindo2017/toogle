@@ -18,7 +18,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
-                src={require("../images/profileplaceholder.png")}
+                src={require("../images/profile/profileplaceholder.png")}
                 alt="profile placeholer"
               />
             </div>

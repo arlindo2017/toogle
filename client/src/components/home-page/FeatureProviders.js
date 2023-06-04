@@ -15,7 +15,7 @@ function FeatureProviders() {
               <div className="avatar">
                 <div className="w-16 rounded">
                   <img
-                    src={require("../../images/profileplaceholder.png")}
+                    src={require("../../images/profile/profileplaceholder.png")}
                     alt="landscaping"
                   />
                 </div>
@@ -42,7 +42,7 @@ function FeatureProviders() {
               <div className="avatar">
                 <div className="w-16 rounded">
                   <img
-                    src={require("../../images/profileplaceholder.png")}
+                    src={require("../../images/profile/profileplaceholder.png")}
                     alt="landscaping"
                   />
                 </div>
@@ -69,7 +69,7 @@ function FeatureProviders() {
               <div className="avatar">
                 <div className="w-16 rounded">
                   <img
-                    src={require("../../images/profileplaceholder.png")}
+                    src={require("../../images/profile/profileplaceholder.png")}
                     alt="landscaping"
                   />
                 </div>

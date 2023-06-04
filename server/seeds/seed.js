@@ -22,7 +22,7 @@ const seedDatabase = async () => {
 
     // Insert services
     const services = await Service.insertMany([
-      //Furniture Assembly
+      //Popular Services
       {
         serviceName: "Build Shelving",
         serviceDesc: "Shelving needs to be assembled in bedroom closet",
@@ -31,6 +31,32 @@ const seedDatabase = async () => {
         serviceQty: 1,
         serviceProviders: [userData[0]._id, userData[5]._id],
       },
+      {
+        serviceName: "Ceiling Fan Installation",
+        serviceDesc: "Install a ceiling fan in the bedroom",
+        serviceCategory: catData[1]._id,
+        servicePrice: 50.99,
+        serviceQty: 1,
+        serviceProviders: [userData[1]._id, userData[16]._id],
+      },
+      {
+        serviceName: "Leaky Faucet Repair",
+        serviceDesc: "Fix a leaky faucet in the bathroom",
+        serviceCategory: catData[3]._id,
+        servicePrice: 55.0,
+        serviceQty: 1,
+        serviceProviders: [userData[5]._id],
+      },
+      {
+        serviceName: "Interior Painting",
+        serviceDesc: "Paint the walls and ceilings of the entire house",
+        serviceCategory: catData[2]._id,
+        servicePrice: 500.0,
+        serviceQty: 1,
+        serviceProviders: [userData[2]._id, userData[3]._id],
+      },
+
+      //Furniture Assembly
       {
         serviceName: "Furniture Assembly",
         serviceDesc: "Assemble new furniture for the living room",
@@ -73,14 +99,6 @@ const seedDatabase = async () => {
         serviceProviders: [userData[1]._id, userData[6]._id],
       },
       {
-        serviceName: "Ceiling Fan Installation",
-        serviceDesc: "Install a ceiling fan in the bedroom",
-        serviceCategory: catData[1]._id,
-        servicePrice: 50.99,
-        serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[16]._id],
-      },
-      {
         serviceName: "Outdoor Lighting Installation",
         serviceDesc: "Install outdoor lighting fixtures in the backyard",
         serviceCategory: catData[1]._id,
@@ -96,14 +114,6 @@ const seedDatabase = async () => {
         servicePrice: 70.25,
         serviceQty: 1,
         serviceProviders: [userData[4]._id, userData[9]._id],
-      },
-      {
-        serviceName: "Leaky Faucet Repair",
-        serviceDesc: "Fix a leaky faucet in the bathroom",
-        serviceCategory: catData[3]._id,
-        servicePrice: 55.0,
-        serviceQty: 1,
-        serviceProviders: [userData[5]._id],
       },
       {
         serviceName: "Clogged Drain Repair",
@@ -180,14 +190,6 @@ const seedDatabase = async () => {
         serviceProviders: [userData[11]._id, userData[13]._id],
       },
       //Painting
-      {
-        serviceName: "Interior Painting",
-        serviceDesc: "Paint the walls and ceilings of the entire house",
-        serviceCategory: catData[2]._id,
-        servicePrice: 500.0,
-        serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[3]._id],
-      },
       {
         serviceName: "Wallpaper Installation",
         serviceDesc: "Install wallpaper in the living room",
