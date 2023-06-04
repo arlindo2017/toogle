@@ -28,7 +28,7 @@ function PopularServices() {
             >
               <figure>
                 <img
-                  src={require(`../../images/${service?.serviceCategory.categoryImage}`)}
+                  src={require(`../../images/category/${service?.serviceCategory.categoryImage}`)}
                   alt={`${service?.serviceName}`}
                 />
               </figure>
