@@ -38,7 +38,7 @@ const Services = () => {
             >
               <figure>
                 <img
-                  src={require(`../images/${category.categoryImage}`)}
+                  src={require(`../images/category/${category.categoryImage}`)}
                   alt={category.categoryName}
                 />
               </figure>
