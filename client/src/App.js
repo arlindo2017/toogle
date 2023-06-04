@@ -11,9 +11,10 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Category from "./components/Category";
+//import Category from "./components/Category";
 // import Order from "./components/Order";
 import Service from "./pages/Service";
+import Services from "./pages/Services";
 import User from "./pages/User";
 import Footer from "./components/Footer";
 
@@ -53,21 +54,19 @@ function App() {
             <div className="header-container">
               <Navbar />
             </div>
-
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/category" element={<Category />} />
+              <Route path="/user" element={<User />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               {/* <Route path="/order" element={<Order />} /> */}
+              <Route path="/services" element={<Services />} />
               <Route path="/service" element={<Service />} />
-              <Route path="/user" element={<User />} />
               <Route
                 path="*"
                 element={<h1 className="display-2">Wrong page!</h1>}
               />
             </Routes>
-
             <div className="footer-container">
               <Footer />
             </div>
