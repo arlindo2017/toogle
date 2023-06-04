@@ -44,7 +44,7 @@ function PopularServices() {
                   <span className="font-bold">${service?.servicePrice}</span>
                 </p>
                 <div className="text-end mt-5">
-                  <Link to={`/services/${service?._id}`}>
+                  <Link to={`/service/${service?._id}`}>
                     <button className="btn btn-outline btn-accent">
                       Order Service
                     </button>
