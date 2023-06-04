@@ -32,7 +32,7 @@ const ServiceProvidersTable = (props) => {
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img
-                        src={require(`../images/profile1.jpg`)}
+                        src={require(`../images/profile/profile1.jpg`)}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>

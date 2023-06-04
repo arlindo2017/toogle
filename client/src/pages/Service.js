@@ -26,7 +26,7 @@ const Service = () => {
       <section style={styles.section}>
         <div style={styles.imageContainer}>
           <img
-            src={require(`../images/${data.service.serviceCategory.categoryImage}`)}
+            src={require(`../images/category/${data.service.serviceCategory.categoryImage}`)}
             alt="Image"
             style={styles.image}
           />
