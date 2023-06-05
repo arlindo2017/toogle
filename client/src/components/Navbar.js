@@ -95,6 +95,9 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
             {/* <li><a>Item 3</a></li> */}
           </ul>
         </div>
@@ -132,7 +135,9 @@ const Navbar = () => {
               </ul>
             </details>
           </li>
-          {/* <li><a>Item 3</a></li> */}
+          <li>
+            <Link to="/about">About</Link>
+          </li>
         </ul>
       </div>
 
