@@ -163,7 +163,7 @@ export default function Signup() {
         className="py-16 bg-[image:var(--signupImage-url)] bg-cover bg-center"
       >
         <form className="max-w-xl mx-auto py-8 px-8 bg-white rounded-lg">
-        <h3 className="text-5xl font-bold text-center mb-5">Sign in</h3>
+        <h3 className="text-5xl font-bold text-center mb-5">Sign Up</h3>
           {/* First Name */}
           <div className="flex flex-col">
             <label className="block font-bold mb-1 pr-4" htmlFor="firstName">
@@ -259,7 +259,7 @@ export default function Signup() {
             type="button"
             onClick={handleFormSubmit}
           >
-            Sign in
+            Create Account
           </button>
           {errorMessage && (
             <div className="md:flex md:items-center">
