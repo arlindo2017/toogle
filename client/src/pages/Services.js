@@ -2,6 +2,7 @@ import React from "react";
 import { QUERY_CATEGORIES_WITH_SERVICES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import ServiceCategoryPanel from "../components/service-page/ServiceCategoryPanel";
+import FeatureProviders from "../components/home-page/FeatureProviders";
 
 const Services = () => {
   const { data } = useQuery(QUERY_CATEGORIES_WITH_SERVICES);
@@ -19,7 +20,9 @@ const Services = () => {
         {/* <div className="hero-overlay "></div> */}
         <div className="text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-40 text-5xl font-bold">Help us help you.</h1>
+            <h1 className="xs:text-2xl md:text-4xl lg:text-5xl font-bold md:mb-20 xs:mb-15">
+              Help us help you.
+            </h1>
           </div>
         </div>
       </div>
@@ -29,12 +32,12 @@ const Services = () => {
       </div>
 
       {/* categories */}
-      <div className="category-container flex flex-wrap w-full justify-center px-20">
+      <div className="category-container flex flex-wrap w-full justify-center px-5">
         {categories &&
           categories.map((category) => (
             <div
               key={category._id}
-              className="card w-72 bg-base-100 shadow-xl m-4"
+              className="card w-80 bg-base-100 shadow-xl m-4"
             >
               <figure>
                 <img
@@ -54,6 +57,8 @@ const Services = () => {
             </div>
           ))}
       </div>
+      {/* render FeatureProviders component */}
+      <FeatureProviders />
     </div>
   );
 };
