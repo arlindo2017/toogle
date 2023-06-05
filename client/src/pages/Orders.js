@@ -18,7 +18,7 @@ const Orders = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
+              {/* <th></th> */}
               <th>Provider</th>
               <th>Service</th>
               <th>Date</th>

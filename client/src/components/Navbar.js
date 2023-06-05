@@ -98,7 +98,6 @@ const Navbar = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
-            {/* <li><a>Item 3</a></li> */}
           </ul>
         </div>
         <Link to="/">
