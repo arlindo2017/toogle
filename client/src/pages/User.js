@@ -33,13 +33,8 @@ const User = () => {
 
   return (
     <div>
-      {/* <div className="join join-vertical">
-            <button onClick={changeMenuTab} value="profile" className="btn join-item">My Profile</button>
-            <button onClick={changeMenuTab} value="password" className="btn join-item">Change Password</button>
-            <button onClick={changeMenuTab} value="orders" className="btn join-item">Previous Orders</button>
-            <button onClick={changeMenuTab} value="delete" className="btn join-item">Delete Account</button>
-        </div> */}
-      <div className="card mx-16 bg-base-100 shadow-xl mt-10 ">
+      {/* need to fix z-index - tabs and buttons don't work on the card if set to -z-50 */}
+      <div className="card mx-16 bg-base-100 shadow-xl mt-10">
         <div className="grid grid-cols-8 gap-4 card-body">
           {/* left side card */}
           <div className="col-start-2 col-span-2">
