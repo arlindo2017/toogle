@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Auth from "../utils/auth";
+import {DatePicker1Presentation} from "./Calendar"
+import Auth from "../../utils/auth";
 
 const ServiceProvidersTable = (props) => {
+  
   //console.log("props", props);
   //console.log();
   const providers = props.data?.service?.serviceProviders || [];
@@ -33,7 +35,7 @@ const ServiceProvidersTable = (props) => {
                   <div className="avatar">
                     <div className="mask mask-squircle w-12 h-12">
                       <img
-                        src={require(`../images/profile/profile1.jpg`)}
+                        src={require(`../../images/profile/profile1.jpg`)}
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>
@@ -80,9 +82,21 @@ const ServiceProvidersTable = (props) => {
               {Auth.loggedIn() ? (
                 // Render content when Auth.loggedIn is true
                 <td>
-                  <button className="btn btn-outline btn-accent">
+                  {/* <button className="btn btn-outline btn-accent">
                     Select Provider
-                  </button>
+                  </button> */}
+                  <div className="collapse">
+                    <input type="checkbox" /> 
+                    <div id="isCollapsed" className="btn btn-accent collapse-title">
+                      Select Provider
+                    </div>
+                    <div className="collapse-content h-80"> 
+                      <DatePicker1Presentation />
+                      <button className="btn btn-outline btn-accent">
+                        Schedule Service
+                      </button>
+                    </div>
+                  </div>
                 </td>
               ) : (
                 // Render content when Auth.loggedIn is false
