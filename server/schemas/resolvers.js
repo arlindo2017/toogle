@@ -35,6 +35,16 @@ const resolvers = {
 
       return services;
     },
+
+    //providers
+    providers: async (_, { limit }) => {
+      const providers = await User.find()
+  
+        // allows services query to be queried in the front-end with a limit qty
+        .limit(limit);
+
+      return providers;
+    },
     getAllCategoriesWithServices: async () => {
       try {
         // Retrieve all categories
