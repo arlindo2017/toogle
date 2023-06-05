@@ -3,7 +3,7 @@ import React from "react";
 const Order = (props) => {
     return (
         <tr>
-            <th></th>
+            {/* <th></th> */}
             <td>
             <div className="flex items-center space-x-3">
                 <div className="avatar">

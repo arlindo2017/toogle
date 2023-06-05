@@ -1,8 +1,14 @@
 import React from "react";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
-        <h1>This is the user's profile.</h1>
+        <div>
+            <h1 className="card-title">My Profile</h1>
+            <p>First Name: {props.firstName}</p>
+            <p>Last Name: {props.lastName}</p>
+            <p>Email: {props.email}</p>
+            <button className="btn btn-accent">Update Info</button>
+        </div>
     );
 };
 
