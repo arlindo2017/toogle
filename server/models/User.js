@@ -6,7 +6,7 @@ const userSchema = new Schema(
   {
     // username: {
     //   type: String,
-    //   required: true,
+    //   // required: true,
     //   unique: true,
     //   trim: true,
     // },
@@ -69,7 +69,6 @@ const userSchema = new Schema(
 
 // hash user password
 userSchema.pre("save", async function (next) {
-  console.log("TACOS");
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
