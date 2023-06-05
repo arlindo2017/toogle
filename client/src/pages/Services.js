@@ -1,7 +1,7 @@
 import React from "react";
 import { QUERY_CATEGORIES_WITH_SERVICES } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import ServiceCategoryPanel from "../components/ServiceCategoryPanel";
+import ServiceCategoryPanel from "../components/service-page/ServiceCategoryPanel";
 
 const Services = () => {
   const { data } = useQuery(QUERY_CATEGORIES_WITH_SERVICES);

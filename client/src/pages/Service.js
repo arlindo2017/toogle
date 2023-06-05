@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_SERVICE } from "../utils/queries";
-import ServiceProvidersTable from "../components/ServiceProvidersTable";
+import ServiceProvidersTable from "../components/service-page/ServiceProvidersTable";
 
 const Service = () => {
   const { serviceId } = useParams();
@@ -26,15 +26,18 @@ const Service = () => {
       <div className="text-sm breadcrumbs pl-10">
         <ul>
           <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="/services">All Services</a>
+            <Link to="/services">All Services</Link>
+          </li>
+          <li>
+            <Link to="#">{service.serviceName}</Link>
           </li>
         </ul>
       </div>
 
-      <div className="card lg:card-side bg-base-100 shadow-xl p-20 ">
+      <div className="card lg:card-side bg-base-100 shadow-xl p-20 -z-50">
         <figure>
           <img
             className="max-w-md max-h-80"

@@ -11,10 +11,13 @@
     "graphql": "^16.3.0",
     "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
+    "react-datepicker": "^4.12.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-router-dom": "^6.11.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "styled-jsx": "^5.1.2",
+    "styled-jsx-plugin-postcss": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,8 +41,10 @@
     ]
   },
   "devDependencies": {
+    "@styled-jsx/plugin-sass": "^4.0.2",
     "@tailwindcss/forms": "^0.5.3",
     "daisyui": "^3.0.3",
+    "sass": "^1.62.1",
     "tailwindcss": "^3.3.2"
   }
 }
