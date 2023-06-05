@@ -38,7 +38,11 @@ const About = () => {
               </p>
               <ul className="mx-auto flex list-inside justify-center">
                 {/* <!-- GitHub --> */}
-                <Link to={"https://github.com/abmetheny"} className="px-2">
+                <Link
+                  to={"https://github.com/abmetheny"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -51,7 +55,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Twitter --> */}
-                <Link to={"https://github.com/abmetheny"} className="px-2">
+                <Link
+                  to={"https://github.com/abmetheny"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -67,6 +75,7 @@ const About = () => {
                 <Link
                   to={"https://www.linkedin.com/in/amy-metheny-8b1177276/"}
                   className="px-2"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +122,11 @@ const About = () => {
               </p>
               <ul className="mx-auto flex list-inside justify-center">
                 {/* <!-- GitHub --> */}
-                <Link to={"https://github.com/arlindo2017"} className="px-2">
+                <Link
+                  to={"https://github.com/arlindo2017"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -129,6 +142,7 @@ const About = () => {
                 <Link
                   to={"https://twitter.com/Arlindo23636263"}
                   className="px-2"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -142,7 +156,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Linkedin --> */}
-                <Link to={"https://linkedin.com/"} className="px-2">
+                <Link
+                  to={"https://linkedin.com/"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -188,7 +206,11 @@ const About = () => {
               </p>
               <ul className="mx-auto flex list-inside justify-center">
                 {/* <!-- GitHub --> */}
-                <Link to={"https://github.com/mnyzio"} className="px-2">
+                <Link
+                  to={"https://github.com/mnyzio"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -201,7 +223,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Twitter --> */}
-                <Link to={"https://www.twitter.com"} className="px-2">
+                <Link
+                  to={"https://www.twitter.com"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -214,7 +240,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Linkedin --> */}
-                <Link to={"https://www.linkedin.com/"} className="px-2">
+                <Link
+                  to={"https://www.linkedin.com/"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -263,6 +293,7 @@ const About = () => {
                 <Link
                   to={"https://github.com/bootcamparankush"}
                   className="px-2"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -276,7 +307,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Twitter --> */}
-                <Link to={"https://www.twitter.com"} className="px-2">
+                <Link
+                  to={"https://www.twitter.com"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -289,7 +324,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Linkedin --> */}
-                <Link to={"https://www.linkedin.com"} className="px-2">
+                <Link
+                  to={"https://www.linkedin.com"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -334,7 +373,11 @@ const About = () => {
               </p>
               <ul className="mx-auto flex list-inside justify-center">
                 {/* <!-- GitHub --> */}
-                <Link to={"https://github.com/tneiman19 "} className="px-2">
+                <Link
+                  to={"https://github.com/tneiman19 "}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -347,7 +390,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Twitter --> */}
-                <Link to={"https://www.twitter.com"} className="px-2">
+                <Link
+                  to={"https://www.twitter.com"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -360,7 +407,11 @@ const About = () => {
                   </svg>
                 </Link>
                 {/* <!-- Linkedin --> */}
-                <Link to={"https://www.linkedin.com"} className="px-2">
+                <Link
+                  to={"https://www.linkedin.com"}
+                  className="px-2"
+                  target="_blank"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
