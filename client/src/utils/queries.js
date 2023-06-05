@@ -46,7 +46,6 @@ export const QUERY_SINGLE_SERVICE = gql`
       }
       serviceProviders {
         _id
-        #username
         firstName
         lastName
         email
