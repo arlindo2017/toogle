@@ -152,7 +152,7 @@ export default function Login() {
             Not a member yet?
           </p>
           <Link to="/signup" className="btn btn-outline btn-accent w-full my-4">
-            Create an account
+            Create Account
           </Link>
         </form>
       </section>
