@@ -37,6 +37,7 @@ const Service = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl p-20 ">
         <figure>
           <img
+            className="max-w-md max-h-80"
             src={require(`../images/category/${service.serviceCategory.categoryImage}`)}
             alt="Album"
           />
