@@ -13,6 +13,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 //import Category from "./components/Category";
 // import Order from "./components/Order";
+import About from "./pages/About";
 import Service from "./pages/Service";
 import Services from "./pages/Services";
 import User from "./pages/User";
@@ -62,6 +63,7 @@ function App() {
               {/* <Route path="/order" element={<Order />} /> */}
               <Route path="/services" element={<Services />} />
               <Route path="/service/:serviceId" element={<Service />} />
+              <Route path="/about" element={<About />} />
               <Route
                 path="*"
                 element={<h1 className="display-2">Wrong page!</h1>}
