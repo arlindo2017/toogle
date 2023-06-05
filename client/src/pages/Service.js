@@ -20,75 +20,68 @@ const Service = () => {
   }
 
   const service = data?.service;
-  console.log(data);
+  //console.log(data);
   return (
-    <div>
-      <section style={styles.section}>
-        <div style={styles.imageContainer}>
+    <>
+      <div className="text-sm breadcrumbs pl-10">
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/services">All Services</a>
+          </li>
+        </ul>
+      </div>
+
+      <div className="card lg:card-side bg-base-100 shadow-xl p-20 ">
+        <figure>
           <img
-            src={require(`../images/category/${data.service.serviceCategory.categoryImage}`)}
-            alt="Image"
-            style={styles.image}
+            src={require(`../images/category/${service.serviceCategory.categoryImage}`)}
+            alt="Album"
           />
-        </div>
-        <div style={styles.dataContainer}>
+        </figure>
+        <div className="card-body">
           <p className="mb-5 text-5xl font-bold">
             Service Details{" "}
-            <span className="btn-success">${data.service.servicePrice}</span>
+            <span className="btn-success">${service.servicePrice}</span>
           </p>
 
-          {/* <hr />
-          <p className="mb-5 text-1xl font-bold">
-            Service ID:<span className="text-sm"> {data.service._id}</span>
-          </p> */}
-
-          <p className="mb-5 text-2snipxl font-bold">
+          <p className="mb-5 text-2xl font-bold">
             Service Category:
             <span className="text-sm">
-              {" "}
-              {data.service.serviceCategory.categoryName}
+              {"  "}
+              {service.serviceCategory.categoryName}
             </span>
           </p>
 
           <p className="mb-5 text-2xl font-bold">
             Service Description:
             <span className="text-sm">
-              {" "}
-              {data.service.serviceCategory.categoryDesc}
+              {"  "}
+              {service.serviceCategory.categoryDesc}
             </span>
           </p>
-          <hr />
         </div>
-      </section>
+      </div>
 
-      <p className="text-center mb-5 text-5xl font-bold">
-        Choose Your Provider
-      </p>
+      <div className="p-2">
+        <p className="text-center mb-5 text-5xl font-bold p-10">
+          {" "}
+          Choose Your Provider
+        </p>
+
+        <ul className="steps right-15 min-w-full pb-8">
+          <li className="step step-primary">Register</li>
+          <li className="step step-primary">Choose Service</li>
+          <li className="step">Select Provider</li>
+          <li className="step">Place Order</li>
+        </ul>
+      </div>
 
       <ServiceProvidersTable data={data} />
-    </div>
+    </>
   );
-};
-
-const styles = {
-  section: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingBottom: "5em",
-  },
-  imageContainer: {
-    flex: 1,
-  },
-  image: {
-    height: "100%",
-    width: "100%",
-    objectFit: "cover",
-  },
-  dataContainer: {
-    flex: 1,
-    paddingLeft: "20px",
-  },
 };
 
 export default Service;
