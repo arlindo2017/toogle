@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 const ServiceProvidersTable = (props) => {
-  console.log("props", props);
-  console.log();
+  //console.log("props", props);
+  //console.log();
   const providers = props.data?.service?.serviceProviders || [];
-  console.log(providers);
+  //console.log(providers);
 
   if (!Array.isArray(providers)) {
     // Handle the case where providers is not an array
@@ -13,15 +14,15 @@ const ServiceProvidersTable = (props) => {
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto p-20">
       <table className="table">
         <thead>
           <tr>
             <th>Provider</th>
             <th>Email</th>
             <th>Ratings</th>
-            <th>Select</th>
-            {/* Add more table headers if needed */}
+            <th></th>
+            {/* Last th tag intentionally empty */}
           </tr>
         </thead>
         <tbody>
@@ -76,11 +77,21 @@ const ServiceProvidersTable = (props) => {
                   />
                 </div>
               </td>
-              <td>
-                <button className="btn btn-outline btn-accent">
-                  Select Provider
-                </button>
-              </td>
+              {Auth.loggedIn() ? (
+                // Render content when Auth.loggedIn is true
+                <td>
+                  <button className="btn btn-outline btn-accent">
+                    Select Provider
+                  </button>
+                </td>
+              ) : (
+                // Render content when Auth.loggedIn is false
+                <td>
+                  <Link to="/login" className="btn btn-outline btn-accent">
+                    Login/Signup
+                  </Link>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>

@@ -1,6 +1,7 @@
 import React from "react";
 import PopularServices from "../components/home-page/PopularServices";
 import FeatureProviders from "../components/home-page/FeatureProviders";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -18,7 +19,9 @@ const Home = () => {
             <h1 className="mb-5 text-5xl font-bold">Welcome to toogle.</h1>
             <p>We help you get things done.</p>
             <p className="mb-5">By letting you let someone else do it.</p>
-            <button className="btn btn-accent">Get Started</button>
+            <Link to="/signup">
+              <button className="btn btn-accent">Get Started</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -320,7 +323,9 @@ const Home = () => {
               src={require("../images/signup.jpeg")}
               alt="moving"
             />
-            <button className="btn btn-outline btn-accent">Sign Up</button>
+            <Link to="/signup">
+              <button className="btn btn-outline btn-accent">Sign Up</button>
+            </Link>
           </div>
           <div className="divider md:divider-horizontal"></div>
           <div className="grid w-1/2 place-items-center">
@@ -329,9 +334,11 @@ const Home = () => {
               src={require("../images/tools.jpeg")}
               alt="painting"
             />
-            <button className="btn btn-outline btn-accent">
-              Become a Provider
-            </button>
+            <Link to="/signup">
+              <button className="btn btn-outline btn-accent">
+                Become a Provider
+              </button>
+            </Link>
           </div>
         </div>
       </div>

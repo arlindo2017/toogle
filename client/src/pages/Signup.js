@@ -1,50 +1,282 @@
-import { useState, useEffect } from "react";
-import React from "react";
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { ADD_USER } from "../utils/mutations";
+import validateEmail from "../utils/helpers";
+import Auth from "../utils/auth";
 
-const Signup = () => {
+export default function Signup() {
+  // setting queries
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  // toggle button
   const [providerToggle, setProviderToggle] = useState(false);
 
-  useEffect(() => {}, [providerToggle]);
+  // setting variables for form fields and errors, setting initial values to an empty string
+  const [formState, setFormState] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    isProvider: providerToggle,
+  });
 
+  // Set error messages
+  const [errorState, setErrorState] = useState({
+    errFirstName: "",
+    errLastName: "",
+    errEmail: "",
+    errPassword: "",
+  });
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Function that manages toggle button position
   const updateProviderToggle = (e) => {
     console.log(e.target.checked);
     setProviderToggle(!providerToggle);
     return providerToggle ? setProviderToggle(false) : setProviderToggle(true);
   };
 
+  // On blur fields validation
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+
+    // check to see if user provided required information
+    // First name validation
+    if (name === "firstName") {
+      if (!value) {
+        setErrorState({ ...errorState, errFirstName: "* Required field" });
+      } else {
+        setErrorState({ ...errorState, errFirstName: "" });
+      }
+    }
+
+    // Last name validation
+    if (name === "lastName") {
+      if (!value) {
+        setErrorState({ ...errorState, errLastName: "* Required field" });
+      } else {
+        setErrorState({ ...errorState, errLastName: "" });
+      }
+    }
+
+    // Email validation
+    if (name === "email") {
+      if (!value) {
+        setErrorState({ ...errorState, errEmail: "* Required field" });
+      } else {
+        setErrorState({ ...errorState, errEmail: "" });
+      }
+    }
+
+    // check to see if user entered valid e-mail
+    if (name === "email") {
+      if (value) {
+        if (!validateEmail(formState.email)) {
+          setErrorState({
+            ...errorState,
+            errEmail: "* Invalid e-mail address",
+          });
+        }
+      }
+    }
+
+    // Password validation
+    if (name === "password") {
+      if (!value) {
+        setErrorState({ ...errorState, errPassword: "* Required field" });
+      } else {
+        setErrorState({ ...errorState, errPassword: "" });
+      }
+    }
+  };
+
+  // On change form handling
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  // Form submit
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check to see if user entered First Name
+    if (!formState.firstName) {
+      setErrorMessage("First Name field cannot be empty");
+      document.getElementById("firstName").focus();
+      return;
+    }
+
+    // Check to see if user entered Last Name
+    if (!formState.lastName) {
+      setErrorMessage("Last Name field cannot be empty");
+      document.getElementById("lastName").focus();
+      return;
+    }
+
+    // Check to see if user entered password
+    if (!formState.password) {
+      setErrorMessage("Password field cannot be empty");
+      document.getElementById("password").focus();
+      return;
+    }
+
+    // Check to see if user entered valid e-mail address
+    if (!validateEmail(formState.email)) {
+      setErrorMessage("Please enter valid e-mail address");
+      document.getElementById("email").focus();
+      return;
+    }
+
+    // Check to see if user entered Password
+    if (!formState.password) {
+      setErrorMessage("Password field cannot be empty");
+      document.getElementById("password").focus();
+      return;
+    }
+
+    // try to log the user in
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (error) {
+      console.error(error);
+    }
+
+    // Reset input fields
+    setFormState({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <>
-      <h1>This is the login page.</h1>
-      <div className="form-control w-52">
-      {/* <div className="collapse bg-base-200"> */}
-        <label className="cursor-pointer label">
-          <span className="label-text">Provider ?</span>
-          <input
-            type="checkbox"
-            className="toggle toggle-accent"
-            checked={providerToggle}
-            onChange={updateProviderToggle}
-          />
-        </label>        
-      </div>
-
-        <div className="collapse-content bg-primary">
-          {/* <div className="collapse-content bg-primary text-primary-content [input:checked~&]:bg-secondary [input:checked~&]:text-secondary-content"> */}
-          <h1>This is provider section</h1>
-        </div>
-      
-      
-      <div className="collapse text-center">
-      <input type="checkbox" />
-      <div className="collapse-title">
-        Want to become a provider ?
-      </div>
-      <div className="collapse-content">
-        <p>hello</p>
-      </div>
-      </div>
+      <section
+        style={{ "--signupImage-url": `url(${require("../images/signup.jpg")})` }}
+        className="py-16 bg-[image:var(--signupImage-url)] bg-cover bg-center"
+      >
+        <form className="max-w-xl mx-auto py-8 px-8 bg-white rounded-lg">
+        <h3 className="text-5xl font-bold text-center mb-5">Sign in</h3>
+          {/* First Name */}
+          <div className="flex flex-col">
+            <label className="block font-bold mb-1 pr-4" htmlFor="firstName">
+              First Name
+            </label>
+            <input
+              className="input input-bordered w-full max-w-lg"
+              name="firstName"
+              id="firstName"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formState.firstName}
+              type="text"
+              placeholder="First Name"
+            />
+          </div>
+          {/* check for missing firstName */}
+          <div className="md:flex md:items-center py-1">
+            <div>
+              <p className="text-red-600 text-sm">{errorState.errFirstName}</p>
+            </div>
+          </div>
+          {/* Last Name */}
+          <div className="flex flex-col">
+            <label className="block font-bold mb-1 pr-4" htmlFor="lastName">
+              Last Name
+            </label>
+            <input
+              className="input input-bordered w-full max-w-lg"
+              name="lastName"
+              id="lastName"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formState.lastName}
+              type="text"
+              placeholder="Last Name"
+            />
+          </div>
+          {/* check for missing lastName */}
+          <div className="md:flex md:items-center py-1">
+            <div>
+              <p className="text-red-600 text-sm">{errorState.errLastName}</p>
+            </div>
+          </div>
+          {/* e-mail input and validation */}
+          <div className="flex flex-col">
+            <label className="block font-bold mb-1 pr-4" htmlFor="email">
+              Email Address
+            </label>
+            <input
+              className="input input-bordered w-full max-w-lg"
+              name="email"
+              id="email"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formState.email}
+              type="text"
+              placeholder="Email Address"
+            />
+          </div>
+          {/* check for missing email */}
+          <div className="md:flex md:items-center py-1">
+            <div>
+              <p className="text-red-600 text-sm">{errorState.errEmail}</p>
+            </div>
+          </div>
+          {/* password input */}
+          <div className="flex flex-col">
+            <label className="block font-bold mb-1 pr-4" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="input input-bordered  w-full max-w-lg"
+              name="password"
+              id="password"
+              onChange={handleInputChange}
+              onBlur={handleBlur}
+              value={formState.password}
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          {/* check for missing password */}
+          <div className="md:flex md:items-center py-1">
+            <div>
+              <p className="text-red-600 text-sm">{errorState.errPassword}</p>
+            </div>
+          </div>
+          {/* form submit */}
+          <button
+            // className="shadow btn hover:opacity-90 transition-all duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="btn btn-accent w-full my-4"
+            type="button"
+            onClick={handleFormSubmit}
+          >
+            Sign in
+          </button>
+          {errorMessage && (
+            <div className="md:flex md:items-center">
+              <div>
+                <p className="text-red-600 mt-3">{errorMessage}</p>
+              </div>
+            </div>
+          )}
+          <hr className="my-4"></hr>
+          <p className="text-center block font-bold mb-1 pr-4">
+            Already a member?
+          </p>
+          <Link to="/login" className="btn btn-outline btn-accent w-full my-4">
+            Log in
+          </Link>
+        </form>
+      </section>
     </>
   );
-};
-
-export default Signup;
+}
