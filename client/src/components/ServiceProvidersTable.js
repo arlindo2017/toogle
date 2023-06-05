@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 const ServiceProvidersTable = (props) => {
-  console.log("props", props);
-  console.log();
+  //console.log("props", props);
+  //console.log();
   const providers = props.data?.service?.serviceProviders || [];
-  console.log(providers);
+  //console.log(providers);
 
   if (!Array.isArray(providers)) {
     // Handle the case where providers is not an array
@@ -22,7 +22,7 @@ const ServiceProvidersTable = (props) => {
             <th>Email</th>
             <th>Ratings</th>
             <th></th>
-            {/* Add more table headers if needed */}
+            {/* Last th tag intentionally empty */}
           </tr>
         </thead>
         <tbody>

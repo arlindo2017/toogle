@@ -20,7 +20,7 @@ const Service = () => {
   }
 
   const service = data?.service;
-  console.log(data);
+  //console.log(data);
   return (
     <>
       <div className="text-sm breadcrumbs pl-10">
@@ -37,21 +37,21 @@ const Service = () => {
       <div className="card lg:card-side bg-base-100 shadow-xl p-20 ">
         <figure>
           <img
-            src={require(`../images/category/${data.service.serviceCategory.categoryImage}`)}
+            src={require(`../images/category/${service.serviceCategory.categoryImage}`)}
             alt="Album"
           />
         </figure>
         <div className="card-body">
           <p className="mb-5 text-5xl font-bold">
             Service Details{" "}
-            <span className="btn-success">${data.service.servicePrice}</span>
+            <span className="btn-success">${service.servicePrice}</span>
           </p>
 
           <p className="mb-5 text-2xl font-bold">
             Service Category:
             <span className="text-sm">
               {"  "}
-              {data.service.serviceCategory.categoryName}
+              {service.serviceCategory.categoryName}
             </span>
           </p>
 
@@ -59,7 +59,7 @@ const Service = () => {
             Service Description:
             <span className="text-sm">
               {"  "}
-              {data.service.serviceCategory.categoryDesc}
+              {service.serviceCategory.categoryDesc}
             </span>
           </p>
         </div>
