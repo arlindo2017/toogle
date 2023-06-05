@@ -29,7 +29,7 @@ const Navbar = () => {
           >
             <li>
               <Link to="/user" className="justify-between">
-                Profile
+                Account Settings
               </Link>
             </li>
             <li>

@@ -1,5 +1,20 @@
 import { gql } from "@apollo/client";
 
+//tested 6/4 - working
+export const GET_ME = gql`
+  query me {
+  me {
+    _id
+    username
+    firstName
+    lastName
+    email
+    profileImage
+    isProvider
+  }
+}
+`;
+
 //query returns all service names with service category ID
 //tested 6/2 - working
 export const QUERY_SERVICES = gql`
