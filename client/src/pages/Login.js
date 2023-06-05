@@ -135,7 +135,7 @@ export default function Login() {
           <button
             // className="shadow btn hover:opacity-90 transition-all duration-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             className="btn btn-accent w-full my-4"
-            type="button"
+            type="submit"
             onClick={handleFormSubmit}
           >
             Log in
