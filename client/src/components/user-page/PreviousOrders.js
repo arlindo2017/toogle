@@ -1,8 +1,12 @@
 import React from "react";
+import Orders from "../../pages/Orders";
 
 const PreviousOrders = () => {
     return (
-        <h1>These are the previous orders.</h1>
+        <div>
+            <h1 className="card-title">Previous Orders</h1>
+            <Orders />
+        </div>
     );
 };
 
