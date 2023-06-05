@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { LOGIN } from "../utils/mutations";
 import validateEmail from "../utils/helpers";
-import Auth from '../utils/auth'
+import Auth from "../utils/auth";
 
 export default function Login() {
   // setting variables for form fields and errors, setting initial values to an empty string
@@ -69,7 +69,7 @@ export default function Login() {
       const { data } = await login({
         variables: { ...formState },
       });
-      
+
       Auth.login(data.login.token);
     } catch (error) {
       console.error(error);
@@ -81,9 +81,12 @@ export default function Login() {
 
   return (
     <>
-      <section className="py-16">
+      <section
+        style={{ "--loginImage-url": `url(${require("../images/login.jpg")})` }}
+        className="py-16 bg-[image:var(--loginImage-url)] bg-cover bg-center"
+      >
+        <form className="max-w-xl mx-auto py-8 px-8 bg-white rounded-lg">
         <h3 className="text-5xl font-bold text-center mb-5">Log in</h3>
-        <form className="w-full max-w-lg mx-auto py-4">
           {/* e-mail input and validation */}
           <div className="flex flex-col">
             <label className="block font-bold mb-1 pr-4" htmlFor="email">

@@ -159,7 +159,8 @@ export default function Signup() {
   return (
     <>
       <section
-        style={{ "--loginImage-url": `url(${require("../images/login.jpg")})` }}
+        style={{ "--loginImage-url": `url(${require("../images/signup.jpg")})` }}
+
         className="py-16 bg-[image:var(--loginImage-url)] bg-cover bg-center"
       >
         <form className="max-w-xl mx-auto py-8 px-8 bg-white rounded-lg">
