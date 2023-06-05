@@ -1,39 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Orders from "./Orders";
 import Profile from "../components/user-page/Profile";
 import UpdatePassword from "../components/user-page/UpdatePassword";
 import PreviousOrders from "../components/user-page/PreviousOrders";
+import DeleteAccount from "../components/user-page/DeleteAccount";
 
 import { useQuery } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
 
-const renderComponent = (tab) => {
-  if (tab === "profile") {
-    console.log("profile tab")
-  }
-  if (tab === "password") {
-    console.log("password tab")
-
-  }
-  if (tab === "orders") {
-    console.log("orders tab")
-
-  }
-  if (tab === "delete") {
-    console.log("delete tab")
-
-  }
-}
-
-const changeMenuTab = (e) => {
-  const { target } = e;
-  const inputValue = target.value;
-  renderComponent(inputValue);
-}
-
 const User = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
+
+  const [menuTab, setMenuTab] = useState({ profile: true, password: false, orders: false, delete: false });
+
+  const changeMenuTab = (e) => {
+    const { target } = e;
+    const inputValue = target.value;
+    if (inputValue === "profile") {
+      console.log("profile tab");
+      setMenuTab({ profile: true, password: false, orders: false, delete: false });
+    }
+    if (inputValue === "password") {
+      console.log("password tab");
+      setMenuTab({ profile: false, password: true, orders: false, delete: false });
+  
+    }
+    if (inputValue === "orders") {
+      console.log("orders tab");
+      setMenuTab({ profile: false, password: false, orders: true, delete: false });
+  
+    }
+    if (inputValue === "delete") {
+      console.log("delete tab");
+      setMenuTab({ profile: false, password: false, orders: false, delete: true });
+  
+    };
+  }
 
   return (
     <div>
@@ -62,7 +65,28 @@ const User = () => {
 
           {/* right side card */}
           <div className="col-start-4 col-span-4">
-            {renderComponent}
+            <div id="profile" className={`${menuTab.profile ? "" : "hidden"}`}>
+            <Profile />
+            </div>
+            <div id="password" className={`${menuTab.password ? "" : "hidden"}`}>
+            <UpdatePassword />
+            </div>
+            <div id="orders" className={`${menuTab.orders ? "" : "hidden"}`}>
+            <PreviousOrders />
+            </div>
+            <div id="delete" className={`${menuTab.delete ? "" : "hidden"}`}>
+            <DeleteAccount />
+            </div>
+            
+            
+
+            {/* {
+              setMenuTab.profile? <Profile /> :
+              setMenuTab.password? <UpdatePassword /> :
+              setMenuTab.orders? <PreviousOrders /> :
+              setMenuTab.delete? <DeleteAccount /> :
+              null
+            } */}
 
             
             {/* <h2 className="card-title">Account Information</h2> */}
