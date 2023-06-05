@@ -3,18 +3,21 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID
-    username: String!
+    #username: String!
     firstName: String!
     lastName: String!
     email: String!
-    password: String!
+    profileImage: String!
     isProvider: Boolean!
-    services: [Service]
+    #services: [Service]
   }
 
   type Category {
     _id: ID
     categoryName: String!
+    categoryDesc: String!
+    categoryImage: String!
+    services: [Service]
   }
 
   type Service {
@@ -23,7 +26,7 @@ const typeDefs = gql`
     serviceDesc: String!
     servicePrice: Float!
     serviceQty: Int!
-    serviceCategory: [Category]
+    serviceCategory: Category
     serviceProviders: [User]
   }
 
@@ -37,10 +40,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    categories: [Category]
-    services(category: ID, name: String): [Service]
+    getAllCategoriesWithServices: [Category]
+    #allows services query to be queried in the front-end with a limit qty
+    services(limit: Int): [Service]
     service(serviceId: ID!): Service
     order(_id: ID!): Order
+    orders: [Order]
     me: User
   }
 
@@ -48,11 +53,14 @@ const typeDefs = gql`
     _id: ID
     orderDate: String
     services: [Service]
+    user: User
+    provider: User
+    orderPrice: Float!
   }
 
   type Mutation {
     addUser(
-      username: String!
+      #username: String!
       firstName: String!
       lastName: String!
       email: String!

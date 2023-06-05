@@ -4,24 +4,6 @@ const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
-    // Query Categories - Works tested 5.31.23
-    categories: async () => Category.find(),
-
-    // Query Services
-    services: async (parent, { category, name }) => {
-      const params = {};
-
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
-        };
-      }
-      return Service.find(params).populate("category");
-    },
     // Query user thats logged in using context.username
     me: async (parent, context) => {
       if (context.user) {
@@ -29,10 +11,51 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    // Query Categories - Works tested 6/2
+    // categories: async () => {
+    //   const categories = await Category.find();
+    //   return categories;
+    // },
 
     service: async (parent, { serviceId }) => {
-      return Service.findOne({ _id: serviceId });
+      return Service.findOne({ _id: serviceId })
+        .populate("serviceCategory")
+        .populate("serviceProviders");
     },
+
+    // Query Services
+    // Added a way to limit results
+    services: async (_, { limit }) => {
+      const services = await Service.find()
+        .populate("serviceCategory")
+        .populate("serviceProviders")
+        // allows services query to be queried in the front-end with a limit qty
+        .limit(limit);
+
+      return services;
+    },
+    getAllCategoriesWithServices: async () => {
+      try {
+        // Retrieve all categories
+        const categories = await Category.find();
+        // Fetch services for each category
+        const categoriesWithServices = await Promise.all(
+          categories.map(async (category) => {
+            const services = await Service.find({
+              serviceCategory: category._id,
+            });
+            return { ...category.toObject(), services };
+          })
+        );
+        return categoriesWithServices;
+      } catch (error) {
+        console.error(error);
+        throw new Error("Failed to fetch categories with services");
+      }
+    },
+
+    orders: async () =>
+      Order.find().populate("services").populate("provider").populate("user"),
   },
 
   Mutation: {
@@ -59,7 +82,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // Working with IDs
+    // Working when added with IDs
     addService: async (parent, args) => {
       const newService = await Service.create(args);
       return newService;
@@ -72,10 +95,20 @@ const resolvers = {
       return newCategory;
     },
 
-    addOrder: async (parent, { services }, context) => {
-      console.log(context);
+    addOrder: async (
+      parent,
+      { user, services, provider, serviceQty, orderPrice },
+      context
+    ) => {
+      // console.log(context);
       if (context.user) {
-        const order = new Order({ services });
+        const order = new Order({
+          user,
+          services,
+          provider,
+          serviceQty,
+          orderPrice,
+        });
 
         await User.findByIdAndUpdate(context.user.id, {
           $push: { orders: order },
