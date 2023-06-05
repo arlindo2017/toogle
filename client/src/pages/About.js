@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <section className=" m-20 text-center">
-      <div className=" w-full border-opacity-50  m-10">
+    <section className="m-4 md:m-20 text-center">
+      <div className=" w-full border-opacity-50 my-10">
         <div className="divider text-2xl font-bold">MEET THE TEAM</div>
       </div>
       <div className="grid gap-x-6 lg:grid-cols-5  md:grid-cols-2 xlg:gap-x-6 ">
