@@ -78,6 +78,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     updateService(_id: ID!, quantity: Int!): Service
     addCategory(categoryName: String!): Category
+    deleteUser(_id: ID!): User
   }
 `;
 
