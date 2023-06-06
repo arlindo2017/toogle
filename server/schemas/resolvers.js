@@ -106,15 +106,28 @@ const resolvers = {
       return newCategory;
     },
     deleteUser: async (parent, args, context) => {
-      console.log("TACOS")
       if (context.user) {
-          const deleteAccount = User.findByIdAndDelete(
-            { _id: context.user._id },
-          );
-          console.log("user deleted")
-          return deleteAccount;
+        const deleteAccount = User.findByIdAndDelete(
+          { _id: context.user._id },
+        );
+        return deleteAccount;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    updatePassword: async (parent, { _id, password, newPassword }, context) => {
+      const user = await User.findOne({ _id: context.user._id });
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password!");
+      }
+
+      const updatePw = User.findByIdAndUpdate(
+        { _id: context.user._id },
+        { password: newPassword },
+        { new: true },
+      );
+      return updatePw;
     },
     addOrder: async (
       parent,

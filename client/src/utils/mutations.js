@@ -31,3 +31,13 @@ export const DELETE_USER = gql`
   }
 }
 `;
+
+//tested 6/5 - working
+export const UPDATE_PW = gql`
+  mutation updatePassword($id: ID!, $password: String!, $newPassword: String!) {
+  updatePassword(_id: $id, password: $password, newPassword: $newPassword) {
+    _id
+    email
+  }
+}
+`;
