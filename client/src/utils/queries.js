@@ -30,6 +30,18 @@ export const QUERY_SERVICES = gql`
   }
 `;
 
+//Query for Provider
+export const QUERY_PROVIDERS = gql`
+query Providers($limit: Int) {
+  providers(limit: $limit) {
+    _id
+    firstName
+    lastName
+    profileImage
+  }
+}
+`
+
 export const QUERY_SINGLE_SERVICE = gql`
   query Service($serviceId: ID!) {
     service(serviceId: $serviceId) {
