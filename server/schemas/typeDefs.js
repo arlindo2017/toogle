@@ -6,7 +6,7 @@ const typeDefs = gql`
     firstName: String!
     lastName: String!
     email: String!
-    profileImage: String!
+    profileImage: String
     isProvider: Boolean!
     #services: [Service]
   }

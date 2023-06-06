@@ -67,7 +67,9 @@ const User = () => {
             <PreviousOrders />
             </div>
             <div id="delete" className={`${menuTab.delete ? "" : "hidden"}`}>
-            <DeleteAccount />
+            <DeleteAccount 
+            userId={`${userData._id}`}
+            />
             </div>
           </div>
         </div>
