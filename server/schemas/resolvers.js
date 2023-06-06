@@ -131,6 +131,17 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
   },
+  deleteUser: async (parent, args, context) => {
+    console.log("TACOS")
+    if (context.user) {
+        const deleteAccount = User.findByIdAndDelete(
+          { _id: context.user._id },
+        );
+        console.log("user deleted")
+        return deleteAccount;
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  },
 };
 
 module.exports = resolvers;
