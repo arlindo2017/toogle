@@ -38,12 +38,12 @@ function FeatureProviders() {
                 </div>
               </div>
               <div className="card-body">
-                <h2 className="card-title">{provider?.firstName}</h2>
+                <h2 className="card-title">{provider?.firstName} {provider?.lastName} </h2>
                 <p>
                   {`Provider Details: `}
-                  <span className="font-bold">${provider?.firstName}</span>
+                  <span className="font-bold">{provider?.email}</span>
                 </p>
-                <div className="text-end mt-5"> q
+                <div className="text-end mt-5">
                   <Link to={`/provider/${provider?._id}`}>
                     <button className="btn btn-outline btn-accent">
                       More Info
