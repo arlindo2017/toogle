@@ -44,9 +44,9 @@ const Home = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">Downloads</div>
-          <div className="stat-value">31K</div>
-          <div className="stat-desc">Jan 1st - Feb 1st</div>
+          <div className="stat-title">Services</div>
+          <div className="stat-value">45</div>
+          <div className="stat-desc">Jan 1 - June 12</div>
         </div>
 
         <div className="stat">
@@ -66,8 +66,8 @@ const Home = () => {
             </svg>
           </div>
           <div className="stat-title">New Users</div>
-          <div className="stat-value">4,200</div>
-          <div className="stat-desc">↗︎ 400 (22%)</div>
+          <div className="stat-value">24</div>
+          <div className="stat-desc">↗ 24 (100%)</div>
         </div>
 
         <div className="stat">
@@ -86,9 +86,9 @@ const Home = () => {
               ></path>
             </svg>
           </div>
-          <div className="stat-title">New Registers</div>
-          <div className="stat-value">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <div className="stat-title">Providers</div>
+          <div className="stat-value">2</div>
+          <div className="stat-desc">↗ 2 (100%)</div>
         </div>
       </div>
       {/* Popular Services */}
