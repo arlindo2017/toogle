@@ -56,6 +56,7 @@ const typeDefs = gql`
     user: User
     provider: User
     orderPrice: Float!
+    serviceDate: String
   }
 
   type Mutation {
@@ -66,7 +67,15 @@ const typeDefs = gql`
       password: String!
       isProvider: Boolean
     ): Auth
-    addOrder(services: [ID]!): Service
+    addOrder(
+      orderDate: String
+      services: [ID]!
+      user: ID!
+      provider: ID!
+      serviceQty: Int
+      orderPrice: Float!
+      serviceDate: String
+    ): Service
     addService(
       serviceName: String!
       serviceDesc: String!

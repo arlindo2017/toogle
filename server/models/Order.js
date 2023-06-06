@@ -31,6 +31,11 @@ const orderSchema = new Schema({
     required: true,
     default: 0,
   },
+  serviceDate: {
+    type: Date,
+    default: Date.now,
+    // required: true,
+  },
 });
 
 const Order = model("Order", orderSchema);
