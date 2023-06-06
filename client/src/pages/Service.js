@@ -76,10 +76,10 @@ const Service = () => {
         </p>
 
         <ul className="steps right-15 min-w-full pb-8">
-          <li className="step step-primary">Register</li>
           <li className="step step-primary">Choose Service</li>
-          <li className="step">Select Provider</li>
-          <li className="step">Place Order</li>
+          <li className="step step-primary">Select Provider</li>
+          <li className="step">Pick Date</li>
+          <li className="step">Confirm Order</li>
         </ul>
       </div>
 

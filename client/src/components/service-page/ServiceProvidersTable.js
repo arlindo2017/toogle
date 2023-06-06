@@ -1,10 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {DatePicker1Presentation} from "./Calendar"
+import { DatePicker1Presentation } from "./Calendar";
 import Auth from "../../utils/auth";
 
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../../utils/queries";
+
 const ServiceProvidersTable = (props) => {
-  
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || [];
+
+  //console.log(userData);
+
+  const [childDate, setChildDate] = useState("");
+  const [selectedProvider, setSelectedProvider] = useState("");
+
+  const updateDate = (data) => {
+    //Function for child element to update
+    setChildDate(data);
+  };
+
+  useEffect(() => {
+    printOrderDetails();
+  }, [selectedProvider]);
+
+  async function updateProvider(e) {
+    return setSelectedProvider(e.target.name);
+    //console.log(selectedProvider);
+  }
+  const printOrderDetails = async (e) => {
+    //Function that will get the details we need for the order
+    const orderDetails = {
+      services: [props.data.service.serviceCategory._id],
+      user: userData._id,
+      selectedProvider: selectedProvider,
+      serviceQty: 1,
+      orderPrice: props.data.service.servicePrice,
+      orderDate: childDate,
+    };
+    const allValuesExist = Object.values(orderDetails).every(
+      (value) => value !== undefined && value !== ""
+    );
+    if (!allValuesExist) {
+      return;
+    }
+    console.log("place an order", orderDetails);
+  };
+
   //console.log("props", props);
   //console.log();
   const providers = props.data?.service?.serviceProviders || [];
@@ -75,7 +117,7 @@ const ServiceProvidersTable = (props) => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-orange-400"
-                    checked
+                    //checked
                   />
                 </div>
               </td>
@@ -86,13 +128,21 @@ const ServiceProvidersTable = (props) => {
                     Select Provider
                   </button> */}
                   <div className="collapse">
-                    <input type="checkbox" /> 
-                    <div id="isCollapsed" className="btn btn-accent collapse-title">
+                    <input type="checkbox" />
+                    <div
+                      id="isCollapsed"
+                      className="btn btn-accent collapse-title"
+                    >
                       Select Provider
                     </div>
-                    <div className="collapse-content h-80"> 
-                      <DatePicker1Presentation />
-                      <button className="btn btn-outline btn-accent">
+                    <div className="collapse-content h-80">
+                      <DatePicker1Presentation updateDate={updateDate} />
+                      <button
+                        name={provider._id}
+                        className="btn btn-outline btn-accent"
+                        //dataproviderId={provider._id}
+                        onClick={updateProvider}
+                      >
                         Schedule Service
                       </button>
                     </div>
