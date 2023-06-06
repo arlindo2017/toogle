@@ -117,15 +117,20 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
     // Tested working 6.6.23
-    addOrder: async (parent, { services }, context) => {
-      console.log(context);
+    addOrder: async (
+      parent,
+      { providerId, serviceIds, serviceDate, orderPrice },
+      context
+    ) => {
       if (context.user) {
-        const order = new Order({ services });
-
-        await User.findByIdAndUpdate(context.user._id, {
-          $push: { orders: order },
+        const order = new Order({
+          services: serviceIds,
+          user: context.user._id,
+          provider: providerId,
+          serviceDate,
+          orderPrice,
         });
-
+        await order.save();
         return order;
       }
 
