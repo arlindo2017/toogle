@@ -38,7 +38,13 @@ const ServiceProvidersTable = (props) => {
       orderPrice: props.data.service.servicePrice,
       orderDate: childDate,
     };
-    console.log(orderDetails);
+    const allValuesExist = Object.values(orderDetails).every(
+      (value) => value !== undefined && value !== ""
+    );
+    if (!allValuesExist) {
+      return;
+    }
+    console.log("place an order", orderDetails);
   };
 
   //console.log("props", props);
