@@ -42,6 +42,7 @@ const typeDefs = gql`
     getAllCategoriesWithServices: [Category]
     #allows services query to be queried in the front-end with a limit qty
     services(limit: Int): [Service]
+    providers(limit: Int): [User]
     service(serviceId: ID!): Service
     order(_id: ID!): Order
     orders: [Order]
