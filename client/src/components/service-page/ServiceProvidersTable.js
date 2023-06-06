@@ -3,7 +3,15 @@ import { Link } from "react-router-dom";
 import { DatePicker1Presentation } from "./Calendar";
 import Auth from "../../utils/auth";
 
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../../utils/queries";
+
 const ServiceProvidersTable = (props) => {
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || [];
+
+  //console.log(userData);
+
   const [childDate, setChildDate] = useState("");
   const [selectedProvider, setSelectedProvider] = useState("");
 
@@ -20,14 +28,15 @@ const ServiceProvidersTable = (props) => {
     return setSelectedProvider(e.target.name);
     //console.log(selectedProvider);
   }
-
   const printOrderDetails = async (e) => {
-    //await setSelectedProvider(e.target.name);
-
     //Function that will get the details we need for the order
     const orderDetails = {
-      orderDate: childDate,
+      services: [props.data.service.serviceCategory._id],
+      user: userData._id,
       selectedProvider: selectedProvider,
+      serviceQty: 1,
+      orderPrice: props.data.service.servicePrice,
+      orderDate: childDate,
     };
     console.log(orderDetails);
   };
