@@ -7,7 +7,9 @@ const resolvers = {
     // Query user thats logged in using context.username
     me: async (parent, args, context) => {
       if (context.user) {
-        const findUser = await User.findOne({ _id: context.user._id }).populate("orders");
+        const findUser = await User.findOne({ _id: context.user._id }).populate(
+          "orders"
+        );
         return findUser;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -138,6 +140,20 @@ const resolvers = {
         return order;
       }
 
+      throw new AuthenticationError("Not logged in");
+    },
+
+    updateProviderStatus: async (parent, args, context) => {
+      if (context.user) {
+        const providerStatus = await User.findByIdAndUpdate(
+          context.user._id,
+          {
+            isProvider: args.isProvider
+          },
+          { new: true }
+        );
+        return providerStatus;
+      }
       throw new AuthenticationError("Not logged in");
     },
   },
