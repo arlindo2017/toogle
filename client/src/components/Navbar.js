@@ -116,10 +116,10 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </li>
           <li tabIndex={0}>
-            <div className="dropdown dropdown-bottom dropdown-hover">
+            <div className="dropdown dropdown-bottom dropdown-hover menu-dropdown-toggle">
             <label tabIndex={0} >
               <div>
-                <li>Services</li>
+                <p>Services</p>
               </div>
             </label>
             <ul
@@ -127,37 +127,19 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                  <Link to="/service">Plumbing</Link>
-                </li>
-                <li>
-                  <Link to="/service">Electrical</Link>
-                </li>
-                <li>
-                  <Link to="/service">Landscaping</Link>
-                </li>
-                <li>
-                  <Link to="/services">Browse All Services</Link>
-                </li>
+                <Link to="/service">Plumbing</Link>
+              </li>
+              <li>
+                <Link to="/service">Electrical</Link>
+              </li>
+              <li>
+                <Link to="/service">Landscaping</Link>
+              </li>
+              <li>
+                <Link to="/services">Browse All Services</Link>
+              </li>
             </ul>
           </div>
-            
-            {/* <details>
-              <summary>Services </summary>
-              <ul className="p-2">
-                <li>
-                  <Link to="/service">Plumbing</Link>
-                </li>
-                <li>
-                  <Link to="/service">Electrical</Link>
-                </li>
-                <li>
-                  <Link to="/service">Landscaping</Link>
-                </li>
-                <li>
-                  <Link to="/services">Browse All Services</Link>
-                </li>
-              </ul>
-            </details> */}
           </li>
           <li>
             <Link to="/about">About</Link>
