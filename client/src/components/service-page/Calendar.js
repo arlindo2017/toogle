@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { BiCalendar } from "react-icons/bi";
@@ -377,9 +377,13 @@ function DatepickerPresentationGroup({ caption, children }) {
     </div>
   );
 }
-function DatePicker1Presentation() {
+function DatePicker1Presentation(props) {
   const [startDate, setStartDate] = useState(new Date());
-  
+
+  useEffect(() => {
+    props.updateDate(startDate); //Pass the date to the parent element
+  }, [startDate]); // Run the effect only when the startDate changes
+
   return (
     <div className="flex flex-col gap-8 bg-white p-5 sm:p-10 w-full rounded-md">
       <DatepickerPresentationGroup caption="Date picker with time selection">
