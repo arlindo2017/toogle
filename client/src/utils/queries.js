@@ -38,6 +38,7 @@ query Providers($limit: Int) {
     firstName
     lastName
     profileImage
+    email
   }
 }
 `

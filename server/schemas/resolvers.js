@@ -41,7 +41,7 @@ const resolvers = {
     //providers
     providers: async (_, { limit }) => {
       const providers = await User.find()
-  
+
         // allows services query to be queried in the front-end with a limit qty
         .limit(limit);
 
@@ -108,35 +108,29 @@ const resolvers = {
       return newCategory;
     },
     deleteUser: async (parent, args, context) => {
-      console.log("TACOS")
+      console.log("TACOS");
       if (context.user) {
-          const deleteAccount = User.findByIdAndDelete(
-            { _id: context.user._id },
-          );
-          console.log("user deleted")
-          return deleteAccount;
+        const deleteAccount = User.findByIdAndDelete({ _id: context.user._id });
+        console.log("user deleted");
+        return deleteAccount;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
+    // Tested working 6.6.23
     addOrder: async (
       parent,
-      { user, services, provider, serviceQty, orderPrice },
+      { providerId, serviceIds, serviceDate, orderPrice },
       context
     ) => {
-      // console.log(context);
       if (context.user) {
         const order = new Order({
-          user,
-          services,
-          provider,
-          serviceQty,
+          services: serviceIds,
+          user: context.user._id,
+          provider: providerId,
+          serviceDate,
           orderPrice,
         });
-
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { orders: order },
-        });
-
+        await order.save();
         return order;
       }
 
