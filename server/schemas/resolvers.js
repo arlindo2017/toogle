@@ -7,7 +7,9 @@ const resolvers = {
     // Query user thats logged in using context.username
     me: async (parent, args, context) => {
       if (context.user) {
-        const findUser = await User.findOne({ _id: context.user._id }).populate("orders");
+        const findUser = await User.findOne({ _id: context.user._id }).populate(
+          "orders"
+        );
         return findUser;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -39,7 +41,7 @@ const resolvers = {
     //providers
     providers: async (_, { limit }) => {
       const providers = await User.find()
-  
+
         // allows services query to be queried in the front-end with a limit qty
         .limit(limit);
 
@@ -106,32 +108,21 @@ const resolvers = {
       return newCategory;
     },
     deleteUser: async (parent, args, context) => {
-      console.log("TACOS")
+      console.log("TACOS");
       if (context.user) {
-          const deleteAccount = User.findByIdAndDelete(
-            { _id: context.user._id },
-          );
-          console.log("user deleted")
-          return deleteAccount;
+        const deleteAccount = User.findByIdAndDelete({ _id: context.user._id });
+        console.log("user deleted");
+        return deleteAccount;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
-    addOrder: async (
-      parent,
-      { user, services, provider, serviceQty, orderPrice },
-      context
-    ) => {
-      // console.log(context);
+    // Tested working 6.6.23
+    addOrder: async (parent, { services }, context) => {
+      console.log(context);
       if (context.user) {
-        const order = new Order({
-          user,
-          services,
-          provider,
-          serviceQty,
-          orderPrice,
-        });
+        const order = new Order({ services });
 
-        await User.findByIdAndUpdate(context.user.id, {
+        await User.findByIdAndUpdate(context.user._id, {
           $push: { orders: order },
         });
 
