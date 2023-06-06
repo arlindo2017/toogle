@@ -22,3 +22,12 @@ export const LOGIN = gql`
   }
 }
 `;
+
+//tested 6/5 - working
+export const DELETE_USER = gql`
+  mutation deleteUser($id: ID!) {
+  deleteUser(_id: $id) {
+    _id
+  }
+}
+`;
