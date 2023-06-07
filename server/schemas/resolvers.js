@@ -1,6 +1,7 @@
 const { User, Category, Order, Service } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
+const bcrypt = require("bcrypt");
 
 const resolvers = {
   Query: {
@@ -114,16 +115,22 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    updatePassword: async (parent, { _id, password, newPassword }, context) => {
-      const user = await User.findOne({ _id: context.user._id });
-      const correctPw = await user.isCorrectPassword(password);
+    updatePassword: async (parent, { _id, password, newPassword }) => {
+      // console.log(context.user)
+      const oldPassword = password;
+      // const userId = context.user._id;
+      const user = await User.findById(_id);
+      // console.log(user);
+      const correctPw = await user.isCorrectPassword(oldPassword);
 
       if (!correctPw) {
         throw new AuthenticationError("Incorrect password!");
       }
 
+      newPassword = await bcrypt.hash(newPassword, 10);
+
       const updatePw = User.findByIdAndUpdate(
-        { _id: context.user._id },
+        { _id },
         { password: newPassword },
         { new: true },
       );
