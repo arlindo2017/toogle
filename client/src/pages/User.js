@@ -61,7 +61,9 @@ const User = () => {
             />
             </div>
             <div id="password" className={`${menuTab.password ? "" : "hidden"}`}>
-            <UpdatePassword />
+            <UpdatePassword 
+            userId={`${userData._id}`}
+            />
             </div>
             <div id="orders" className={`${menuTab.orders ? "" : "hidden"}`}>
             <PreviousOrders />
