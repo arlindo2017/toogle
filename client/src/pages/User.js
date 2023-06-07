@@ -72,6 +72,22 @@ const User = () => {
         orders: false,
         delete: false,
       });
+      setMenuTab({
+        profile: true,
+        provider: false,
+        password: false,
+        orders: false,
+        delete: false,
+      });
+    }
+    if (inputValue === "provider") {
+      setMenuTab({
+        profile: false,
+        provider: true,
+        password: false,
+        orders: false,
+        delete: false,
+      });
     }
     if (inputValue === "password") {
       setMenuTab({
