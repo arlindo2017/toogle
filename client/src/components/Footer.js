@@ -49,12 +49,7 @@ const Footer = () => {
       <div>
         <p>Copyright © 2023 - All right reserved</p>
       </div>
-    <link
-        href="https://cdn.jsdelivr.net/npm/daisyui@3.0.19/dist/full.css"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <script src="https://cdn.tailwindcss.com"></script>
+    
     </footer>
   );
 };
