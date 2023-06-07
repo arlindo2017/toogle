@@ -9,7 +9,6 @@ const typeDefs = gql`
     profileImage: String
     isProvider: Boolean!
     #services: [Service]
-    password: String!
   }
 
   type Category {
