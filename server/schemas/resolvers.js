@@ -8,7 +8,9 @@ const resolvers = {
     // Query user thats logged in using context.username
     me: async (parent, args, context) => {
       if (context.user) {
-        const findUser = await User.findOne({ _id: context.user._id }).populate("orders");
+        const findUser = await User.findOne({ _id: context.user._id }).populate(
+          "orders"
+        );
         return findUser;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -40,7 +42,7 @@ const resolvers = {
     //providers
     providers: async (_, { limit }) => {
       const providers = await User.find()
-  
+
         // allows services query to be queried in the front-end with a limit qty
         .limit(limit);
 
@@ -113,7 +115,7 @@ const resolvers = {
         );
         return deleteAccount;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     updatePassword: async (parent, { _id, password, newPassword }) => {
       // console.log(context.user)
@@ -138,23 +140,18 @@ const resolvers = {
     },
     addOrder: async (
       parent,
-      { user, services, provider, serviceQty, orderPrice },
+      { providerId, serviceIds, serviceDate, orderPrice },
       context
     ) => {
-      // console.log(context);
       if (context.user) {
         const order = new Order({
-          user,
-          services,
-          provider,
-          serviceQty,
+          services: serviceIds,
+          user: context.user._id,
+          provider: providerId,
+          serviceDate,
           orderPrice,
         });
-
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { orders: order },
-        });
-
+        await order.save();
         return order;
       }
 
