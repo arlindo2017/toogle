@@ -37,7 +37,7 @@ const userSchema = new Schema(
       type: String,
       // required: true,
       trim: true,
-      defaultValue: "../images/profile-placeholder.png",
+      defaultValue: "profile-placeholder.png",
     },
     // allow user to register as provider for access to additional properties
     isProvider: {
