@@ -127,9 +127,12 @@ const User = () => {
           <div className="col-start-2 col-span-2">
             <div className="avatar">
               <div className="w-24 rounded-full">
-                {/* <img src={require('../images/profile/profile-placeholder.png')}  alt="profile placeholder" /> */}
-                <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" />
-
+                { userData?.profileImage ? (
+                  <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" />
+                  
+                ) : (
+                  <img src={require('../images/profile/profile-placeholder.png')}  alt="profile placeholder" />
+                )}
               </div>
             </div>
             <div className="join join-vertical">
