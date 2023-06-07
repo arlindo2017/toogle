@@ -41,7 +41,7 @@ const User = () => {
             <div className="avatar">
               <div className="w-24 rounded-full">
                 {/* <img src={require('../images/profile/profile-placeholder.png')}  alt="profile placeholder" /> */}
-                <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" />
+                {/* <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" /> */}
 
               </div>
             </div>
