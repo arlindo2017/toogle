@@ -71,3 +71,12 @@ export const ADD_ORDER = gql`
     }
   }
 `;
+
+export const UPDATE_PROVIDER = gql`
+  mutation Mutation($isProvider: Boolean!) {
+    updateProviderStatus(isProvider: $isProvider) {
+      email
+      isProvider
+    }
+  }
+`;

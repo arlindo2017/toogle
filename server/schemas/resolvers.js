@@ -157,6 +157,20 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+
+    updateProviderStatus: async (parent, args, context) => {
+      if (context.user) {
+        const providerStatus = await User.findByIdAndUpdate(
+          context.user._id,
+          {
+            isProvider: args.isProvider
+          },
+          { new: true }
+        );
+        return providerStatus;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 };
 

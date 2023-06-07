@@ -88,6 +88,7 @@ const typeDefs = gql`
     updateService(_id: ID!, quantity: Int!): Service
     addCategory(categoryName: String!): Category
     deleteUser(_id: ID!): User
+    updateProviderStatus(isProvider: Boolean!): User
     updatePassword(_id: ID!, password: String!, newPassword: String!): User
   }
 `;
