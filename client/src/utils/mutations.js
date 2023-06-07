@@ -36,10 +36,20 @@ export const LOGIN = gql`
 //tested 6/5 - working
 export const DELETE_USER = gql`
   mutation deleteUser($id: ID!) {
-    deleteUser(_id: $id) {
-      _id
-    }
+  deleteUser(_id: $id) {
+    _id
   }
+}
+`;
+
+//tested 6/5 - working
+export const UPDATE_PW = gql`
+  mutation updatePassword($id: ID!, $password: String!, $newPassword: String!) {
+  updatePassword(_id: $id, password: $password, newPassword: $newPassword) {
+    _id
+    email
+  }
+}
 `;
 
 export const ADD_ORDER = gql`

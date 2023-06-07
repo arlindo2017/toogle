@@ -2,13 +2,31 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DatePicker1Presentation } from "./Calendar";
 import Auth from "../../utils/auth";
-
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
+import { useMutation } from "@apollo/client";
+import { ADD_ORDER } from "../../utils/mutations";
 
 const ServiceProvidersTable = (props) => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || [];
+
+  const [
+    createOrder,
+    { createOrderData, createOrderLoading, createOrderError },
+  ] = useMutation(ADD_ORDER);
+
+  const handleCreateOrder = async (data) => {
+    console.log(data);
+    try {
+      createOrder({ variables: data });
+      // console.log(data)
+    } catch (error) {
+      console.error("THIS IS TOTALLY NOT AN ERROR");
+    }
+    // Auth.logout();
+    // return <Navigate replace to="/" />;
+  };
 
   //console.log(userData);
 
@@ -31,12 +49,13 @@ const ServiceProvidersTable = (props) => {
   const printOrderDetails = async (e) => {
     //Function that will get the details we need for the order
     const orderDetails = {
-      services: [props.data.service.serviceCategory._id],
+      services: props.data.service.serviceCategory._id,
       user: userData._id,
-      selectedProvider: selectedProvider,
+      provider: selectedProvider,
       serviceQty: 1,
       orderPrice: props.data.service.servicePrice,
-      orderDate: childDate,
+      serviceDate: childDate,
+      //serviceDate: "07/11/2023",
     };
     const allValuesExist = Object.values(orderDetails).every(
       (value) => value !== undefined && value !== ""
@@ -45,6 +64,7 @@ const ServiceProvidersTable = (props) => {
       return;
     }
     console.log("place an order", orderDetails);
+    handleCreateOrder(orderDetails);
   };
 
   //console.log("props", props);
@@ -135,11 +155,11 @@ const ServiceProvidersTable = (props) => {
                     >
                       Select Provider
                     </div>
-                    <div className="collapse-content h-80">
+                    <div className="collapse-content h-80 flex flex-col items-center">
                       <DatePicker1Presentation updateDate={updateDate} />
                       <button
                         name={provider._id}
-                        className="btn btn-outline btn-accent"
+                        className="btn btn-outline btn-accent "
                         //dataproviderId={provider._id}
                         onClick={updateProvider}
                       >

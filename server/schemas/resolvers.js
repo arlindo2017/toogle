@@ -1,6 +1,7 @@
 const { User, Category, Order, Service } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
+const bcrypt = require("bcrypt");
 
 const resolvers = {
   Query: {
@@ -108,15 +109,35 @@ const resolvers = {
       return newCategory;
     },
     deleteUser: async (parent, args, context) => {
-      console.log("TACOS");
       if (context.user) {
-        const deleteAccount = User.findByIdAndDelete({ _id: context.user._id });
-        console.log("user deleted");
+        const deleteAccount = User.findByIdAndDelete(
+          { _id: context.user._id },
+        );
         return deleteAccount;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // Tested working 6.6.23
+    updatePassword: async (parent, { _id, password, newPassword }) => {
+      // console.log(context.user)
+      const oldPassword = password;
+      // const userId = context.user._id;
+      const user = await User.findById(_id);
+      // console.log(user);
+      const correctPw = await user.isCorrectPassword(oldPassword);
+
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect password!");
+      }
+
+      newPassword = await bcrypt.hash(newPassword, 10);
+
+      const updatePw = User.findByIdAndUpdate(
+        { _id },
+        { password: newPassword },
+        { new: true },
+      );
+      return updatePw;
+    },
     addOrder: async (
       parent,
       { providerId, serviceIds, serviceDate, orderPrice },
