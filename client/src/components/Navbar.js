@@ -52,6 +52,12 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100">
+    <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@3.0.19/dist/full.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
       {/* nav bar for the collapsed hamburger menu */}
       <div className="navbar-start">
         <div className="dropdown">
