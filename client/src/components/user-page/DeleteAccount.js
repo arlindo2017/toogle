@@ -14,10 +14,10 @@ const DeleteAccount = (props) => {
         event.preventDefault();
         try {
         const userId = props.userId;
-        console.log("userId", userId);
+        // console.log("userId", userId);
         await deleteUser({ variables: { id: userId} });
       } catch (error) {
-        console.error("THIS IS TOTALLY NOT AN ERROR");
+        console.error(error);
       }
       Auth.logout();
       return <Navigate replace to="/" />

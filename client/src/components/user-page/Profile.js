@@ -7,7 +7,7 @@ const Profile = (props) => {
             <p>First Name: {props.firstName}</p>
             <p>Last Name: {props.lastName}</p>
             <p>Email: {props.email}</p>
-            <button className="btn btn-accent">Update Info</button>
+            {/* <button className="btn btn-accent">Update Info</button> */}
         </div>
     );
 };
