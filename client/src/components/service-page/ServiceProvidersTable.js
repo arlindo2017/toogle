@@ -65,6 +65,7 @@ const ServiceProvidersTable = (props) => {
     }
     console.log("place an order", orderDetails);
     handleCreateOrder(orderDetails);
+    window.my_modal_1.showModal()
   };
 
   //console.log("props", props);
@@ -78,6 +79,7 @@ const ServiceProvidersTable = (props) => {
   }
 
   return (
+    <>
     <div className="overflow-x-auto p-20">
       <table className="table">
         <thead>
@@ -180,7 +182,29 @@ const ServiceProvidersTable = (props) => {
           ))}
         </tbody>
       </table>
-    </div>
+      </div>
+      
+
+
+      {/* Open the modal using ID.showModal() method */}
+      {/* <button className="btn" onClick={() => window.my_modal_1.showModal()}>open modal</button> */}
+      <dialog id="my_modal_1" className="modal">
+        <form method="dialog" className="modal-box ">
+          <p className="font-bold text-3xl flex justify-center">Processing Your Order!</p>
+          <progress className="progress progress-primary  w-56 m-2"></progress>
+          <p className="py-1">Thanks for your order, and of course, thanks for choosing Toogle!</p>
+          <p className="py-1">We look forward to helping you find your next Toogle professional!</p>
+          <div className="modal-action">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn">Close</button>
+          </div>
+        </form>
+      </dialog>
+
+
+
+
+    </>
   );
 };
 
