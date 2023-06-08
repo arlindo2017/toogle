@@ -15,26 +15,29 @@ function FeatureProviders() {
   return (
     <>
       {/* category grid */}
-      <div className="justify-center container">
-        <div className=" w-full border-opacity-50  m-10">
+      <div className="justify-center mt-10 ">
+        <div className=" w-full border-opacity-50">
           <div className="divider text-2xl font-bold">FEATURE PROVIDERS</div>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center mt-10">
           {/* Map through providers and create cards */}
           {data?.providers.map((provider) => (
             <div
               key={provider._id}
               className="card shadow-xl m-2 m:w-xs  xl:max-w-xs"
             >
-              <figure>
+              <figure className="p-5">
                 <img
+                  className="w-24 rounded-full ring ring-error ring-offset-base-50 ring-offset-4"
                   src={require(`../../images/profile/${provider?.profileImage}`)}
                   alt={`${provider?.firstName}`}
                 />
               </figure>
-        
+
               <div className="card-body">
-                <h2 className="card-title">{provider?.firstName} {provider?.lastName} </h2>
+                <h2 className="card-title">
+                  {provider?.firstName} {provider?.lastName}{" "}
+                </h2>
                 <p>
                   {`Provider Email: `}
                   <span className="font-bold">{provider?.email}</span>
