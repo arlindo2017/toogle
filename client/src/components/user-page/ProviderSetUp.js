@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { useQuery } from "@apollo/client";
@@ -10,14 +10,22 @@ export default function ProviderSetup(props) {
   // Query services and categories
   const { loading, data } = useQuery(QUERY_MY_SERVICES);
   const myServices = data?.getMyServices || [];
-  console.log(
-    "🚀 ~ file: ProviderSetUp.js:13 ~ ProviderSetup ~ myServices:",
-    myServices
-  );
+  
+  const [selectedService, setSelectedService] = useState("")
 
+
+  // remove currenlty selected element
   const stopService = (e) => {
     console.log(e.target);
   };
+
+  // update state for selected Service 
+  // show confirmation modal
+  const showModal = (e) => {
+    setSelectedService(e.target.value)
+    window.my_modal_2.showModal()
+  }
+
 
   return (
     <>
@@ -50,8 +58,9 @@ export default function ProviderSetup(props) {
                   <td>
                     <button
                       className="btn btn-outline btn-error btn-xs"
-                      data-serviceId={myService._id}
-                      onClick={() => window.my_modal_2.showModal()}
+                      value={myService._id}
+                      // onClick={() => window.my_modal_2.showModal()}
+                      onClick={showModal}
                     >
                       Remove
                     </button>
