@@ -103,6 +103,7 @@ export const QUERY_MY_SERVICES = gql`
         categoryName
       }
       serviceName
+      _id
     }
   }
 `;
