@@ -3,15 +3,15 @@ import { gql } from "@apollo/client";
 //tested 6/4 - working
 export const GET_ME = gql`
   query me {
-  me {
-    _id
-    firstName
-    lastName
-    email
-    profileImage
-    isProvider
+    me {
+      _id
+      firstName
+      lastName
+      email
+      profileImage
+      isProvider
+    }
   }
-}
 `;
 
 //query returns all service names with service category ID
@@ -32,16 +32,16 @@ export const QUERY_SERVICES = gql`
 
 //Query for Provider
 export const QUERY_PROVIDERS = gql`
-query Providers($limit: Int) {
-  providers(limit: $limit) {
-    _id
-    firstName
-    lastName
-    profileImage
-    email
+  query Providers($limit: Int) {
+    providers(limit: $limit) {
+      _id
+      firstName
+      lastName
+      profileImage
+      email
+    }
   }
-}
-`
+`;
 
 export const QUERY_SINGLE_SERVICE = gql`
   query Service($serviceId: ID!) {
@@ -91,6 +91,18 @@ export const QUERY_CATEGORIES_WITH_SERVICES = gql`
         serviceName
         serviceDesc
       }
+    }
+  }
+`;
+
+// Query that returns all services user is providing services for
+export const QUERY_MY_SERVICES = gql`
+  query getMyServices {
+    getMyServices {
+      serviceCategory {
+        categoryName
+      }
+      serviceName
     }
   }
 `;
