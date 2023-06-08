@@ -15,9 +15,9 @@ function PopularServices() {
   return (
     <span>
       {/* category grid */}
-      <div className="justify-center container">
-        <div className=" w-full border-opacity-50  m-10">
-          <div className="divider text-2xl font-bold">POPULAR SERVICES</div>
+      <div className="justify-center ">
+        <div className=" w-full border-opacity-50  mt-10">
+          <div className=" divider text-2xl font-bold">POPULAR SERVICES</div>
         </div>
         <div className="flex flex-wrap justify-center">
           {/* Map through services and create cards */}
