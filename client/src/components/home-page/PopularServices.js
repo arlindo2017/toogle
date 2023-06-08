@@ -15,8 +15,8 @@ function PopularServices() {
   return (
     <span>
       {/* category grid */}
-      <div className="justify-center ">
-        <div className=" w-full border-opacity-50  mt-10">
+      <div className="justify-center">
+        <div className=" w-full border-opacity-50 mt-20">
           <div className=" divider text-2xl font-bold">POPULAR SERVICES</div>
         </div>
         <div className="flex flex-wrap justify-center">
@@ -24,7 +24,7 @@ function PopularServices() {
           {data?.services.map((service) => (
             <div
               key={service._id}
-              className="card shadow-xl m-2 m:w-xs  xl:max-w-xs"
+              className="card shadow-xl m-2 m:w-xs md:max-w-xs"
             >
               <figure>
                 <img

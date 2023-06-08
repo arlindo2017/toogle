@@ -26,7 +26,7 @@ const DeleteAccount = (props) => {
     return (
         <div>
             <h1 className="card-title flex-grow justify-center">Delete Account</h1>
-            <div className="card-body">
+            <div className="card-body items-center">
                 <p>Are you sure you want to delete your account?</p>
                 <div className="card-actions justify-center pt-4">
                     {/* Open the modal using ID.showModal() method */}
