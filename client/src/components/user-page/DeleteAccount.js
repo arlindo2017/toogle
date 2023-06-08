@@ -25,10 +25,14 @@ const DeleteAccount = (props) => {
 
     return (
         <div>
-            <h1 className="card-title">Delete Account</h1>
-            <p>Are you sure you want to delete your account?</p>
-            {/* Open the modal using ID.showModal() method */}
-            <button className="btn btn-accent" onClick={()=>window.my_modal_1.showModal()}>Delete Account</button>
+            <h1 className="card-title flex-grow justify-center">Delete Account</h1>
+            <div className="card-body">
+                <p>Are you sure you want to delete your account?</p>
+                <div className="card-actions justify-center pt-4">
+                    {/* Open the modal using ID.showModal() method */}
+                    <button className="btn btn-accent" onClick={()=>window.my_modal_1.showModal()}>Delete Account</button>
+                </div>
+            </div>
             <dialog id="my_modal_1" className="modal">
             <form method="dialog" className="modal-box">
                 <h3 className="font-bold text-lg">Please confirm</h3>

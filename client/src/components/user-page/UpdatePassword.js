@@ -73,44 +73,48 @@ const UpdatePassword = (props) => {
 
     return (
         <div>
-            <h1 className="card-title">Update Password</h1>
-            <input 
-                className="input input-bordered input-accent w-full max-w-xs" 
-                type="password" 
-                placeholder="Previous Password" 
-                name="password"
-                id="password"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                value={formState.password}
-            />
-            <input 
-                className="input input-bordered input-accent w-full max-w-xs" 
-                type="password" 
-                placeholder="New Password" 
-                name="newPassword"
-                id="newPassword"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                value={formState.newPassword}
-            />
-            <input 
-                className="input input-bordered input-accent w-full max-w-xs" 
-                type="password" 
-                placeholder="Confirm Password" 
-                name="newPasswordConfirm"
-                id="newPasswordConfirm"
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                value={formState.newPasswordConfirm}
-            />
-            {/* check for non-matching password */}
-            <div className="md:flex md:items-center py-1">
-                <div>
-                <p className="text-red-600 text-sm">{errorState.errNewPasswordConfirm}</p>
+            <h1 className="card-title flex-grow justify-center">Change Password</h1>
+            <div className="card-body">
+                <input 
+                    className="input input-bordered input-accent w-full max-w-xs" 
+                    type="password" 
+                    placeholder="Previous Password" 
+                    name="password"
+                    id="password"
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    value={formState.password}
+                />
+                <input 
+                    className="input input-bordered input-accent w-full max-w-xs" 
+                    type="password" 
+                    placeholder="New Password" 
+                    name="newPassword"
+                    id="newPassword"
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    value={formState.newPassword}
+                />
+                <input 
+                    className="input input-bordered input-accent w-full max-w-xs" 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    name="newPasswordConfirm"
+                    id="newPasswordConfirm"
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    value={formState.newPasswordConfirm}
+                />
+                {/* check for non-matching password */}
+                <div className="md:flex md:items-center py-1">
+                    <div>
+                    <p className="text-red-600 text-sm">{errorState.errNewPasswordConfirm}</p>
+                    </div>
                 </div>
             </div>
-            <button className="btn btn-accent" onClick={handleUpdatePassword}>Update Password</button>
+            <div className="card-actions justify-center">
+                <button className="btn btn-accent" onClick={handleUpdatePassword}>Update Password</button>
+            </div>
         </div>
     );
 };

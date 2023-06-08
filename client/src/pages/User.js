@@ -103,7 +103,11 @@ const User = () => {
   }
 
   return (
-    <div>
+    <>
+    <section
+        style={{ "--userImage-url": `url(${require("../images/userpagetools.jpg")})` }}
+        className="py-16 bg-[image:var(--userImage-url)] bg-cover bg-center"
+      >
       <div className="form-control w-52">
         {/* <div className="collapse bg-base-200"> */}
         <label className="cursor-pointer label">
@@ -118,10 +122,10 @@ const User = () => {
       </div>
       {/* need to fix z-index - tabs and buttons don't work on the card if set to -z-50 */}
       <div className="card mx-16 bg-base-100 shadow-xl mt-10">
-        <div className="grid grid-cols-8 gap-4 card-body">
+        <div className="flex flex-wrap sm:flex-nowrap flex-row p-8 gap-2">
           {/* left side card */}
-          <div className="col-start-2 col-span-2">
-            <div className="avatar">
+          <div className="flex flex-col w-full sm:max-w-fit sm:mr-6">
+            <div className="avatar justify-center pb-4">
               <div className="w-24 rounded-full">
                   <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" />
               </div>
@@ -138,7 +142,7 @@ const User = () => {
               <button
                 onClick={changeMenuTab}
                 value="provider"
-                className={"btn join-itme " + (providerToggle ? "" : "hidden")}
+                className={"btn join-item " + (providerToggle ? "" : "hidden")}
               >
                 Provider Setup
               </button>
@@ -167,7 +171,7 @@ const User = () => {
           </div>
 
           {/* right side card */}
-          <div className="col-start-4 col-span-4">
+          <div className="card-body border-double border-4 border-orange-600">
             <div id="profile" className={`${menuTab.profile ? "" : "hidden"}`}>
               <Profile
                 firstName={`${userData.firstName}`}
@@ -208,7 +212,8 @@ const User = () => {
     </div>
 
     <Orders /> */}
-    </div>
+    </section>
+    </>
   );
 };
 

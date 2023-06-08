@@ -65,7 +65,7 @@ const Navbar = () => {
             <label tabIndex={0} className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 md:hidden"
+                className="h-5 w-5 sm:hidden"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -166,7 +166,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end">{userNavigation()}</div>
+        <div className="navbar-end pr-5">{userNavigation()}</div>
       </div>
     </>
   );

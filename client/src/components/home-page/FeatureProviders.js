@@ -19,12 +19,12 @@ function FeatureProviders() {
         <div className=" w-full border-opacity-50">
           <div className="divider text-2xl font-bold">FEATURE PROVIDERS</div>
         </div>
-        <div className="flex flex-wrap justify-center mt-10">
+        <div className="flex flex-wrap justify-center mt-10 ">
           {/* Map through providers and create cards */}
           {data?.providers.map((provider) => (
             <div
               key={provider._id}
-              className="card shadow-xl m-2 m:w-xs  xl:max-w-xs"
+              className="card shadow-xl m-2 m:w-xs  xl:max-w-xs max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
               <figure className="p-5">
                 <img
