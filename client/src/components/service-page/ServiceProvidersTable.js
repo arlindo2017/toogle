@@ -137,7 +137,7 @@ const ServiceProvidersTable = (props) => {
                     type="radio"
                     name="rating-2"
                     className="mask mask-star-2 bg-orange-400"
-                    //checked
+                  //checked
                   />
                 </div>
               </td>
@@ -147,19 +147,19 @@ const ServiceProvidersTable = (props) => {
                   {/* <button className="btn btn-outline btn-accent">
                     Select Provider
                   </button> */}
-                  <div className="collapse">
+                  <div className="collapse max-w-xs flex">
                     <input type="checkbox" />
                     <div
                       id="isCollapsed"
                       className="btn btn-accent collapse-title"
                     >
-                      Select Provider
+                      Hire { provider.firstName } {provider.lastName} 
                     </div>
-                    <div className="collapse-content h-80 flex flex-col items-center">
+                    <div className="collapse-content h-25 flex-col flex">
                       <DatePicker1Presentation updateDate={updateDate} />
                       <button
                         name={provider._id}
-                        className="btn btn-outline btn-accent "
+                        className="btn btn-outline btn-accent"
                         //dataproviderId={provider._id}
                         onClick={updateProvider}
                       >

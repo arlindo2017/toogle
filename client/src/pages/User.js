@@ -200,7 +200,8 @@ const User = () => {
               id="provider"
               className={`${menuTab.provider ? "" : "hidden"}`}
             >
-              <ProviderSetup />
+              {/* <ProviderSetup props={`${userData}`} /> */}
+              <ProviderSetup userData={userData} />
             </div>
             <div
               id="password"
