@@ -11,27 +11,21 @@ import { UPDATE_PROVIDER } from "../utils/mutations";
 
 const User = () => {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || [];
-
+  const userData = data?.me || {};
+  
   // provider toggle button
-  const [providerToggle, setProviderToggle] = useState(userData.isProvider);
+  const [providerToggle, setProviderToggle] = useState(userData?.isProvider || false);
 
   const [updateProvider, { mutate, isLoading: isMutating }] = useMutation(UPDATE_PROVIDER);
-
-  useEffect(() => {
-    if (userData) {
-      providerMongo();
-    }
-  }, [providerToggle]);
 
   useEffect(() => {
     setProviderToggle(data?.me?.isProvider)
   },[data])
 
-  async function providerMongo() {
+  async function providerMongo(newProviderState) {
     try {
       await updateProvider({
-        variables: { isProvider: providerToggle },
+        variables: { isProvider: newProviderState },
       });
     } catch (error) {
       console.error(error);
@@ -40,9 +34,11 @@ const User = () => {
 
   // function that updates state for provider toggle
   const updateProviderToggle = async (e) => {
-    console.log(e.target.checked);
-    setProviderToggle(prevProviderToggle => !prevProviderToggle);
-  };
+    setProviderToggle(prevProviderToggle => {
+      providerMongo(!prevProviderToggle);
+      return !prevProviderToggle;
+  });
+}
 
   const [menuTab, setMenuTab] = useState({
     profile: true,
@@ -72,23 +68,7 @@ const User = () => {
         orders: false,
         delete: false,
       });
-      setMenuTab({
-        profile: true,
-        provider: false,
-        password: false,
-        orders: false,
-        delete: false,
-      });
-    }
-    if (inputValue === "provider") {
-      setMenuTab({
-        profile: false,
-        provider: true,
-        password: false,
-        orders: false,
-        delete: false,
-      });
-    }
+    }    
     if (inputValue === "password") {
       setMenuTab({
         profile: false,

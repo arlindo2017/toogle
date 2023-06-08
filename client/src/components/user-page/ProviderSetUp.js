@@ -17,15 +17,11 @@ export default function ProviderSetup(props) {
   });
 
   // Store additional information about buttons
-  const buttonData = {};
-  console.log(
-    "🚀 ~ file: ProviderSetUp.js:19 ~ ProviderSetup ~ buttonData:",
-    buttonData
-  );
+  const buttonData = {};  
 
   // remove currenlty selected element
   const stopService = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
   };
 
   // update state for selected Service
@@ -42,15 +38,15 @@ export default function ProviderSetup(props) {
 
   // update button data
   function updateButtonData(myService, index) {
-    {
+    
       buttonData[`button${index + 1}`] = {
         serviceId: myService._id,
         serviceName: myService.serviceName,
       };
-    }
+    
 
     return (
-      <>
+      
         <tr key={index}>
           <th>{index + 1}</th>
           <td>{myService.serviceName}</td>
@@ -58,7 +54,7 @@ export default function ProviderSetup(props) {
           <td>
             <button
               className="btn btn-outline btn-error btn-xs"
-              value={myService._id}
+              // value={myService._id}
               name={`button${index + 1}`}
               // onClick={() => window.my_modal_2.showModal()}
               onClick={showModal}
@@ -67,7 +63,7 @@ export default function ProviderSetup(props) {
             </button>
           </td>
         </tr>
-      </>
+      
     );
   }
 
@@ -111,9 +107,11 @@ export default function ProviderSetup(props) {
         <form method="dialog" className="modal-box">
           <h3 className="font-bold text-lg">Please confirm</h3>
           <p className="py-4">
-            Are you sure you want to stop providing service for:{" "}
-            {selectedService.stateName}?
+            Are you sure you want to stop providing service for: <span className="font-semibold">
+              {selectedService.stateName}?
+            </span>
           </p>
+
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn" onClick={stopService}>
