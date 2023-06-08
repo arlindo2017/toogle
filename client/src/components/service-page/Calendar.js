@@ -386,7 +386,7 @@ function DatePicker1Presentation(props) {
 
   return (
     <div className="flex flex-col gap-8 bg-white p-5 sm:p-10 w-full rounded-md">
-      <DatepickerPresentationGroup caption="Date picker with time selection">
+      <DatepickerPresentationGroup caption="Date & Time">
         <DatePicker1
           selected={startDate}
           onChange={setStartDate}
