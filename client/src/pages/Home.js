@@ -27,7 +27,7 @@ const Home = () => {
       </div>
 
       {/* stats section */}
-      <div className="stats shadow w-full rounded-none">
+      <div className="flex shadow w-full rounded-none">
         <div className="stat">
           <div className="stat-figure text-secondary">
             <svg
