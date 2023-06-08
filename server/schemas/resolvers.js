@@ -68,6 +68,21 @@ const resolvers = {
       }
     },
 
+    getMyServices: async (parent, args, context) => {
+      if (context.user) {
+        try {
+            const services = await Service.find({
+              serviceProviders: context.user._id 
+            }).populate("serviceCategory");
+            return services;            
+                  
+        } catch (error) {
+          console.error(error);
+          throw new Error("Failed to fetch categories with services");
+      }
+    }
+  },
+
     orders: async () =>
       Order.find().populate("services").populate("provider").populate("user"),
   },
