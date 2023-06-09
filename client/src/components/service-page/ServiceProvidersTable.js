@@ -32,15 +32,16 @@ const ServiceProvidersTable = (props) => {
 
   const [childDate, setChildDate] = useState("");
   const [selectedProvider, setSelectedProvider] = useState("");
+  const [orderReady, setOrderReady] = useState(false);
 
   const updateDate = (data) => {
     //Function for child element to update
     setChildDate(data);
   };
 
-  useEffect(() => {
-    printOrderDetails();
-  }, [selectedProvider]);
+  // useEffect(() => {
+  //   //printOrderDetails();
+  // }, [selectedProvider]);
 
   async function updateProvider(e) {
     return setSelectedProvider(e.target.name);
@@ -61,12 +62,19 @@ const ServiceProvidersTable = (props) => {
       (value) => value !== undefined && value !== ""
     );
     if (!allValuesExist) {
+      console.log("not placing an order", orderDetails);
+      setOrderReady(false);
       return;
     }
+    setOrderReady(true);
     console.log("place an order", orderDetails);
     handleCreateOrder(orderDetails);
-    window.my_modal_1.showModal()
+    window.my_modal_1.showModal();
   };
+
+
+
+
 
   //console.log("props", props);
   //console.log();
@@ -80,110 +88,116 @@ const ServiceProvidersTable = (props) => {
 
   return (
     <>
-    <div className="overflow-x-auto p-20">
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Email</th>
-            <th>Ratings</th>
-            <th></th>
-            {/* Last th tag intentionally empty */}
-          </tr>
-        </thead>
-        <tbody>
-          {providers.map((provider) => (
-            <tr key={provider._id}>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src={require(`../../images/profile/profile1.jpg`)}
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">
-                      {provider.firstName} {provider.lastName}
-                    </div>
-                    <div className="text-sm opacity-50">United States</div>
-                  </div>
-                </div>
-              </td>
-              <td>{provider.email}</td>
-              <td>
-                <div className="rating">
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    className="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    className="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    className="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    className="mask mask-star-2 bg-orange-400"
-                  />
-                  <input
-                    type="radio"
-                    name="rating-2"
-                    className="mask mask-star-2 bg-orange-400"
-                  //checked
-                  />
-                </div>
-              </td>
-              {Auth.loggedIn() ? (
-                // Render content when Auth.loggedIn is true
+      <div className="overflow-x-auto p-20">
+        <div className="flex items-center justify-center">
+          <div className="p-6 bg-white rounded-lg shadow-lg border border-purple-500 flex flex-row items-center">
+            <h1 className="text-2xl sm:text-5xl font-bold mr-10">Select Service Date &amp; Time</h1>
+
+            <div className="flex justify-center">
+              <DatePicker1Presentation updateDate={updateDate} />
+            </div>
+          </div>
+        </div>
+        <table className="table mt-20">
+          <thead>
+            <tr>
+              <th className="text-lg">Provider</th>
+              <th className="text-lg">Email</th>
+              <th className="text-lg">Ratings</th>
+              <th className="text-lg">Select Provider</th>
+              {/* Last th tag intentionally empty */}
+            </tr>
+          </thead>
+          <tbody>
+            {providers.map((provider) => (
+              <tr key={provider._id}>
                 <td>
-                  {/* <button className="btn btn-outline btn-accent">
+                  <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img
+                          src={require(`../../images/profile/profile1.jpg`)}
+                          alt="Avatar Tailwind CSS Component"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold">
+                        {provider.firstName} {provider.lastName}
+                      </div>
+                      <div className="text-sm opacity-50">United States</div>
+                    </div>
+                  </div>
+                </td>
+                <td>{provider.email}</td>
+                <td>
+                  <div className="rating">
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      className="mask mask-star-2 bg-orange-400"
+                    />
+                    <input
+                      type="radio"
+                      name="rating-2"
+                      className="mask mask-star-2 bg-orange-400"
+                    //checked
+                    />
+                  </div>
+                </td>
+                {Auth.loggedIn() ? (
+                  // Render content when Auth.loggedIn is true
+                  <td>
+                    {/* <button className="btn btn-outline btn-accent">
                     Select Provider
                   </button> */}
-                  <div className="collapse max-w-xs flex">
-                    <input type="checkbox" />
-                    <div
-                      id="isCollapsed"
-                      className="btn btn-accent collapse-title"
+
+                    <button
+                      className="btn btn-accent focus:outline-none focus:ring focus:ring-red-300"
+                      name={provider._id}
+                      onClick={updateProvider}
                     >
-                      Hire { provider.firstName } {provider.lastName} 
-                    </div>
-                    <div className="collapse-content h-25 flex-col flex">
-                      <DatePicker1Presentation updateDate={updateDate} />
-                      <button
-                        name={provider._id}
-                        className="btn btn-outline btn-accent"
-                        //dataproviderId={provider._id}
-                        onClick={updateProvider}
-                      >
-                        Schedule Service
-                      </button>
-                    </div>
-                  </div>
-                </td>
-              ) : (
-                // Render content when Auth.loggedIn is false
-                <td>
-                  <Link to="/login" className="btn btn-outline btn-accent">
-                    Login/Signup
-                  </Link>
-                </td>
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                      Hire {provider.firstName} {provider.lastName}
+                    </button>
+                  </td>
+                ) : (
+                  // Render content when Auth.loggedIn is false
+                  <td>
+                    <Link to="/login" className="btn btn-outline btn-accent">
+                      Login/Signup
+                    </Link>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+    
+
+          {/* <button className=" active:bg-violet-700 focus:outline-none focus:ring focus:ring-red-300" onClick={printOrderDetails}>Place Order</button>
+  
+
+
+        <button className={`${orderReady ? 'btn btn-accent  bg-green-500' : 'disabled'}`}>test</button> */}
+
       </div>
-      
+
 
 
       {/* Open the modal using ID.showModal() method */}
