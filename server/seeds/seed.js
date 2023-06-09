@@ -29,7 +29,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[0]._id,
         servicePrice: 45.67,
         serviceQty: 1,
-        serviceProviders: [userData[0]._id, userData[5]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Ceiling Fan Installation",
@@ -37,7 +42,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[1]._id,
         servicePrice: 50.99,
         serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[16]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Leaky Faucet Repair",
@@ -45,7 +55,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[3]._id,
         servicePrice: 55.0,
         serviceQty: 1,
-        serviceProviders: [userData[5]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Interior Painting",
@@ -53,7 +68,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 500.0,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[3]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
 
       //Furniture Assembly
@@ -63,7 +83,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[0]._id,
         servicePrice: 50.0,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[8]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Bed Frame Assembly",
@@ -71,7 +96,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[0]._id,
         servicePrice: 60.0,
         serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Dining Table Assembly",
@@ -79,7 +109,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[0]._id,
         servicePrice: 70.0,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Wardrobe Assembly",
@@ -87,7 +122,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[0]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[9]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Lighting Installation
       {
@@ -96,7 +136,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[1]._id,
         servicePrice: 60.99,
         serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Outdoor Lighting Installation",
@@ -104,7 +149,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[1]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[8]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       // /Plumbing Services
       {
@@ -113,7 +163,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[3]._id,
         servicePrice: 70.25,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[9]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Clogged Drain Repair",
@@ -121,7 +176,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[3]._id,
         servicePrice: 65.0,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[15]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Carpentry and Woodworking
       {
@@ -130,7 +190,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 120.99,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[10]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Custom Furniture Building",
@@ -138,7 +203,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[6]._id,
         servicePrice: 150.0,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[11]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Deck Construction",
@@ -146,7 +216,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[6]._id,
         servicePrice: 2000.0,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Custom Cabinet Building",
@@ -154,7 +229,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[6]._id,
         servicePrice: 300.0,
         serviceQty: 1,
-        serviceProviders: [userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Bathroom Remodeling
       {
@@ -163,7 +243,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[8]._id,
         servicePrice: 90.5,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[13]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Bathroom Vanity Installation",
@@ -171,7 +256,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[8]._id,
         servicePrice: 250.0,
         serviceQty: 1,
-        serviceProviders: [userData[6]._id, userData[9]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Toilet Replacement",
@@ -179,7 +269,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[8]._id,
         servicePrice: 150.0,
         serviceQty: 1,
-        serviceProviders: [userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Bathroom Lighting Installation",
@@ -187,7 +282,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[8]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[11]._id, userData[13]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Painting
       {
@@ -196,7 +296,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 75.0,
         serviceQty: 1,
-        serviceProviders: [userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Exterior Painting",
@@ -204,7 +309,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 800.0,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Cabinet Painting",
@@ -212,7 +322,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 200.0,
         serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[5]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Trim Painting",
@@ -220,7 +335,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 100.0,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[8]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Flooring Installation
       {
@@ -229,7 +349,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 150.0,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[5]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Tile Flooring Installation",
@@ -237,7 +362,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 120.0,
         serviceQty: 1,
-        serviceProviders: [userData[9]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Hardwood Flooring Installation",
@@ -245,7 +375,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 180.0,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Vinyl Flooring Installation",
@@ -253,7 +388,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 100.0,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Carpet Installation",
@@ -261,7 +401,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[5]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[1]._id, userData[8]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       //Appliance Installation and Repair
       {
@@ -270,7 +415,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[7]._id,
         servicePrice: 80.5,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "New Appliance Installation",
@@ -278,7 +428,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[7]._id,
         servicePrice: 90.5,
         serviceQty: 1,
-        serviceProviders: [userData[5]._id, userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Dishwasher Installation",
@@ -286,7 +441,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[7]._id,
         servicePrice: 90.0,
         serviceQty: 1,
-        serviceProviders: [userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Paint Room",
@@ -294,7 +454,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[2]._id,
         servicePrice: 80.5,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[5]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
 
       //Kitchen Renovation
@@ -304,7 +469,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 90.5,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[6]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Cabinet Refacing",
@@ -313,7 +483,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 1500.0,
         serviceQty: 1,
-        serviceProviders: [userData[4]._id, userData[10]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Backsplash Installation",
@@ -322,7 +497,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 75.99,
         serviceQty: 1,
-        serviceProviders: [userData[2]._id, userData[11]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Appliance Repair",
@@ -330,7 +510,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 50.0,
         serviceQty: 1,
-        serviceProviders: [userData[5]._id, userData[12]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Kitchen Island Installation",
@@ -339,7 +524,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 800.0,
         serviceQty: 1,
-        serviceProviders: [userData[7]._id, userData[13]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Sink and Faucet Replacement",
@@ -347,7 +537,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[9]._id,
         servicePrice: 120.0,
         serviceQty: 1,
-        serviceProviders: [userData[9]._id, userData[14]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
 
       //Electrical Services
@@ -357,7 +552,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 350.0,
         serviceQty: 1,
-        serviceProviders: [userData[5]._id, userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Electrical Outlet Installation",
@@ -365,7 +565,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[5]._id, userData[7]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Circuit Breaker Replacement",
@@ -373,7 +578,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 150.0,
         serviceQty: 1,
-        serviceProviders: [userData[10]._id, userData[13]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Electrical Wiring Inspection",
@@ -382,7 +592,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 120.0,
         serviceQty: 1,
-        serviceProviders: [userData[3]._id, userData[9]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Appliance Installation",
@@ -391,7 +606,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 100.0,
         serviceQty: 1,
-        serviceProviders: [userData[6]._id, userData[11]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
       {
         serviceName: "Electrical Troubleshooting",
@@ -399,7 +619,12 @@ const seedDatabase = async () => {
         serviceCategory: catData[4]._id,
         servicePrice: 80.0,
         serviceQty: 1,
-        serviceProviders: [userData[8]._id, userData[12]._id],
+        serviceProviders: [
+          userData[0]._id,
+          userData[1]._id,
+          userData[2]._id,
+          userData[3]._id,
+        ],
       },
     ]);
 
@@ -506,7 +731,7 @@ const seedDatabase = async () => {
         services: services[14]._id,
         user: userData[0]._id,
         serviceQty: 1,
-        provider: userData[4]._id,
+        provider: userData[0]._id,
         orderPrice: 95.99,
       },
     ]);

@@ -123,7 +123,7 @@ const User = () => {
         </label>
       </div> */}
         {/* need to fix z-index - tabs and buttons don't work on the card if set to -z-50 */}
-        <div className="card mx-16 bg-base-100 shadow-xl mt-10">
+        <div className="card mx-16 bg-base-100 shadow-xl mt-16 mb-16">
           <div className="flex flex-wrap sm:flex-nowrap flex-row p-8 gap-2">
             {/* left side card */}
             <div className="flex flex-col w-full sm:max-w-fit sm:mr-6">
