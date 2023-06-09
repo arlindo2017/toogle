@@ -5,7 +5,7 @@ import { UPDATE_PROVIDER_LIST } from "../../utils/mutations";
 
 // export default function ProviderSetup(props) {
 export default function ProviderSetup(props) {
-  console.log("props: ", props)
+  // console.log("props: ", props)
   // Get information about user
   let userData = { ...props.data.me };
   // let userData = { ...props.data };
