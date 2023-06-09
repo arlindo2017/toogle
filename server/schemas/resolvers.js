@@ -188,7 +188,6 @@ const resolvers = {
     },
 
     updateServiceProviderList: async (parent, {serviceId}, context) => {
-      console.log(serviceId)
       if (context.user) {
         const updatedServices = await Service.findOneAndUpdate(
           {_id: serviceId},
