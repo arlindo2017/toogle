@@ -330,7 +330,8 @@ const Home = () => {
               <button className="btn btn-outline btn-accent">Sign Up</button>
             </Link>
           </div>
-          <div className="divider md:divider-horizontal"></div>
+          {/* <div className="divider divider-vertical"></div>
+          <div className="divider divider-horizontal"></div> */}
           <div className="flex flex-col card-body items-center">
             <img
               className="mask mask-hexagon mb-5"
