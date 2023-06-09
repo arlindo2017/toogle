@@ -77,6 +77,31 @@ export const QUERY_CATEGORIES = gql`
     }
   }
 `;
+//Query orders by context ID
+export const QUERY_ORDERS = gql`
+  query Orders {
+    orders {
+      _id
+      orderDate
+      serviceDate
+      orderPrice
+
+      provider {
+        _id
+        firstName
+        lastName
+        email
+        profileImage
+      }
+      services {
+        _id
+        serviceName
+        serviceDesc
+        serviceQty
+      }
+    }
+  }
+`;
 
 // Added additional information to link and render on page
 export const QUERY_CATEGORIES_WITH_SERVICES = gql`
