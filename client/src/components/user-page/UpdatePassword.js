@@ -22,6 +22,11 @@ const UpdatePassword = (props) => {
     });
     const [errorMessage, setErrorMessage] = useState("");
 
+    const [successState, setSuccessState] = useState({
+        success: false,
+        error: false,
+    })
+
     // On blur fields validation
     const handleBlur = (e) => {
 
@@ -59,8 +64,16 @@ const UpdatePassword = (props) => {
                     newPassword: formState.newPassword
                 } 
             });
+            setSuccessState({
+                success: true,
+                error: false,
+            });
         } catch (error) {
             console.error(error);
+            setSuccessState({
+                success: false,
+                error: true,
+            })
         }
 
       // Reset input fields
@@ -114,6 +127,14 @@ const UpdatePassword = (props) => {
             </div>
             <div className="card-actions justify-center">
                 <button className="btn btn-accent" onClick={handleUpdatePassword}>Update Password</button>
+                {/* success/failure alerts */}
+                <div className={`${successState.success ? "flex" : "hidden"} flex flex-row alert-success mt-2 w-full content-start align-middle gap-4 p-4 bg-emerald-400`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <span>Your password has been successfully updated!</span>
+                </div>
+                <div className={`${!successState.success && successState.error ? "flex" : "hidden"} flex flex-row alert-error mt-2 w-full content-start align-middle gap-4 p-4 bg-rose-400 `}>
+                    <span>Something went wrong!</span>
+                </div>
             </div>
         </div>
     );
