@@ -120,9 +120,9 @@ const Home = () => {
         <div className="divider text-2xl font-bold">WHAT OTHERS ARE SAYING</div>
       </div>
 
-      <div className="carousel w-full">
+      <div className="w-full inline-flex">
         {/* slide 1 */}
-        <div id="slide1" className="carousel-item relative w-full">
+        <div id="slide1" className="flex-none box-content relative w-full">
           <div className="card w-full bg-base-100 shadow-xl my-5 mx-10 px-5">
             <div className="card-body items-center text-center">
               <h2 className="card-title">Margaret</h2>
@@ -169,7 +169,7 @@ const Home = () => {
           </div>
         </div>
         {/* slide 2 */}
-        <div id="slide2" className="carousel-item relative w-full">
+        <div id="slide2" className="flex-none box-content relative w-full">
           <div className="card w-full bg-base-100 shadow-xl my-5 mx-10 px-5">
             <div className="card-body items-center text-center">
               <h2 className="card-title">Dave</h2>
@@ -216,7 +216,7 @@ const Home = () => {
           </div>
         </div>
         {/* slide 3 */}
-        <div id="slide3" className="carousel-item relative w-full">
+        <div id="slide3" className="flex-none box-content relative w-full">
           <div className="card w-full bg-base-100 shadow-xl my-5 mx-10 px-5">
             <div className="card-body items-center text-center">
               <h2 className="card-title">Sam</h2>
@@ -263,7 +263,7 @@ const Home = () => {
           </div>
         </div>
         {/* slide 4 */}
-        <div id="slide4" className="carousel-item relative w-full">
+        <div id="slide4" className="flex-none box-content relative w-full">
           <div className="card w-full bg-base-100 shadow-xl my-5 mx-10 px-5">
             <div className="card-body items-center text-center">
               <h2 className="card-title">Jerry</h2>
