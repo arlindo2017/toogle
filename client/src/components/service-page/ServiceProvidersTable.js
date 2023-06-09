@@ -39,12 +39,16 @@ const ServiceProvidersTable = (props) => {
     setChildDate(data);
   };
 
-  // useEffect(() => {
-  //   //printOrderDetails();
-  // }, [selectedProvider]);
+  useEffect(() => {
+    printOrderDetails();
+  }, [selectedProvider]);
 
-  async function updateProvider(e) {
-    return setSelectedProvider(e.target.name);
+
+
+
+
+  function updateProvider(e) {
+    setSelectedProvider(e.target.name)
     //console.log(selectedProvider);
   }
   const printOrderDetails = async (e) => {
@@ -73,11 +77,7 @@ const ServiceProvidersTable = (props) => {
   };
 
 
-
-
-
   //console.log("props", props);
-  //console.log();
   const providers = props.data?.service?.serviceProviders || [];
   //console.log(providers);
 
@@ -188,9 +188,9 @@ const ServiceProvidersTable = (props) => {
           </tbody>
         </table>
 
-    
 
-          {/* <button className=" active:bg-violet-700 focus:outline-none focus:ring focus:ring-red-300" onClick={printOrderDetails}>Place Order</button>
+
+        {/* <button className=" active:bg-violet-700 focus:outline-none focus:ring focus:ring-red-300" onClick={printOrderDetails}>Place Order</button>
   
 
 
@@ -205,12 +205,11 @@ const ServiceProvidersTable = (props) => {
       <dialog id="my_modal_1" className="modal">
         <form method="dialog" className="modal-box ">
           <p className="font-bold text-3xl flex justify-center">Processing Your Order!</p>
-          <progress className="progress progress-primary  w-56 m-2"></progress>
-          <p className="py-1">Thanks for your order, and of course, thanks for choosing Toogle!</p>
-          <p className="py-1">We look forward to helping you find your next Toogle professional!</p>
+          <progress className="progress progress-accent  w-56 m-2"></progress>
+          <p className="py-1 text-center">Thank you for your order, and of course, thanks for choosing Toogle! We look forward to helping you find your next Toogle professional!</p>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn">Close</button>
+            <Link className="btn btn-accent" to="/user">View Order</Link>
           </div>
         </form>
       </dialog>
