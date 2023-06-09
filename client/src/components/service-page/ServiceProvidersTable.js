@@ -43,12 +43,8 @@ const ServiceProvidersTable = (props) => {
     printOrderDetails();
   }, [selectedProvider]);
 
-
-
-
-
   function updateProvider(e) {
-    setSelectedProvider(e.target.name)
+    setSelectedProvider(e.target.name);
     //console.log(selectedProvider);
   }
   const printOrderDetails = async (e) => {
@@ -76,7 +72,6 @@ const ServiceProvidersTable = (props) => {
     window.my_modal_1.showModal();
   };
 
-
   //console.log("props", props);
   const providers = props.data?.service?.serviceProviders || [];
   //console.log(providers);
@@ -90,7 +85,7 @@ const ServiceProvidersTable = (props) => {
     <>
       <div className="overflow-x-auto p-20">
         <div className="flex items-center justify-center">
-          <div className="p-6 bg-white rounded-lg shadow-lg border border-purple-500 flex flex-row items-center">
+          <div className="p-6 bg-white rounded-lg shadow-lg border border- flex flex-row items-center">
             <h1 className="text-2xl sm:text-5xl font-bold mr-10">Select Service Date &amp; Time</h1>
 
             <div className="flex justify-center">
@@ -168,7 +163,7 @@ const ServiceProvidersTable = (props) => {
                   </button> */}
 
                     <button
-                      className="btn btn-accent focus:outline-none focus:ring focus:ring-red-300"
+                      className="btn btn-accent focus:outline-none focus:ring focus:ring-red-300 w-52"
                       name={provider._id}
                       onClick={updateProvider}
                     >
@@ -187,18 +182,7 @@ const ServiceProvidersTable = (props) => {
             ))}
           </tbody>
         </table>
-
-
-
-        {/* <button className=" active:bg-violet-700 focus:outline-none focus:ring focus:ring-red-300" onClick={printOrderDetails}>Place Order</button>
-  
-
-
-        <button className={`${orderReady ? 'btn btn-accent  bg-green-500' : 'disabled'}`}>test</button> */}
-
       </div>
-
-
 
       {/* Open the modal using ID.showModal() method */}
       {/* <button className="btn" onClick={() => window.my_modal_1.showModal()}>open modal</button> */}
@@ -206,16 +190,13 @@ const ServiceProvidersTable = (props) => {
         <form method="dialog" className="modal-box ">
           <p className="font-bold text-3xl flex justify-center">Processing Your Order!</p>
           <progress className="progress progress-accent  w-56 m-2"></progress>
-          <p className="py-1 text-center">Thank you for your order, and of course, thanks for choosing Toogle! We look forward to helping you find your next Toogle professional!</p>
+          <p className="py-1 text-center">Thank you for your order, and of course, thank you for choosing Toogle! We look forward to helping you find your next Toogle professional!</p>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
             <Link className="btn btn-accent" to="/user">View Order</Link>
           </div>
         </form>
       </dialog>
-
-
-
 
     </>
   );
