@@ -37,7 +37,7 @@ const Service = () => {
         </ul>
       </div>
 
-      <div className="card lg:card-side bg-base-100 shadow-xl p-20 -z-50">
+      <div className="card lg:card-side bg-base-100 shadow-xl p-20 -z-50 ">
         <figure>
           <img
             className="max-w-md max-h-80"
@@ -45,22 +45,17 @@ const Service = () => {
             alt="Album"
           />
         </figure>
+
+
         <div className="card-body">
           <p className="mb-5 text-5xl font-bold">
-            Service Details{" "}
-            <span className="btn-success">${service.servicePrice}</span>
+            {service.serviceName} {' '}
+            <br />
+            <span className="badge badge-ghost badge-sm">{service.serviceCategory.categoryName}</span>
+            <span className="badge badge-accent">${service.servicePrice}</span>
           </p>
 
-          <p className="mb-5 text-2xl font-bold">
-            Service Category:
-            <span className="text-sm">
-              {"  "}
-              {service.serviceCategory.categoryName}
-            </span>
-          </p>
-
-          <p className="mb-5 text-2xl font-bold">
-            Service Description:
+          <p className="mb-5 font-bold">
             <span className="text-sm">
               {"  "}
               {service.serviceCategory.categoryDesc}

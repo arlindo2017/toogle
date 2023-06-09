@@ -33,7 +33,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/order">Previous Orders</Link>
+              <Link to="/orders">Previous Orders</Link>
             </li>
             <li>
               <Link onClick={userLogout}>Logout</Link>

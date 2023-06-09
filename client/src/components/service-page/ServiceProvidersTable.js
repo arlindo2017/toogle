@@ -193,7 +193,7 @@ const ServiceProvidersTable = (props) => {
           <p className="py-1 text-center">Thank you for your order, and of course, thank you for choosing Toogle! We look forward to helping you find your next Toogle professional!</p>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            <Link className="btn btn-accent" to="/user">View Order</Link>
+            <Link className="btn btn-accent" to="/orders">View Order</Link>
           </div>
         </form>
       </dialog>
