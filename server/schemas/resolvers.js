@@ -82,8 +82,11 @@ const resolvers = {
       }
     },
 
-    orders: async () =>
-      Order.find().populate("services").populate("provider").populate("user"),
+    orders: async (parent, args, context) =>
+      Order.find({ user: context.user._id })
+        .populate("services")
+        .populate("provider")
+        .populate("user"),
   },
 
   Mutation: {
