@@ -186,6 +186,20 @@ const resolvers = {
       }
       throw new AuthenticationError("Not logged in");
     },
+
+    updateServiceProviderList: async (parent, {serviceId}, context) => {
+      console.log(serviceId)
+      if (context.user) {
+        const updatedServices = await Service.findOneAndUpdate(
+          {_id: serviceId},
+          {$pull: {serviceProviders: context.user._id }},
+          
+          { new: true }                 
+        );
+        return updatedServices;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
   },
 };
 
