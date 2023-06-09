@@ -27,7 +27,7 @@ const Home = () => {
       </div>
 
       {/* stats section */}
-      <div className="flex shadow w-full rounded-none">
+      <div className="sm:flex shadow w-full rounded-none hidden">
         <div className="stat">
           <div className="stat-figure text-secondary">
             <svg
@@ -95,20 +95,23 @@ const Home = () => {
       <PopularServices />
       {/* second banner/hero */}
       <div className="card lg:card-side bg-base-100 shadow mt-20 rounded-none">
-        <figure className="w-1/2">
+        <figure className=" object-cover lg:w-1/2">
           <img src={require("../images/painting.jpg")} alt="painting" />
         </figure>
         <div className="card-body my-auto">
-          <h2 className="card-title">
+          <h2 className="card-title justify-center lg:justify-normal lg:pl-8">
             Turn your to-do list into a to-done list.
           </h2>
-          <p className="flex-grow-0">
-            Find service providers for every inch of your house, all in one
-            place.
-          </p>
-          <li>Search by what's important to you.</li>
-          <li>View availability and schedule an appointment.</li>
-          <li>Leave reviews and view your previous orders.</li>
+          <div className="card-body items-center lg:items-start">
+            <p>
+              Find service providers for every inch of your house, all in one
+              place.
+            </p>
+            <li>Search by what's important to you.</li>
+            <li>View availability and schedule an appointment.</li>
+            <li>Leave reviews and view your previous orders.</li>
+
+          </div>
         </div>
       </div>
 
@@ -316,8 +319,8 @@ const Home = () => {
         <div className="divider text-2xl font-bold">GET STARTED</div>
       </div>
       <div className="card mt-5 mx-20 mb-20">
-        <div className="card flex flex-col w-full md:flex-row">
-          <div className="grid w-1/2 place-items-center">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex flex-col card-body items-center">
             <img
               className="mask mask-hexagon mb-5"
               src={require("../images/signup.jpeg")}
@@ -327,8 +330,9 @@ const Home = () => {
               <button className="btn btn-outline btn-accent">Sign Up</button>
             </Link>
           </div>
-          <div className="divider md:divider-horizontal"></div>
-          <div className="grid w-1/2 place-items-center">
+          {/* <div className="divider divider-vertical"></div>
+          <div className="divider divider-horizontal"></div> */}
+          <div className="flex flex-col card-body items-center">
             <img
               className="mask mask-hexagon mb-5"
               src={require("../images/tools.jpeg")}

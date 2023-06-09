@@ -24,7 +24,7 @@ function FeatureProviders() {
           {data?.providers.map((provider) => (
             <div
               key={provider._id}
-              className="card shadow-xl m-2 m:w-xs  xl:max-w-xs max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              className="card shadow-xl w-full sm:w-72 md:w-80 m-2 p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-100 via-stone-100 to-orange-100"
             >
               <figure className="p-5">
                 <img
