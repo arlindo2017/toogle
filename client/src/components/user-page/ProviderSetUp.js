@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { useLazyQuery } from "@apollo/client";
-import { useMutation } from "@apollo/client";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MY_SERVICES } from "../../utils/queries";
+import { UPDATE_PROVIDER_LIST } from "../../utils/mutations";
 
 export default function ProviderSetup(props) {
   // Get information about user
   const userData = { ...props.userData };
+
+  // Mutation to remove user from list service providers
+  const [updateProviderList] = useMutation(UPDATE_PROVIDER_LIST);
+
   // Query services and categories
-  const { loading, data } = useQuery(QUERY_MY_SERVICES);
+  const { loading, data, refetch } = useQuery(QUERY_MY_SERVICES);
   const myServices = data?.getMyServices || [];
 
   const [selectedService, setSelectedService] = useState({
@@ -16,12 +19,24 @@ export default function ProviderSetup(props) {
     stateName: "",
   });
 
+  if (loading) {
+    return <div>Loading...</div>
+  }
   // Store additional information about buttons
-  const buttonData = {};  
+  const buttonData = {};
 
   // remove currenlty selected element
-  const stopService = (e) => {
-    // console.log(e.target);
+  const stopService = async (e) => {
+    try {
+      await updateProviderList({
+        variables: { serviceId: selectedService.stateId },
+      });
+      // updata services data
+      refetch();
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // update state for selected Service
@@ -38,40 +53,33 @@ export default function ProviderSetup(props) {
 
   // update button data
   function updateButtonData(myService, index) {
-    
-      buttonData[`button${index + 1}`] = {
-        serviceId: myService._id,
-        serviceName: myService.serviceName,
-      };
-    
+    buttonData[`button${index + 1}`] = {
+      serviceId: myService._id,
+      serviceName: myService.serviceName,
+    };
 
     return (
-      
-        <tr key={index}>
-          <th>{index + 1}</th>
-          <td>{myService.serviceName}</td>
-          <td>{myService.serviceCategory.categoryName}</td>
-          <td>
-            <button
-              className="btn btn-outline btn-error btn-xs"
-              // value={myService._id}
-              name={`button${index + 1}`}
-              // onClick={() => window.my_modal_2.showModal()}
-              onClick={showModal}
-            >
-              Remove
-            </button>
-          </td>
-        </tr>
-      
+      <tr key={index}>
+        <th>{index + 1}</th>
+        <td>{myService.serviceName}</td>
+        <td>{myService.serviceCategory.categoryName}</td>        
+        <td>
+          <button
+            className="btn btn-outline btn-error btn-xs"
+            name={`button${index + 1}`}
+            onClick={showModal}
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
     );
   }
 
   return (
     <>
-      <h1 className="card-title">Provider page</h1>
-      <div>lastName: {userData.lastName}</div>
-
+      <h1 className="card-title flex-grow justify-center">Provider setup</h1>
+      <h2>Provider Status: {userData?.isProvider ? "Active" : "Suspended"}</h2>
       <button className="btn btn-accent">Add Service</button>
 
       {/* Currently offered */}
@@ -105,16 +113,15 @@ export default function ProviderSetup(props) {
       {/* Modal */}
       <dialog id="my_modal_2" className="modal">
         <form method="dialog" className="modal-box">
-          <h3 className="font-bold text-lg">Please confirm</h3>
-          <p className="py-4">
-            Are you sure you want to stop providing service for: <span className="font-semibold">
-              {selectedService.stateName}?
-            </span>
+          <h3 className="font-bold text-lg text-error">Please confirm</h3>
+          <p className="py-4 text-center">
+            Are you sure you want to stop providing service for{" "}
           </p>
+            <p className="font-semibold text-center">{selectedService.stateName}?</p>
 
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            <button className="btn" onClick={stopService}>
+            <button className="btn hover:btn-error" onClick={stopService}>
               Confirm
             </button>
             <button className="btn">Cancel</button>
