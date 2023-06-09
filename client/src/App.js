@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 //import Category from "./components/Category";
-// import Order from "./components/Order";
+import Orders from "./pages/Orders";
 import About from "./pages/About";
 import Service from "./pages/Service";
 import Services from "./pages/Services";
@@ -60,7 +60,7 @@ function App() {
               <Route path="/user" element={<User />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              {/* <Route path="/order" element={<Order />} /> */}
+              <Route path="/orders" element={<Orders />} />
               <Route path="/services" element={<Services />} />
               <Route path="/service/:serviceId" element={<Service />} />
               <Route path="/about" element={<About />} />
