@@ -3,9 +3,13 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_MY_SERVICES } from "../../utils/queries";
 import { UPDATE_PROVIDER_LIST } from "../../utils/mutations";
 
+// export default function ProviderSetup(props) {
 export default function ProviderSetup(props) {
+  console.log("props: ", props)
   // Get information about user
-  const userData = { ...props.userData };
+  let userData = { ...props.data.me };
+  // let userData = { ...props.data };
+  // console.log("toggle switched, userData: ", userData)
 
   // Mutation to remove user from list service providers
   const [updateProviderList] = useMutation(UPDATE_PROVIDER_LIST);
@@ -79,16 +83,11 @@ export default function ProviderSetup(props) {
   return (
     <>
       <h1 className="card-title flex-grow justify-center">Provider setup</h1>
-      <h2>Provider Status: {userData?.isProvider ? "Active" : "Suspended"}</h2>
       <button className="btn btn-accent">Add Service</button>
+      <h2 className="font-bold py-12">Provider Status: <span className={`p-2 rounded-lg bg-accent ${userData?.isProvider ? "bg-accent" : "bg-warning"}`}>{userData?.isProvider ? "Active" : "Suspended"}</span></h2>
 
       {/* Currently offered */}
-      <div className="flex flex-col w-full border-opacity-50 mt-10 mb-5">
-        <div className="divider text-2xl font-bold">CURRENTY OFFERING</div>
-      </div>
-      <p>
-        You are currently being listed as a provider for the following services:
-      </p>
+      <h2 className="font-bold">Current services:</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

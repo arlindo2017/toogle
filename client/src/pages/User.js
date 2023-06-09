@@ -12,33 +12,33 @@ import { UPDATE_PROVIDER } from "../utils/mutations";
 const User = () => {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || {};
-  
+
   // provider toggle button
-  const [providerToggle, setProviderToggle] = useState(userData?.isProvider || false);
+  // const [providerToggle, setProviderToggle] = useState(userData?.isProvider || false);
 
-  const [updateProvider, { mutate, isLoading: isMutating }] = useMutation(UPDATE_PROVIDER);
+  // const [updateProvider, { mutate, isLoading: isMutating }] = useMutation(UPDATE_PROVIDER);
 
-  useEffect(() => {
-    setProviderToggle(data?.me?.isProvider)
-  },[data])
+  // useEffect(() => {
+  //   setProviderToggle(data?.me?.isProvider)
+  // },[data])
 
-  async function providerMongo(newProviderState) {
-    try {
-      await updateProvider({
-        variables: { isProvider: newProviderState },
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  // async function providerMongo(newProviderState) {
+  //   try {
+  //     await updateProvider({
+  //       variables: { isProvider: newProviderState },
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 
   // function that updates state for provider toggle
-  const updateProviderToggle = async (e) => {
-    setProviderToggle(prevProviderToggle => {
-      providerMongo(!prevProviderToggle);
-      return !prevProviderToggle;
-  });
-}
+  // const updateProviderToggle = async (e) => {
+  //   setProviderToggle(prevProviderToggle => {
+  //     providerMongo(!prevProviderToggle);
+  //     return !prevProviderToggle;
+  // });
+  // }
 
   const [menuTab, setMenuTab] = useState({
     profile: true,
@@ -68,7 +68,7 @@ const User = () => {
         orders: false,
         delete: false,
       });
-    }    
+    }
     if (inputValue === "password") {
       setMenuTab({
         profile: false,
@@ -104,13 +104,15 @@ const User = () => {
 
   return (
     <>
-    <section
-        style={{ "--userImage-url": `url(${require("../images/userpagetools.jpg")})` }}
+      <section
+        style={{
+          "--userImage-url": `url(${require("../images/userpagetools.jpg")})`,
+        }}
         className="py-16 bg-[image:var(--userImage-url)] bg-cover bg-center"
       >
-      <div className="form-control w-52">
+        {/* <div className="form-control w-52"> */}
         {/* <div className="collapse bg-base-200"> */}
-        <label className="cursor-pointer label">
+        {/* <label className="cursor-pointer label">
           <span className="label-text">Provider Status</span>
           <input
             type="checkbox"
@@ -119,100 +121,104 @@ const User = () => {
             onChange={updateProviderToggle}
           />
         </label>
-      </div>
-      {/* need to fix z-index - tabs and buttons don't work on the card if set to -z-50 */}
-      <div className="card mx-16 bg-base-100 shadow-xl mt-10">
-        <div className="flex flex-wrap sm:flex-nowrap flex-row p-8 gap-2">
-          {/* left side card */}
-          <div className="flex flex-col w-full sm:max-w-fit sm:mr-6">
-            <div className="avatar justify-center pb-4">
-              <div className="w-24 rounded-full">
-                  <img src={require(`../images/profile/${userData?.profileImage}`)} alt="profile placeholder" />
+      </div> */}
+        {/* need to fix z-index - tabs and buttons don't work on the card if set to -z-50 */}
+        <div className="card mx-16 bg-base-100 shadow-xl mt-10">
+          <div className="flex flex-wrap sm:flex-nowrap flex-row p-8 gap-2">
+            {/* left side card */}
+            <div className="flex flex-col w-full sm:max-w-fit sm:mr-6">
+              <div className="avatar justify-center pb-4">
+                <div className="w-24 rounded-full">
+                  <img
+                    src={require(`../images/profile/${userData?.profileImage}`)}
+                    alt="profile placeholder"
+                  />
+                </div>
+              </div>
+              <div className="join join-vertical">
+                <button
+                  onClick={changeMenuTab}
+                  value="profile"
+                  className="btn join-item"
+                >
+                  My Profile
+                </button>
+                {/* show this button only if user is has a provider toggled enabled */}
+                {/* // className={"btn join-item " + (providerToggle ? "" : "hidden")} */}
+                <button
+                  onClick={changeMenuTab}
+                  value="provider"
+                  className="btn join-item"
+                >
+                  Provider Setup
+                </button>
+                <button
+                  onClick={changeMenuTab}
+                  value="password"
+                  className="btn join-item"
+                >
+                  Change Password
+                </button>
+                <button
+                  onClick={changeMenuTab}
+                  value="orders"
+                  className="btn join-item"
+                >
+                  Previous Orders
+                </button>
+                <button
+                  onClick={changeMenuTab}
+                  value="delete"
+                  className="btn join-item"
+                >
+                  Delete Account
+                </button>
               </div>
             </div>
-            <div className="join join-vertical">
-              <button
-                onClick={changeMenuTab}
-                value="profile"
-                className="btn join-item"
-              >
-                My Profile
-              </button>
-              {/* show this button only if user is has a provider toggled enabled */}
-              <button
-                onClick={changeMenuTab}
-                value="provider"
-                className={"btn join-item " + (providerToggle ? "" : "hidden")}
-              >
-                Provider Setup
-              </button>
-              <button
-                onClick={changeMenuTab}
-                value="password"
-                className="btn join-item"
-              >
-                Change Password
-              </button>
-              <button
-                onClick={changeMenuTab}
-                value="orders"
-                className="btn join-item"
-              >
-                Previous Orders
-              </button>
-              <button
-                onClick={changeMenuTab}
-                value="delete"
-                className="btn join-item"
-              >
-                Delete Account
-              </button>
-            </div>
-          </div>
 
-          {/* right side card */}
-          <div className="card-body border-double border-4 border-orange-600">
-            <div id="profile" className={`${menuTab.profile ? "" : "hidden"}`}>
-              <Profile
-                firstName={`${userData.firstName}`}
-                lastName={`${userData.lastName}`}
-                email={`${userData.email}`}
-              />
-            </div>
-            {/* Provider Setup */}
-            <div
-              id="provider"
-              className={`${menuTab.provider ? "" : "hidden"}`}
-            >
-              {/* <ProviderSetup props={`${userData}`} /> */}
-              <ProviderSetup userData={userData} />
-            </div>
-            <div
-              id="password"
-              className={`${menuTab.password ? "" : "hidden"}`}
-            >
-              <UpdatePassword 
-            userId={`${userData._id}`}
-            />
-            </div>
-            <div id="orders" className={`${menuTab.orders ? "" : "hidden"}`}>
-              <PreviousOrders />
-            </div>
-            <div id="delete" className={`${menuTab.delete ? "" : "hidden"}`}>
-            <DeleteAccount 
-            userId={`${userData._id}`}
-            />
+            {/* right side card */}
+            <div className="card-body border-double border-4 border-orange-600">
+              <div
+                id="profile"
+                className={`${menuTab.profile ? "" : "hidden"}`}
+              >
+                <Profile
+                  firstName={`${userData.firstName}`}
+                  lastName={`${userData.lastName}`}
+                  email={`${userData.email}`}
+                />
+              </div>
+              {/* Provider Setup */}
+              <div
+                id="provider"
+                className={`${menuTab.provider ? "" : "hidden"}`}
+              >
+                {/* <ProviderSetup props={`${userData}`} /> */}
+                {/* <ProviderSetup userData={userData} /> */}
+                <ProviderSetup data={data} />
+              </div>
+              <div
+                id="password"
+                className={`${menuTab.password ? "" : "hidden"}`}
+              >
+                <UpdatePassword userId={`${userData._id}`} />
+              </div>
+              <div id="orders" className={`${menuTab.orders ? "" : "hidden"}`}>
+                <PreviousOrders />
+              </div>
+              <div id="delete" className={`${menuTab.delete ? "" : "hidden"}`}>
+                <DeleteAccount userId={`${userData._id}`} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* <div className="flex flex-col w-full border-opacity-50 mt-20 mb-5">
+        {/* <div className="flex flex-col w-full border-opacity-50 mt-20 mb-5">
       <div className="divider text-2xl font-bold">PREVIOUS ORDERS</div>
     </div>
 
     <Orders /> */}
-    </section>
+      </section>
     </>
   );
 };
