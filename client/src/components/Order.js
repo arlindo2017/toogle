@@ -23,9 +23,9 @@ const Order = (props) => {
             <span className="badge badge-ghost badge-sm">{props.category}</span>
             </td>
             <td>{props.date}</td>
-            <th>
+            {/* <th>
             <button className="btn btn-ghost btn-xs">details</button>
-            </th>
+            </th> */}
         </tr>
     )
 };
