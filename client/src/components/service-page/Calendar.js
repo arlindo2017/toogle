@@ -371,7 +371,7 @@ const CustomInputField = forwardRef(
 
 function DatepickerPresentationGroup({ caption, children }) {
   return (
-    <div className="space-y-2">
+    <div className="flex pt-1">
       <div className="font-semibold text-sm text-gray-700">{caption}</div>
       {children}
     </div>
@@ -385,8 +385,8 @@ function DatePicker1Presentation(props) {
   }, [startDate]); // Run the effect only when the startDate changes
 
   return (
-    <div className="flex flex-col gap-8 bg-white p-5 sm:p-10 w-full rounded-md">
-      <DatepickerPresentationGroup caption="Date & Time">
+    <div className="">
+      <DatepickerPresentationGroup caption="">
         <DatePicker1
           selected={startDate}
           onChange={setStartDate}
