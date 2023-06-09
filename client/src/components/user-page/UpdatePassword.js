@@ -74,7 +74,7 @@ const UpdatePassword = (props) => {
     return (
         <div>
             <h1 className="card-title flex-grow justify-center">Change Password</h1>
-            <div className="card-body">
+            <div className="card-body items-center">
                 <input 
                     className="input input-bordered input-accent w-full max-w-xs" 
                     type="password" 
