@@ -41,7 +41,7 @@ const resolvers = {
 
     //providers
     providers: async (_, { limit }) => {
-      const providers = await User.find()
+      const providers = await User.find({ isProvider: true })
 
         // allows services query to be queried in the front-end with a limit qty
         .limit(limit);
@@ -71,17 +71,16 @@ const resolvers = {
     getMyServices: async (parent, args, context) => {
       if (context.user) {
         try {
-            const services = await Service.find({
-              serviceProviders: context.user._id 
-            }).populate("serviceCategory");
-            return services;            
-                  
+          const services = await Service.find({
+            serviceProviders: context.user._id,
+          }).populate("serviceCategory");
+          return services;
         } catch (error) {
           console.error(error);
           throw new Error("Failed to fetch categories with services");
+        }
       }
-    }
-  },
+    },
 
     orders: async () =>
       Order.find().populate("services").populate("provider").populate("user"),
@@ -125,9 +124,7 @@ const resolvers = {
     },
     deleteUser: async (parent, args, context) => {
       if (context.user) {
-        const deleteAccount = User.findByIdAndDelete(
-          { _id: context.user._id },
-        );
+        const deleteAccount = User.findByIdAndDelete({ _id: context.user._id });
         return deleteAccount;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -149,7 +146,7 @@ const resolvers = {
       const updatePw = User.findByIdAndUpdate(
         { _id },
         { password: newPassword },
-        { new: true },
+        { new: true }
       );
       return updatePw;
     },
@@ -178,7 +175,7 @@ const resolvers = {
         const providerStatus = await User.findByIdAndUpdate(
           context.user._id,
           {
-            isProvider: args.isProvider
+            isProvider: args.isProvider,
           },
           { new: true }
         );
@@ -187,13 +184,13 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    updateServiceProviderList: async (parent, {serviceId}, context) => {
+    updateServiceProviderList: async (parent, { serviceId }, context) => {
       if (context.user) {
         const updatedServices = await Service.findOneAndUpdate(
-          {_id: serviceId},
-          {$pull: {serviceProviders: context.user._id }},
-          
-          { new: true }                 
+          { _id: serviceId },
+          { $pull: { serviceProviders: context.user._id } },
+
+          { new: true }
         );
         return updatedServices;
       }
