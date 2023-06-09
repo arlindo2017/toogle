@@ -1,11 +1,44 @@
 [
   {
-    "firstName": "Bob",
-    "lastName": "Smith",
-    "email": "BobSmith10@none.com",
-    "password": "Password123!",
-    "profileImage": "profile1.jpg",
-    "isProvider": false,
+    "firstName": "Barack",
+    "lastName": "Obama",
+    "email": "barack.obama@example.com",
+    "password": "Obama123!",
+    "profileImage": "barak.jpg",
+    "isProvider": true,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "firstName": "Kylie",
+    "lastName": "Jenner",
+    "email": "kylie.jenner@example.com",
+    "password": "Jenner456!",
+    "profileImage": "kylie.jpg",
+    "isProvider": true,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "firstName": "Oprah",
+    "lastName": "Winfrey",
+    "email": "oprah.winfrey@example.com",
+    "password": "Winfrey456!",
+    "profileImage": "oprah.jpg",
+    "isProvider": true,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "firstName": "Leonardo",
+    "lastName": "DiCaprio",
+    "email": "leonardo.dicaprio@example.com",
+    "password": "DiCaprio456!",
+    "profileImage": "caprio.jpg",
+    "isProvider": true,
     "services": [],
     "placedOrders": [],
     "completedOrders": []
@@ -16,7 +49,30 @@
     "email": "AliceJohnson@example.com",
     "password": "SecurePassword1!",
     "profileImage": "profile2.jpg",
-    "isProvider": true,
+    "isProvider": false,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+  {
+    "firstName": "Sam",
+    "lastName": "Wilson",
+    "email": "SamWilson@example.com",
+    "password": "Falcon123!",
+    "profileImage": "profile5.jpg",
+    "isProvider": false,
+    "services": [],
+    "placedOrders": [],
+    "completedOrders": []
+  },
+
+  {
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "email": "BobSmith10@none.com",
+    "password": "Password123!",
+    "profileImage": "profile1.jpg",
+    "isProvider": false,
     "services": [],
     "placedOrders": [],
     "completedOrders": []
@@ -43,39 +99,7 @@
     "placedOrders": [],
     "completedOrders": []
   },
-  {
-    "firstName": "Sam",
-    "lastName": "Wilson",
-    "email": "SamWilson@example.com",
-    "password": "Falcon123!",
-    "profileImage": "profile5.jpg",
-    "isProvider": true,
-    "services": [],
-    "placedOrders": [],
-    "completedOrders": []
-  },
-  {
-    "firstName": "Barack",
-    "lastName": "Obama",
-    "email": "barack.obama@example.com",
-    "password": "Obama123!",
-    "profileImage": "profile6.jpg",
-    "isProvider": false,
-    "services": [],
-    "placedOrders": [],
-    "completedOrders": []
-  },
-  {
-    "firstName": "Oprah",
-    "lastName": "Winfrey",
-    "email": "oprah.winfrey@example.com",
-    "password": "Winfrey456!",
-    "profileImage": "profile7.jpg",
-    "isProvider": false,
-    "services": [],
-    "placedOrders": [],
-    "completedOrders": []
-  },
+
   {
     "firstName": "Beyonce",
     "lastName": "Knowles",
@@ -131,17 +155,7 @@
     "placedOrders": [],
     "completedOrders": []
   },
-  {
-    "firstName": "Leonardo",
-    "lastName": "DiCaprio",
-    "email": "leonardo.dicaprio@example.com",
-    "password": "DiCaprio456!",
-    "profileImage": "profile11.jpg",
-    "isProvider": false,
-    "services": [],
-    "placedOrders": [],
-    "completedOrders": []
-  },
+
   {
     "firstName": "Emma",
     "lastName": "Watson",
@@ -202,16 +216,6 @@
     "lastName": "Swift",
     "email": "taylor.swift@example.com",
     "password": "Swift123!",
-    "isProvider": false,
-    "services": [],
-    "placedOrders": [],
-    "completedOrders": []
-  },
-  {
-    "firstName": "Kylie",
-    "lastName": "Jenner",
-    "email": "kylie.jenner@example.com",
-    "password": "Jenner456!",
     "isProvider": false,
     "services": [],
     "placedOrders": [],
