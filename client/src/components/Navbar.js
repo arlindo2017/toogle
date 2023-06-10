@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import { useQuery } from "@apollo/client";
+import { GET_ME } from "../utils/queries";
 
 // https://daisyui.com/components/navbar/
 
 const Navbar = () => {
+  const { loading, data } = useQuery(GET_ME);
+  const userData = data?.me || {};
+  const profilePic = userData.profileImage || "profileplaceholder.png";
+
   const userLogout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -18,7 +24,7 @@ const Navbar = () => {
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img
-                src={require("../images/profile/profileplaceholder.png")}
+                src={require(`../images/profile/${profilePic}`)}
                 alt="profile placeholer"
               />
             </div>
