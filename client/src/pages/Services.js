@@ -30,6 +30,19 @@ const Services = () => {
       <div className="flex flex-col w-full border-opacity-50 mt-10 mb-5">
         <div className="divider text-2xl font-bold">WHAT WE OFFER</div>
       </div>
+      <div className="m-10">
+        {/* <p className="text-center mb-5 text-5xl font-bold p-10">
+          {" "}
+          Choose Your Provider
+        </p> */}
+
+        <ul className="steps right-15 min-w-full pb-8">
+          <li className="step step-accent">Choose Service</li>
+          <li className="step ">Pick Date</li>
+          <li className="step ">Select Provider</li>
+          <li className="step">Confirm Order</li>
+        </ul>
+      </div>
 
       {/* categories */}
       <div className="category-container flex flex-wrap w-full justify-center px-5">
