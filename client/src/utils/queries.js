@@ -22,6 +22,7 @@ export const QUERY_SERVICES = gql`
       _id
       serviceName
       servicePrice
+      serviceDesc
       serviceCategory {
         categoryName
         categoryImage

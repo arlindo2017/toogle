@@ -50,7 +50,7 @@ const Services = () => {
           categories.map((category) => (
             <div
               key={category._id}
-              className="card w-[22rem] bg-base-100 shadow-xl m-4"
+              className="card w-[22rem] bg-base-100 shadow-xl m-4 border border-gray-200"
             >
               <figure>
                 <img
@@ -65,10 +65,9 @@ const Services = () => {
               </div>
               <div className="card items-center">
                 <p className="card-desc mt-2 px-8">{category.categoryDesc}</p>
+                <div className="divider m-8"></div>
               </div>
-              <div className="flex flex-col w-full border-opacity-50">
-                <div className="divider"></div>
-              </div>
+              <div className="flex flex-col w-full border-opacity-50"></div>
               <div>
                 <ServiceCategoryPanel services={category.services} />
               </div>
