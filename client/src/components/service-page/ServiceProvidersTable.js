@@ -83,17 +83,16 @@ const ServiceProvidersTable = (props) => {
 
   return (
     <>
-      <div className="overflow-x-auto p-20">
-        <div className="flex items-center justify-center">
-          <div className="p-6 bg-white rounded-lg shadow-lg border border- flex flex-row items-center">
-            <h1 className="text-2xl sm:text-5xl font-bold mr-10">Select Service Date &amp; Time</h1>
-
-            <div className="flex justify-center">
-              <DatePicker1Presentation updateDate={updateDate} />
-            </div>
-          </div>
+      <div className="divider text-2xl font-bold">SELECT DATE &amp; TIME</div>
+      <div className="m-10 p-6 bg-white border border-gray-200 rounded-lg shadow-lg  flex flex-row items-center justify-center">
+        <div className="flex  ">
+          <DatePicker1Presentation updateDate={updateDate} />
         </div>
-        <table className="table mt-20">
+      </div>
+      <div className=" px-10">
+        <div className="flex items-center justify-center"></div>
+        <div className="divider text-2xl font-bold">CHOOSE YOUR PROVIDERS</div>
+        <table className="table ">
           <thead>
             <tr>
               <th className="text-lg">Provider</th>
@@ -151,7 +150,7 @@ const ServiceProvidersTable = (props) => {
                       type="radio"
                       name="rating-2"
                       className="mask mask-star-2 bg-orange-400"
-                    //checked
+                      //checked
                     />
                   </div>
                 </td>
@@ -188,16 +187,23 @@ const ServiceProvidersTable = (props) => {
       {/* <button className="btn" onClick={() => window.my_modal_1.showModal()}>open modal</button> */}
       <dialog id="my_modal_1" className="modal">
         <form method="dialog" className="modal-box ">
-          <p className="font-bold text-3xl flex justify-center">Processing Your Order!</p>
+          <p className="font-bold text-3xl flex justify-center">
+            Processing Your Order!
+          </p>
           <progress className="progress progress-accent  w-56 m-2"></progress>
-          <p className="py-1 text-center">Thank you for your order, and of course, thank you for choosing Toogle! We look forward to helping you find your next Toogle professional!</p>
+          <p className="py-1 text-center">
+            Thank you for your order, and of course, thank you for choosing
+            Toogle! We look forward to helping you find your next Toogle
+            professional!
+          </p>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            <Link className="btn btn-accent" to="/orders">View Order</Link>
+            <Link className="btn btn-accent" to="/orders">
+              View Order
+            </Link>
           </div>
         </form>
       </dialog>
-
     </>
   );
 };
