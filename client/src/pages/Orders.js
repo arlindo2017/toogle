@@ -15,6 +15,23 @@ const Orders = () => {
   return (
     <div name="table-container" className="flex">
       <div name="row-container" className="card bg-base-100 w-full">
+         {/* header row for horizontal cards */}
+         <div name="header-row" className="flex-row justify-evenly px-8 pt-8 gap-2 hidden md:flex mx-16 mb-4">
+                <h2 className="text-[#cc451b] card-title justify-center sm:w-40">Provider Details</h2>
+                <h2 className="text-[#cc451b] card-title justify-center sm:w-48">Service Details</h2>
+                <h2 className="text-[#cc451b] card-title justify-center sm:w-44">Order Details</h2>
+          </div>
+
+        <Order
+          src={order.src}
+          name={order.name}
+          company={order.company}
+          service={order.service}
+          category={order.category}
+          orderDate={order.orderDate}
+          price={order.price}
+          serviceDate={order.serviceDate}
+        />
         <Order
           src={order.src}
           name={order.name}

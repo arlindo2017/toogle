@@ -164,7 +164,7 @@ const User = () => {
                   value="orders"
                   className="btn join-item"
                 >
-                  Previous Orders
+                  Order History
                 </button>
                 <button
                   onClick={changeMenuTab}
