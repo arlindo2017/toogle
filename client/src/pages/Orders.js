@@ -6,7 +6,7 @@ import Order from "../components/Order";
 const Orders = () => {
   const { loading, data } = useQuery(QUERY_ORDERS);
   const orderData = data?.orders || [];
-  console.log("orderData", orderData);
+  // console.log("orderData", orderData);
   const orderMapped = orderData.map((order) => {
     return {
       key: order._id,
@@ -19,7 +19,7 @@ const Orders = () => {
     }
   });
 
-  console.log("orderMapped", orderMapped);
+  // console.log("orderMapped", orderMapped);
 
   if (loading) {
     return <div>Loading ...</div>;
