@@ -116,6 +116,7 @@ export const QUERY_CATEGORIES_WITH_SERVICES = gql`
         _id
         serviceName
         serviceDesc
+        servicePrice
       }
     }
   }
