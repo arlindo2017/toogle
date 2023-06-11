@@ -9,9 +9,9 @@ const Profile = (props) => {
                 <p><span className="font-bold">Last Name:</span>  {props.lastName}</p>
                 <p><span className="font-bold">Email:</span>  {props.email}</p>
             </div>
-            <div className="card-actions justify-center">
+            {/* <div className="card-actions justify-center">
                 <button className="btn btn-accent">Update Info</button>
-            </div>
+            </div> */}
         </div>
     );
 };
