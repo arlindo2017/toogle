@@ -155,14 +155,14 @@ const resolvers = {
     },
     addOrder: async (
       parent,
-      { providerId, serviceIds, serviceDate, orderPrice },
+      { services, provider, serviceDate, orderPrice },
       context
     ) => {
       if (context.user) {
         const order = new Order({
-          services: serviceIds,
+          services: services,
           user: context.user._id,
-          provider: providerId,
+          provider: provider,
           serviceDate,
           orderPrice,
         });
