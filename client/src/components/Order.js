@@ -1,12 +1,35 @@
 import React from "react";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_ORDERS } from "../utils/queries";
 
 const Order = (props) => {
-  console.log(props);
+    //   console.log(props);
+//     const { loading, data } = useQuery(QUERY_ORDERS);
+//     const orderData = data?.orders || [];
+//     console.log("orderData", orderData);
+//     const orderMapped = orderData.map((order) => {
+//         return {
+//         key: order._id,
+//         services: order.services[0].serviceName,
+//         src: order.provider.profileImage,
+//         name: `${order.provider.firstName} ${order.provider.lastName}`,
+//         price: order.orderPrice,
+//         orderDate: order.orderDate,
+//         serviceDate: order.serviceDate
+//         }
+//     });
+
+//   console.log("orderMapped", orderMapped);
+
+//   if (loading) {
+//     return <div>Loading ...</div>;
+//   }
+
   return (
     <>
       {/* row content */}
       <div
-        name="row-cell"
+        name={props.key}
         className="flex flex-col md:flex-row md:justify-evenly p-8 md:pt-0 gap-2 border-2 border-slate-200 rounded-2xl mx-16 mb-4"
       >
         {/* provider row  */}
@@ -22,7 +45,7 @@ const Order = (props) => {
           <div>
             <div className="font-bold flex justify-center">{props.name}</div>
             <div className="text-sm opacity-50 flex justify-center">
-              {props.company}
+              Company
             </div>
           </div>
         </div>
@@ -47,7 +70,7 @@ const Order = (props) => {
             Ordered on: {props.orderDate}
           </div>
           <div className="flex justify-center">
-            <span className="badge badge-accent">{props.price}</span>
+            <span className="badge badge-accent">${props.price}</span>
           </div>
         </div>
       </div>
