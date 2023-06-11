@@ -13,10 +13,11 @@ const Orders = () => {
       services: order.services[0].serviceName,
       src: order.provider.profileImage,
       name: `${order.provider.firstName} ${order.provider.lastName}`,
+      email: order.provider.email,
       price: order.orderPrice,
       orderDate: order.orderDate,
-      serviceDate: order.serviceDate
-    }
+      serviceDate: order.serviceDate,
+    };
   });
 
   // console.log("orderMapped", orderMapped);
@@ -25,6 +26,7 @@ const Orders = () => {
     return <div>Loading ...</div>;
   }
 
+  // console.log(orderMapped);
   return (
     <div className="page-container">
       {/* banner */}
@@ -46,20 +48,20 @@ const Orders = () => {
 
       <div name="table-container" className="flex">
         <div name="row-container" className="card bg-base-100 w-full">
-         {/* header row for horizontal cards */}
-         <div
-          name="header-row"
-          className="flex-row justify-evenly px-8 pt-8 gap-2 hidden md:flex mx-16 mb-4"
+          {/* header row for horizontal cards */}
+          <div
+            name="header-row"
+            className="flex-row justify-evenly px-8 pt-8 gap-2 hidden md:flex mx-16 mb-4"
           >
-          <h2 className="text-[#cc451b] card-title justify-center sm:w-40">
-            Provider Details
+            <h2 className="text-[#cc451b] card-title justify-center sm:w-40">
+              Provider Details
             </h2>
-          <h2 className="text-[#cc451b] card-title justify-center sm:w-48">
-            Service Details
+            <h2 className="text-[#cc451b] card-title justify-center sm:w-48">
+              Service Details
             </h2>
-          <h2 className="text-[#cc451b] card-title justify-center sm:w-44">
-            Order Details
-          </h2>
+            <h2 className="text-[#cc451b] card-title justify-center sm:w-44">
+              Order Details
+            </h2>
           </div>
 
           {orderMapped.map((order) => (
@@ -68,12 +70,12 @@ const Orders = () => {
               services={order.services}
               src={require(`../images/profile/${order.src}`)}
               name={order.name}
+              email={order.email}
               price={order.price}
               orderDate={order.orderDate}
               serviceDate={order.serviceDate}
             />
           ))}
-
         </div>
       </div>
     </div>
