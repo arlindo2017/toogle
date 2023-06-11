@@ -20,7 +20,7 @@ const ServiceProvidersTable = (props) => {
     console.log(data);
     try {
       createOrder({ variables: data });
-      // console.log(data)
+      console.log("line 23 data", data)
     } catch (error) {
       console.error("THIS IS TOTALLY NOT AN ERROR");
     }

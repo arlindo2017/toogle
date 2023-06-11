@@ -1,33 +1,61 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { QUERY_ORDERS } from "../../utils/queries";
+import PreviousOrdersRow from "./PreviousOrdersRow";
 
 const PreviousOrders = () => {
-    const order = {
-        src: require("../../images/profile/profileplaceholder.png"),
-        name: "Hart Hagerty",
-        company: "Lights On Electrical",
-        service: "Wiring Installation",
-        category: "Electrical",
-        orderDate: "05/23/2023",
-        price: "99.99",
-        serviceDate: "06/12/2023"
-      };
+
+  const { loading, data } = useQuery(QUERY_ORDERS);
+  const orderData = data?.orders || [];
+  // console.log("orderData", orderData);
+//   console.log(orderData);
+
+
+  if (loading) {
+    return <div>Loading ...</div>;
+  }
+    function userOrders() {
+        if (orderData.length === 0) {
+          return (
+            <div className="card w-full bg-base-100">
+              <div className="card-body">
+                <h2 className="card-title">You haven't ordered anything yet!</h2>
+              </div>
+            </div>
+          );
+        } else {
+          const orderMapped = orderData.map((order) => {
+            return {
+              key: order._id,
+              services: order.services[0].serviceName,
+              name: `${order.provider.firstName} ${order.provider.lastName}`,
+              price: order.orderPrice,
+              serviceDate: order.serviceDate,
+            };
+        });
+        // console.log(orderMapped);
+
+            return (
+                <div name="table-container" className="flex flex-col">
+                    {orderMapped.map((order) => (
+                        <PreviousOrdersRow 
+                        key={order.key}
+                        services={order.services}
+                        name={order.name}
+                        price={order.price}
+                        serviceDate={order.serviceDate}
+                        />
+                    ))}
+                </div>
+            )
+        };
+    };
     return (
         <div>
             <h1 className="card-title justify-center mb-4">Order History</h1>
-            <div name="table-container" className="flex">
-                <div name="row-container" className="card bg-base-100 w-full">
-                    <div name="row-cell" className="flex flex-col md:flex-row md:justify-evenly gap-2 border-2 border-slate-200 rounded-2xl mx-4 p-4">
-                        <div className="flex justify-center">{order.service}</div>
-                        <div className="flex justify-center">{order.serviceDate}</div>
-                        <div className="flex justify-center">${order.price}</div>
-                    </div>
-                    <div className="card-actions justify-center mt-8">
-                        <button className="btn btn-accent">View Order Details</button>
-                    </div>
-                </div>
-            </div>
+            <div>{userOrders()}</div>
         </div>
-    );
+    )
 };
 
 export default PreviousOrders;
