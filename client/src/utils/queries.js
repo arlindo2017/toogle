@@ -63,6 +63,7 @@ export const QUERY_SINGLE_SERVICE = gql`
         firstName
         lastName
         email
+        profileImage
       }
     }
   }
