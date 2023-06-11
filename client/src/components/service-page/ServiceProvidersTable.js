@@ -50,7 +50,7 @@ const ServiceProvidersTable = (props) => {
   const printOrderDetails = async (e) => {
     //Function that will get the details we need for the order
     const orderDetails = {
-      services: props.data.service.serviceCategory._id,
+      services: props.data.service._id,
       user: userData._id,
       provider: selectedProvider,
       serviceQty: 1,
