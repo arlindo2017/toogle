@@ -57,7 +57,7 @@ const Order = (props) => {
               Service Details
             </h2>
             <div className="flex justify-center">
-              Scheduled for:
+              Scheduled for: 
               <NumberToDate number={props.serviceDate} />
             </div>
             <div className="flex justify-center mt-4">
@@ -73,7 +73,7 @@ const Order = (props) => {
             </h2>
 
             <div className="flex justify-center">
-              Ordered on:
+              Ordered on: 
               <NumberToDate number={props.orderDate} />
             </div>
             <div className="flex justify-center mt-4">
