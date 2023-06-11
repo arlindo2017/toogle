@@ -87,7 +87,7 @@ const UpdatePassword = (props) => {
     return (
         <div>
             <h1 className="card-title flex-grow justify-center">Change Password</h1>
-            <div className="card-body items-center">
+            <div className="flex flex-col p-2 md:p-8 gap-2 items-center">
                 <input 
                     className="input input-bordered input-accent w-full max-w-xs" 
                     type="password" 
