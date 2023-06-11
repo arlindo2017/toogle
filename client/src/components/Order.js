@@ -3,7 +3,6 @@
 const Order = (props) => {
     return (
         <>
-           
             {/* row content */}
             <div name="row-cell" className="flex flex-col md:flex-row md:justify-evenly p-8 md:pt-0 gap-2 border-2 border-slate-200 rounded-2xl mx-16 mb-4">
                 {/* provider row  */}
@@ -34,34 +33,6 @@ const Order = (props) => {
                 </div>
             </div>
         </>
-
-
-
-        // <tr>
-        //     {/* <th></th> */}
-        //     <td>
-        //     <div className="flex items-center space-x-3">
-        //         <div className="avatar">
-        //         <div className="mask mask-squircle w-12 h-12">
-        //             <img src={props.src} alt="Avatar Tailwind CSS Component" />
-        //         </div>
-        //         </div>
-        //         <div>
-        //         <div className="font-bold">{props.name}</div>
-        //         <div className="text-sm opacity-50">{props.company}</div>
-        //         </div>
-        //     </div>
-        //     </td>
-        //     <td>
-        //     {props.service}
-        //     <br/>
-        //     <span className="badge badge-ghost badge-sm">{props.category}</span>
-        //     </td>
-        //     <td>{props.date}</td>
-        //     {/* <th>
-        //     <button className="btn btn-ghost btn-xs">details</button>
-        //     </th> */}
-        // </tr>
     )
 };
 
