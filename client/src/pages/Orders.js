@@ -6,7 +6,20 @@ import Order from "../components/Order";
 const Orders = () => {
   const { loading, data } = useQuery(QUERY_ORDERS);
   const orderData = data?.orders || [];
-  console.log(orderData);
+  console.log("orderData", orderData);
+  const orderMapped = orderData.map((order) => {
+    return {
+      key: order._id,
+      services: order.services[0].serviceName,
+      src: order.provider.profileImage,
+      name: `${order.provider.firstName} ${order.provider.lastName}`,
+      price: order.orderPrice,
+      orderDate: order.orderDate,
+      serviceDate: order.serviceDate
+    }
+  });
+
+  console.log("orderMapped", orderMapped);
 
   if (loading) {
     return <div>Loading ...</div>;
@@ -49,19 +62,19 @@ const Orders = () => {
           </h2>
           </div>
 
-        {orderData.map((order) => (
-          <Order
-            key={order._id}
-            // src={require(`../images/profile/${order.provider[0].profileImage}`)}
-            // name={`${order.provider.firstName} ${order.provider.lastName}`}
-            // company={order.provider.email}
-            //service={order.services[0].serviceName}
-            // category={order.services[0].serviceDesc}
-            orderDate={order.orderDate}
-            price={order.orderPrice}
-            serviceDate={order.serviceDate}
-          />
-        ))}
+          {orderMapped.map((order) => (
+            <Order
+              key={order.key}
+              services={order.services}
+              src={require(`../images/profile/${order.src}`)}
+              name={order.name}
+              price={order.price}
+              orderDate={order.orderDate}
+              serviceDate={order.serviceDate}
+            />
+          ))}
+
+        </div>
       </div>
     </div>
   );
