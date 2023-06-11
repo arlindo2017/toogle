@@ -82,7 +82,7 @@ export default function ProviderSetup(props) {
 
   return (
     <>
-      <h1 className="card-title flex-grow justify-center">Provider setup</h1>
+      <h1 className="card-title flex-grow justify-center">Provider Setup</h1>
       <button className="btn btn-accent">Add Service</button>
       <h2 className="font-bold py-12">Provider Status: <span className={`p-2 rounded-lg bg-accent ${userData?.isProvider ? "bg-accent" : "bg-warning"}`}>{userData?.isProvider ? "Active" : "Suspended"}</span></h2>
 

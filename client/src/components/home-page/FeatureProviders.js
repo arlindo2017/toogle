@@ -17,7 +17,7 @@ function FeatureProviders() {
       {/* category grid */}
       <div className="justify-center my-10 ">
         <div className=" w-full border-opacity-50">
-          <div className="divider text-2xl font-bold">FEATURE PROVIDERS</div>
+          <div className="divider text-2xl font-bold">FEATURED PROVIDERS</div>
         </div>
         <div className="flex flex-wrap justify-center mt-10 ">
           {/* Map through providers and create cards */}
