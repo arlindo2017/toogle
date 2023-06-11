@@ -21,8 +21,8 @@ const Navbar = () => {
     if (Auth.loggedIn()) {
       return (
         <div className="dropdown dropdown-end dropdown-hover">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
+          <label tabIndex={0} className="btn  btn-circle avatar">
+            <div className="w-10 rounded-full ring ring-error ">
               <img
                 src={require(`../images/profile/${profilePic}`)}
                 alt="profile placeholer"

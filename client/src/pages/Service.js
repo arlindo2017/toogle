@@ -57,14 +57,14 @@ const Service = () => {
             alt=""
           />
           <div className="flex flex-col justify-start p-6">
-            <h5 className="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-xl font-medium  text-[#cc451b] ">
               {service.serviceName}
             </h5>
             <p className="mb-4 text-base text-neutral-600 ">
               {service.serviceDesc}
             </p>
             <div>
-              <span className="badge badge-ghost badge-sm p-4 px-8">
+              <span className="badge badge-ghost badge-sm p-4 px-8 ">
                 {service.serviceCategory.categoryName}
               </span>
               <span className="p-4 ml-4 badge badge-accent">
