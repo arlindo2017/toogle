@@ -86,7 +86,7 @@ const resolvers = {
       Order.find({ user: context.user._id })
         .populate("services")
         .populate("provider")
-        .populate("user"),
+        .populate("user").sort({ orderDate: -1 }),
   },
 
   Mutation: {

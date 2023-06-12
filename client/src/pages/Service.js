@@ -23,6 +23,14 @@ const Service = () => {
   //console.log(data);
   return (
     <div className="page-container">
+
+      <div className="hero">
+        <img
+          src={require("../images/service-banner.jpg")}
+          alt="man using power drill"
+          className="object-cover"
+        ></img>
+      </div>
       <div className="text-sm breadcrumbs pl-10">
         <ul>
           <li>
@@ -36,6 +44,7 @@ const Service = () => {
           </li>
         </ul>
       </div>
+
       <div className="m-10">
         {/* <p className="text-center mb-5 text-5xl font-bold p-10">
           {" "}
@@ -44,8 +53,7 @@ const Service = () => {
 
         <ul className="steps right-15 min-w-full pb-8">
           <li className="step step-accent">Choose Service</li>
-          <li className="step step-accent">Pick Date</li>
-          <li className="step step-accent">Select Provider</li>
+          <li className="step step-accent">Pick Date & Provider</li>
           <li className="step">Confirm Order</li>
         </ul>
       </div>

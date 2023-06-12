@@ -147,7 +147,14 @@ const ServiceProvidersTable = (props) => {
           <p className="font-bold text-3xl flex justify-center">
             Processing Your Order!
           </p>
-          <progress className="progress progress-accent  w-56 m-2"></progress>
+          {/* <progress className="progress progress-accent  w-56 m-2"></progress> */}
+          <div className="m-10">
+            <ul className="steps right-15 min-w-full pb-8">
+              <li className="step step-accent">Choose Service</li>
+              <li className="step step-accent">Pick Date & Provider</li>
+              <li className="step step-accent">Confirm Order</li>
+            </ul>
+          </div>
           <p className="py-1 text-center">
             Thank you for your order, and of course, thank you for choosing
             Toogle! We look forward to helping you find your next Toogle

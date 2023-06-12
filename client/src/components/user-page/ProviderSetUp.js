@@ -82,8 +82,8 @@ export default function ProviderSetup(props) {
   return (
     <>
       <h1 className="card-title flex-grow justify-center">My Services</h1>
-      <button className="btn btn-accent">Add Service</button>
-      <h2 className="font-bold py-12">
+      {/* <button className="btn btn-accent">Add Service</button> */}
+      {/* <h2 className="font-bold py-12">
         Provider Status:{" "}
         <span
           className={`p-2 rounded-lg bg-accent ${
@@ -92,10 +92,10 @@ export default function ProviderSetup(props) {
         >
           {userData?.isProvider ? "Active" : "Suspended"}
         </span>
-      </h2>
+      </h2> */}
 
       {/* Currently offered */}
-      <h2 className="font-bold">Current services:</h2>
+      {/* <h2 className="font-bold">Current services:</h2> */}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
