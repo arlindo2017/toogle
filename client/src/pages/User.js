@@ -150,7 +150,7 @@ const User = () => {
                   value="provider"
                   className="btn join-item"
                 >
-                  Provider Setup
+                  My Services
                 </button>
                 <button
                   onClick={changeMenuTab}
