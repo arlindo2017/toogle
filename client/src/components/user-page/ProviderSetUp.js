@@ -5,7 +5,7 @@ import { UPDATE_PROVIDER_LIST } from "../../utils/mutations";
 
 // export default function ProviderSetup(props) {
 export default function ProviderSetup(props) {
-  console.log("props: ", props)
+  console.log("props: ", props);
   // Get information about user
   let userData = { ...props.data.me };
   // let userData = { ...props.data };
@@ -24,7 +24,7 @@ export default function ProviderSetup(props) {
   });
 
   if (loading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
   // Store additional information about buttons
   const buttonData = {};
@@ -37,7 +37,6 @@ export default function ProviderSetup(props) {
       });
       // updata services data
       refetch();
-      
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +65,7 @@ export default function ProviderSetup(props) {
       <tr key={index}>
         <th>{index + 1}</th>
         <td>{myService.serviceName}</td>
-        <td>{myService.serviceCategory.categoryName}</td>        
+        <td>{myService.serviceCategory.categoryName}</td>
         <td>
           <button
             className="btn btn-outline btn-error btn-xs"
@@ -82,9 +81,18 @@ export default function ProviderSetup(props) {
 
   return (
     <>
-      <h1 className="card-title flex-grow justify-center">Provider Setup</h1>
+      <h1 className="card-title flex-grow justify-center">My Services</h1>
       <button className="btn btn-accent">Add Service</button>
-      <h2 className="font-bold py-12">Provider Status: <span className={`p-2 rounded-lg bg-accent ${userData?.isProvider ? "bg-accent" : "bg-warning"}`}>{userData?.isProvider ? "Active" : "Suspended"}</span></h2>
+      <h2 className="font-bold py-12">
+        Provider Status:{" "}
+        <span
+          className={`p-2 rounded-lg bg-accent ${
+            userData?.isProvider ? "bg-accent" : "bg-warning"
+          }`}
+        >
+          {userData?.isProvider ? "Active" : "Suspended"}
+        </span>
+      </h2>
 
       {/* Currently offered */}
       <h2 className="font-bold">Current services:</h2>
@@ -116,7 +124,9 @@ export default function ProviderSetup(props) {
           <p className="py-4 text-center">
             Are you sure you want to stop providing service for{" "}
           </p>
-            <p className="font-semibold text-center">{selectedService.stateName}?</p>
+          <p className="font-semibold text-center">
+            {selectedService.stateName}?
+          </p>
 
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
