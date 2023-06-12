@@ -35,11 +35,11 @@ const DeleteAccount = (props) => {
             </div>
             <dialog id="my_modal_1" className="modal">
             <form method="dialog" className="modal-box">
-                <h3 className="font-bold text-lg">Please confirm</h3>
+                <h3 className="font-bold text-lg text-error">Please confirm</h3>
                 <p className="py-4">All your information, including previous orders, will be permanently deleted.</p>
                 <div className="modal-action">
                 {/* if there is a button in form, it will close the modal */}
-                <button className="btn" onClick={handleDeleteUser}>Confirm</button>
+                <button className="btn hover:btn-error" onClick={handleDeleteUser}>Confirm</button>
                 <button className="btn">Cancel</button>
                 </div>
             </form>

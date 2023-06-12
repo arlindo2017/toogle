@@ -30,6 +30,26 @@ export default function Signup() {
   });
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Alert state
+  const [showAlert, setShowAlert] = useState(false);
+  // Alert component
+  const Alert = ({ message }) => {
+    const handleDismiss = () => {
+      setShowAlert(false);
+    };
+
+    return (
+      showAlert && (
+        <div className="bg-error flex justify-center p-4">
+          <div className="max-w-xl flex flex-wrap gap-6 w-full justify-between">
+            <span>{message}</span>
+            <button onClick={handleDismiss}>Dismiss</button>
+          </div>
+        </div>
+      )
+    );
+  };
+
   // Function that manages toggle button position
   const updateProviderToggle = (e) => {
     console.log(e.target.checked);
@@ -145,6 +165,7 @@ export default function Signup() {
       Auth.login(data.addUser.token);
     } catch (error) {
       console.error(error);
+      setShowAlert(true);
     }
 
     // Reset input fields
@@ -158,6 +179,9 @@ export default function Signup() {
 
   return (
     <>
+      {/* Alert */}
+      <Alert message="An account with this email already exists" />
+
       <section
         style={{ "--signupImage-url": `url(${require("../images/signup.jpg")})` }}
         className="py-16 bg-[image:var(--signupImage-url)] bg-cover bg-center"

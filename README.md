@@ -26,10 +26,11 @@ In summary, toogle is an all-encompassing online platform that connects users an
 - [Technologies Used:](#technologies-used)
     - [Frontend](#frontend)
     - [Backend](#backend)
-- [toogle on heroku:](#toogle-on-heroku)
+- [toogle on Heroku:](#toogle-on-heroku)
+- [Site Features and Capabilities](#site-features-and-capabilities)
 - [Screen Prints:](#screen-prints)
-  - [Creating an order](#creating-an-order)
-  - [Account navigation](#account-navigation)
+  - [Creating an Order](#creating-an-order)
+  - [Account Navigation](#account-navigation)
   - [About Us](#about-us)
 
 # Installation
@@ -52,7 +53,6 @@ npm run develop
 | Parankush Somraj | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github)](https://github.com/bootcamparankush) |
 | Tzvi Neiman      | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github)](https://github.com/tneiman19) |
 
-
 # License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This project is licensed under the MIT License.
 
@@ -74,24 +74,42 @@ This project is licensed under the MIT License.
 - Mongoose
 - nodemon
 
-
-
-
-
-
-# toogle on heroku:
+# toogle on Heroku:
 [toogle.herokuapp.com](https://toogle.herokuapp.com/)
+
+# Site Features and Capabilities
+- Responsive design and interactive elements
+- Consistent branding, color scheme, and components throughout the UI
+- Options to sign up and log in
+  - Upon first visiting the site, you can only browse the main navigation tabs
+  - After signing up/in, you have access to account settings, previous orders, and logout options
+  - Validation checks ensure required fields are filled out and that the user's email has not previously been registered
+- Account Setting page:
+  - Displays user information from the database
+  - Sub-menu allows users to update their password, view their order history, and delete their account
+    - Validation checks require that new passwords be entered twice and that they match, confirm when updates have been successful/unsuccessful, and ask the user to confirm before the account is deleted
+  - For users that are registered providers, the "my services" tab is populated with a list of services they provide and an option to remove services from that list
+    - Validation checks require the user to confirm before the service is removed from their list and confirms when updates have been successful/unsuccessful
+  - The Previous Orders page pulls all provider, service, and order information for all services previously associated with the user's ID in the database as well as newly created orders, which appear at the top of the list
+- The Services page is dynamically updated by querying the current categories and associated services in the database; each service links to its own individual service page
+- (Single) Service page:
+  - Displays service information from the database
+  - Progress bar shows where the use currently is in the ordering process (carried over from the Services page)
+  - User can select a date and time to schedule their service
+  - User can select a provider from the list, which is dynamically updated by querying the current user IDs listed as providers for that service in the database
+  - Upon selecting a provider, a modal confirms the order has been successfully placed and the user can click to see their previous orders
+- About page features the site's creators and social links
 
 # Screen Prints:
 ![toogle homepage](./client/src/images/toogle-home.jpg)  
 
 ![toogle services](./client/src/images/toogle-services.jpg)
 
-## Creating an order
+## Creating an Order
 
 ![toogle create order](./client/src/images/toogle-create-order.gif)
 
-## Account navigation
+## Account Navigation
 
 ![toogle account navigation](./client/src/images/toogle-account-navigation.gif)
 

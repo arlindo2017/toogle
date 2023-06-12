@@ -92,9 +92,9 @@ const ServiceProvidersTable = (props) => {
 
       <section>
         {/* category grid */}
-        <div className="justify-center my-10 ">
+        <div className="justify-center my-10">
           <div className=" w-full border-opacity-50">
-            <div className="divider text-2xl font-bold">
+            <div className="divider text-2xl font-bold pb-8 pt-2">
               SELECT YOUR PROVIDER
             </div>
           </div>
@@ -157,7 +157,7 @@ const ServiceProvidersTable = (props) => {
           </div>
           <p className="py-1 text-center">
             Thank you for your order, and of course, thank you for choosing
-            Toogle! We look forward to helping you find your next Toogle
+            toogle! We look forward to helping you find your next toogle
             professional!
           </p>
           <div className="modal-action">
