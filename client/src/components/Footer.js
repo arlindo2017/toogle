@@ -6,8 +6,12 @@ const Footer = () => {
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">
         <Link to="/about">
-          <p className="link link-hover">About us</p>{" "}
+          <p className="link link-hover">About Us</p>{" "}
         </Link>
+        <a href="https://github.com/arlindo2017/toogle" className="link link-hover">View Repo</a>
+        <div className="tooltip" data-tip="Lol, we have no money - we did this for free.">
+          <p className="link link-hover">Jobs</p>
+        </div>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
