@@ -11,9 +11,27 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
   // setting queries
   const [login, { error, data }] = useMutation(LOGIN);
+  // Alert state
+  const [showAlert, setShowAlert] = useState(false);
+  // Alert component
+  const Alert = ({ message }) => {
+    const handleDismiss = () => {
+      setShowAlert(false);
+    };
+
+    return (
+      showAlert && (
+        <div className="bg-error flex justify-center p-4">
+          <div className="max-w-xl flex flex-wrap gap-6 w-full justify-between">
+            <span>{message}</span>
+            <button onClick={handleDismiss}>Dismiss</button>
+          </div>
+        </div>
+      )
+    );
+  };
 
   // On blur fields validation
   const handleBlur = (e) => {
@@ -73,6 +91,7 @@ export default function Login() {
       Auth.login(data.login.token);
     } catch (error) {
       console.error(error);
+      setShowAlert(true);
     }
 
     // Reset input fields
@@ -81,12 +100,16 @@ export default function Login() {
 
   return (
     <>
+      {/* Alert */}
+      <Alert message="Invalid username or password" />
+
+      {/* Section */}
       <section
         style={{ "--loginImage-url": `url(${require("../images/login.jpg")})` }}
         className="py-16 bg-[image:var(--loginImage-url)] bg-cover bg-center"
       >
         <form className="max-w-xl mx-auto py-8 px-8 bg-white rounded-lg">
-        <h3 className="text-5xl font-bold text-center mb-5">Log in</h3>
+          <h3 className="text-5xl font-bold text-center mb-5">Log in</h3>
           {/* e-mail input and validation */}
           <div className="flex flex-col">
             <label className="block font-bold mb-1 pr-4" htmlFor="email">
@@ -154,7 +177,7 @@ export default function Login() {
           <Link to="/signup" className="btn btn-outline btn-accent w-full my-4">
             Create Account
           </Link>
-        </form>
+        </form>        
       </section>
     </>
   );
