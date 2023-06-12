@@ -121,22 +121,22 @@ const Home = () => {
       </div>
 
       <div name="reviews-container" className="flex m-8">
-      <div className=" flex flex-row bg-base-100 shadow-xl">
-        <div className="card-body">
+      <div className=" flex flex-col md:flex-row bg-base-100 shadow-xl">
+        <div className="flex flex-col px-8 py-2 md:py-8 gap-2">
           <h2 className="card-title justify-center">Maria Feldman</h2>
           <p className="justify-center text-sm opacity-50 flex">05/23/2023</p>
           <p className="card-title justify-center">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
           <p>This is the best service ever!  Finally found someone who was able to fix my leaky faucet.</p>
           <div className="badge badge-accent badge-outline">Plumbing Services</div>
         </div>
-        <div className="card-body">
+        <div className="flex flex-col px-8 py-2 md:py-8 gap-2 min-w-[265px]">
           <h2 className="card-title justify-center">Sammy Krem</h2>
           <p className="justify-center text-sm opacity-50 flex">05/23/2023</p>
           <p className="card-title justify-center">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
           <p>Got my new deck built in plenty of time for summer - and for a great price!</p>
           <div className="badge badge-accent badge-outline">Carpentry and Woodworking</div>
         </div>
-        <div className="card-body">
+        <div className="flex flex-col px-8 py-4 md:py-8 gap-2 min-w-[210px]">
           <h2 className="card-title justify-center">Lena Ramirez</h2>
           <p className="justify-center text-sm opacity-50 flex">05/23/2023</p>
           <p className="card-title justify-center">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
