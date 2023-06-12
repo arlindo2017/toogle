@@ -62,11 +62,11 @@ export default function ProviderSetup(props) {
     };
 
     return (
-      <tr key={index}>
-        <th>{index + 1}</th>
-        <td>{myService.serviceName}</td>
-        <td>{myService.serviceCategory.categoryName}</td>
-        <td>
+      <div className="flex flex-col lg:flex-row lg:mb-2 justify-evenly" key={index}>
+        {/* <div>{index + 1}</div> */}
+        <div className="flex justify-center lg:justify-normal lg:w-96">{index + 1}. {myService.serviceName}</div>
+        <div className="text-sm opacity-50 flex justify-center lg:justify-normal lg:w-48">{myService.serviceCategory.categoryName}</div>
+        <div className="flex justify-center mb-3 lg:w-24">
           <button
             className="btn btn-outline btn-error btn-xs"
             name={`button${index + 1}`}
@@ -74,8 +74,8 @@ export default function ProviderSetup(props) {
           >
             Remove
           </button>
-        </td>
-      </tr>
+        </div>
+      </div>
     );
   }
 
@@ -97,24 +97,21 @@ export default function ProviderSetup(props) {
       {/* Currently offered */}
       {/* <h2 className="font-bold">Current services:</h2> */}
       <div className="overflow-x-auto">
-        <table className="table">
+        <div name="table-container" className="flex flex-col">
           {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Service</th>
-              <th>Category</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
+          <div className="justify-evenly mb-4 mt-4 hidden lg:flex">
+            <div className="flex w-96">Service</div>
+            <div className="flex w-48">Category</div>
+            <div className="flex w-24"></div>
+          </div>
+          <div>
             {/* create a row for each service a user is set up to provide */}
             {myServices &&
               myServices.map((myService, index) =>
                 updateButtonData(myService, index)
               )}
-          </tbody>
-        </table>
+          </div>
+        </div>
       </div>
 
       {/* Modal */}
