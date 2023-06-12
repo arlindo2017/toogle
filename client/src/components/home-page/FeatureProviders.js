@@ -42,13 +42,13 @@ function FeatureProviders() {
                   {`Provider Email: `}
                   <span className="font-bold">{provider?.email}</span>
                 </p>
-                <div className="text-end mt-5">
+                {/* <div className="text-end mt-5">
                   <Link to={"/services"}>
                     <button className="btn btn-outline btn-accent">
                       More Info
                     </button>
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}
