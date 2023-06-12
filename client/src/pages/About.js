@@ -64,7 +64,7 @@ const About = () => {
                   </Link>
                   {/* <!-- Twitter --> */}
                   <Link
-                    to={"https://github.com/abmetheny"}
+                    to={"https://www.twitter.com"}
                     className="px-2"
                     target="_blank"
                   >
