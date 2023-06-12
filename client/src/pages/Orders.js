@@ -5,7 +5,9 @@ import { QUERY_ORDERS } from "../utils/queries";
 import Order from "../components/Order";
 
 const Orders = () => {
-  const { loading, data } = useQuery(QUERY_ORDERS);
+  const { loading, data } = useQuery(QUERY_ORDERS, {
+    fetchPolicy: "no-cache"
+  });
   const orderData = data?.orders || [];
   // console.log("orderData", orderData);
 
