@@ -1,4 +1,8 @@
-# toogle
+# ![toogle](./client/src/images/logo-small.png) <span style="color: #cc451b;">toogle</span>
+
+# License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+This project is licensed under the MIT License.
+ 
 toogle is an online platform that connects users with service providers for various services. 
 
 # Description
@@ -17,12 +21,12 @@ Furthermore, toogle fosters interaction and engagement between users and service
 In summary, toogle is an all-encompassing online platform that connects users and service providers, offering a user-friendly interface to explore, book, and manage services. Its comprehensive features empower both users and service providers, providing a reliable and efficient solution for accessing and providing various services
 
 # Table of Contents
-- [toogle](#toogle)
+- [ toogle](#-toogle)
+- [License ](#license-)
 - [Description](#description)
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Credits](#credits)
-- [License ](#license-)
 - [Technologies Used:](#technologies-used)
     - [Frontend](#frontend)
     - [Backend](#backend)
@@ -53,8 +57,7 @@ npm run develop
 | Parankush Somraj | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github)](https://github.com/bootcamparankush) |
 | Tzvi Neiman      | [![GitHub](https://img.shields.io/badge/-GitHub-black?style=flat&logo=github)](https://github.com/tneiman19) |
 
-# License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-This project is licensed under the MIT License.
+
 
 # Technologies Used:
 
