@@ -31,7 +31,7 @@ const Order = (props) => {
       {/* row content */}
       <div
         name={props.orderId}
-        className="flex flex-col md:flex-row md:justify-evenly p-6 md:pt-0 gap-1 border-2 border-slate-200 rounded-2xl mx-8 mb-4"
+        className="flex flex-col md:flex-row  md:justify-evenly p-6 md:pt-0 gap-1 border-2 border-slate-200 rounded-2xl mx-8 mb-4"
       >
         {/* provider row  */}
         <div name="provider" className="flex flex-col md:w-30">
@@ -57,7 +57,7 @@ const Order = (props) => {
               Service Details
             </h2>
             <div className="flex justify-center">
-              Scheduled for: 
+              <div className="mr-1"> Scheduled for:</div>
               <NumberToDate number={props.serviceDate} />
             </div>
             <div className="flex justify-center mt-4">
@@ -73,7 +73,7 @@ const Order = (props) => {
             </h2>
 
             <div className="flex justify-center">
-              Ordered on: 
+              <div className="mr-1">Ordered on:</div>
               <NumberToDate number={props.orderDate} />
             </div>
             <div className="flex justify-center mt-4">
