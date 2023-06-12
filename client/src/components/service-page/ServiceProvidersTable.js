@@ -103,30 +103,24 @@ const ServiceProvidersTable = (props) => {
           {providers.map((provider) => (
             <div className="flex flex-col md:flex-row md:justify-evenly md:p-3 gap-1 border-2 border-slate-200 rounded-2xl mb-2 mx-10">
               {/* profile */}
-              <div className="w-16 h-16 items-center">
-                <img
-                  className="w-24 ring ring-error ring-offset-base-50 "
-                  src={require(`../../images/profile/${provider?.profileImage}`)}
-                  alt="Avatar"
-                />
+              <div className="avatar flex justify-center md:w-24">
+                <div className="mask mask-squircle w-16 h-16">
+                  <img src={require(`../../images/profile/${provider?.profileImage}`)} alt="Avatar" />
+                </div>
               </div>
-
-              <div className="w-80 text-center">
-                <div className="font-bold flex justify-center">
+                <div className="font-bold flex justify-center items-center md:w-36">
                   {provider?.firstName} {provider?.lastName}
                 </div>
-
-                <div className="text-sm opacity-50 flex justify-center">
+                <div className="text-sm opacity-50 flex justify-center items-center md:w-56">
                   {provider?.email}
                 </div>
-              </div>
 
               {/* button */}
               <div className="flex justify-center items-center">
                 {Auth.loggedIn() ? (
                   // Render content when Auth.loggedIn is true
                   <button
-                    className="btn btn-accent btn-sm focus:outline-none focus:ring focus:ring-red-300 w-36"
+                    className="btn btn-accent btn-sm focus:outline-none focus:ring focus:ring-red-300 w-36 mb-2 md:mb-0"
                     name={provider._id}
                     onClick={updateProvider}
                   >
@@ -135,7 +129,7 @@ const ServiceProvidersTable = (props) => {
                 ) : (
                   // Render content when Auth.loggedIn is false
                   <div className="">
-                    <Link to="/login" className="btn btn-outline btn-accent">
+                    <Link to="/login" className="btn btn-sm btn-outline btn-accent mb-2 md:mb-0">
                       Login/Signup
                     </Link>
                   </div>
