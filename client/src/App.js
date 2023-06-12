@@ -18,6 +18,7 @@ import Service from "./pages/Service";
 import Services from "./pages/Services";
 import User from "./pages/User";
 import Footer from "./components/Footer";
+import WrongPage from "./pages/WrongPage";
 
 // import logo from "./logo.svg";
 import "./App.css";
@@ -66,7 +67,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route
                 path="*"
-                element={<h1 className="display-2">Wrong page!</h1>}
+                element={<WrongPage />}
               />
             </Routes>
             <div className="footer-container">
