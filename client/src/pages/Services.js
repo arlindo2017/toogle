@@ -38,7 +38,7 @@ const Services = () => {
 
         <ul className="steps right-15 min-w-full pb-8">
           <li className="step step-accent">Choose Service</li>
-          <li className="step step-accent">Pick Date & Provider</li>
+          <li className="step">Pick Date & Provider</li>
           <li className="step">Confirm Order</li>
         </ul>
       </div>
