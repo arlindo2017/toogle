@@ -155,12 +155,12 @@ const ServiceProvidersTable = (props) => {
           </p>
           <div className="modal-action">
             {/* if there is a button in form, it will close the modal */}
-            {/* <Link className="btn btn-accent" to="/orders">
+            <Link className="btn btn-accent" to="/orders">
               View Order
-            </Link> */}
-            <a className="btn btn-accent" href="/orders">
-              View Order
-            </a>
+            </Link>
+            {/* <a className="btn btn-accent" href="/orders"> */}
+              {/* View Order */}
+            {/* </a> */}
           </div>
         </form>
       </dialog>
