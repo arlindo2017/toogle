@@ -20,7 +20,7 @@ const ServiceProvidersTable = (props) => {
     console.log(data);
     try {
       createOrder({ variables: data });
-      console.log("line 23 data", data)
+      console.log("line 23 data", data);
     } catch (error) {
       console.error("THIS IS TOTALLY NOT AN ERROR");
     }
@@ -90,95 +90,53 @@ const ServiceProvidersTable = (props) => {
         </div>
       </div>
 
-
       <section>
         {/* category grid */}
         <div className="justify-center my-10 ">
           <div className=" w-full border-opacity-50">
-            <div className="divider text-2xl font-bold">SELECT YOUR PROVIDER</div>
+            <div className="divider text-2xl font-bold">
+              SELECT YOUR PROVIDER
+            </div>
           </div>
-          <div className="flex flex-wrap justify-center mt-10 ">
-            {/* Map through providers and create cards */}
-            {providers.map((provider) => (
-              <div
-                key={provider._id}
-                className="card w-full sm:w-80 md:w-80 m-2 p-6 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-orange-100 via-stone-100 to-orange-100"
-              >
-                <figure className="p-5">
-                  <img
-                    className="w-60 rounded-full ring ring-error ring-offset-base-50 ring-offset-8"
-                    src={require(`../../images/profile/${provider?.profileImage}`)}
-                    alt={`${provider?.firstName}`}
-                  />
-                </figure>
 
-                <div className="card-body">
-                  <h2 className="card-title">
-                    {provider?.firstName} {provider?.lastName}{" "}
-                  </h2>
-                  <p>
-                    {`Provider Email: `}
-                    <span className="font-bold">{provider?.email}</span>
-                  </p>
-
-
-                  <div className="rating flex justify-center">
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    />
-                    <input
-                      type="radio"
-                      name="rating-2"
-                      className="mask mask-star-2 bg-orange-400"
-                    //checked
-                    />
-                  </div>
-
-
-                  <div className="text-end mt-5">
-
-
-                    {Auth.loggedIn() ? (
-                      // Render content when Auth.loggedIn is true
-
-                      <button
-                        className="btn btn-accent focus:outline-none focus:ring focus:ring-red-300 w-52"
-                        name={provider._id}
-                        onClick={updateProvider}
-                      >
-                        Hire {provider.firstName} {provider.lastName}
-                      </button>
-
-                    ) : (
-                      // Render content when Auth.loggedIn is false
-                      <td>
-                        <Link to="/login" className="btn btn-outline btn-accent">
-                          Login/Signup
-                        </Link>
-                      </td>
-                    )}
-                  </div>
+          {/* Map through providers and create cards */}
+          {providers.map((provider) => (
+            <div className="flex flex-col md:flex-row md:justify-evenly md:p-3 gap-1 border-2 border-slate-200 rounded-2xl mb-2 mx-10">
+              {/* profile */}
+              <div className="avatar flex justify-center md:w-24">
+                <div className="mask mask-squircle w-16 h-16">
+                  <img src={require(`../../images/profile/${provider?.profileImage}`)} alt="Avatar" />
                 </div>
               </div>
-            ))}
-          </div>
+                <div className="font-bold flex justify-center items-center md:w-36">
+                  {provider?.firstName} {provider?.lastName}
+                </div>
+                <div className="text-sm opacity-50 flex justify-center items-center md:w-56">
+                  {provider?.email}
+                </div>
+
+              {/* button */}
+              <div className="flex justify-center items-center">
+                {Auth.loggedIn() ? (
+                  // Render content when Auth.loggedIn is true
+                  <button
+                    className="btn btn-accent btn-sm focus:outline-none focus:ring focus:ring-red-300 w-36 mb-2 md:mb-0"
+                    name={provider._id}
+                    onClick={updateProvider}
+                  >
+                    Hire {provider.firstName}
+                  </button>
+                ) : (
+                  // Render content when Auth.loggedIn is false
+                  <div className="">
+                    <Link to="/login" className="btn btn-sm btn-outline btn-accent mb-2 md:mb-0">
+                      Login/Signup
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -203,7 +161,6 @@ const ServiceProvidersTable = (props) => {
             <a className="btn btn-accent" href="/orders">
               View Order
             </a>
-
           </div>
         </form>
       </dialog>

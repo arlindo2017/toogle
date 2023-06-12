@@ -15,7 +15,7 @@ function FeatureProviders() {
   return (
     <>
       {/* category grid */}
-      <div className="justify-center my-10 ">
+      <div className="justify-center my-10 mt-20">
         <div className=" w-full border-opacity-50">
           <div className="divider text-2xl font-bold">FEATURED PROVIDERS</div>
         </div>
